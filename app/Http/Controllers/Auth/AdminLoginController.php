@@ -33,7 +33,7 @@ class AdminLoginController extends Controller
             return redirect()->intended(route('admin.dashboard'));
         }
 
-        //se não for autenticado, retorna para o formulário de login com os dados escritos
+        //Se não for autenticado, retorna para o formulário de login com os dados escritos
         return redirect()->back()->withInput($request->only('email','remember'));
     }
 }
