@@ -1,8 +1,40 @@
 @extends('layouts.admin')
 
+@section('titulo')
+Criar Post
+@endsection
+
 @section('content')
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
+    <!-- Alert if Sucess -->
+    @if (session('status'))
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="fa fa-check"></i>Alerta</h4>
+                    {{ session('status') }}
+                </div>
+            </div>
+        </div>
+    @endif
+
+    <!-- Alert if Sucess -->
+    @if (session('error'))
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="fa fa-ban"></i>Alerta</h4>
+                    {{ session('error') }}
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -17,6 +49,7 @@
     </section>
 
     <!-- Main content -->
+
     <section class="content">
       <div class="row">
         <div class="col-md-12">
@@ -25,8 +58,9 @@
 				<h2>Criar Post</h2>
 			</div>
 			<div class="box-body">
-			<form action="admin/post/store" method="POST">
-			
+			<form action="/admin/post" method="POST">
+            @csrf
+			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
 				<div class="form-group">
 					<label>Titulo do Post</label>
 					<input class="form-control" type="text" name="titulo" maxlenght="200"/>
@@ -35,10 +69,10 @@
 				
 				<div class="form-group">
 					<label>Categoria</label>
-					<select class="form-control">
-						<option name="categoria" value="" >Informática</option>
-						<option name="categoria" value="" >Idiomas</option>
-						<option name="categoria" value="" >Negócios</option>
+					<select name="categoria" class="form-control">
+                        @foreach($categorias as $categoria)
+						<option  value="{{ $categoria->ID_CATEGORIA }}" >{{ $categoria->NOME_CATEGORIA }}</option>
+                        @endforeach
 					</select>
 				</div>
 				
@@ -57,7 +91,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body pad">
-							<textarea id="editor1" name="editor1" rows="10" cols="80">
+							<textarea id="editor1" name="conteudo" rows="10" cols="80">
 								Insira ou crie o conteúdo do Post
 							</textarea>
 					</div>

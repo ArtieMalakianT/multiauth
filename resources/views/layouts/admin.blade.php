@@ -329,7 +329,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Criar Post</a></li>
+            <li><a href="/admin/post"><i class="fa fa-circle-o"></i> Criar Post</a></li>
+            <li><a href="/admin/post/list"><i class="fa fa-circle-o"></i> Listar Posts</a></li>
             <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Comentários</a></li>
           </ul>
         </li>
