@@ -1,7 +1,7 @@
 /node_modules
 /public/hot
 /public/storage
-/public/asstes
+/public/assets
 /public/fontawesome
 /storage/*.key
 /vendor
