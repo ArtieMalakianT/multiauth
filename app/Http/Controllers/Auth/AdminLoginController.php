@@ -34,6 +34,6 @@ class AdminLoginController extends Controller
         }
 
         //Se não for autenticado, retorna para o formulário de login com os dados escritos
-        return redirect()->back()->withInput($request->only('email','remember'));
+        return redirect()->back()->with('error','Usuário não cadastrado')->withInput($request->only('email','remember'));
     }
 }
