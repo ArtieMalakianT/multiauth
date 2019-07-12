@@ -14,7 +14,7 @@ Admin | Lista de Posts
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Posts</a></li>
+        <li><a href="#">Blog</a></li>
       </ol>
     </section>
     <div class="col-md-8">
