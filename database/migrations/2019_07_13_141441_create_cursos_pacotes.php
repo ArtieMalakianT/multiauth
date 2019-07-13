@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateCursosPacotes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('cursos_pacotes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',150);
-            $table->string('email',150)->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password',150);
-            $table->rememberToken();
+
+            $table->unsignedBigInteger('id_pacote')->unique();
+            $table->unsignedBigInteger('id_curso')->unique();
+
+            $table->foreign('id_pacote')->references('id')->on('pacotes');
+            $table->foreign('id_curso')->references('id')->on('cursos');
+
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('cursos_pacotes');
     }
 }
