@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Pacotes;
+use App\Models\StatusMatricula;
 
 class AlunoController extends Controller
 {
@@ -24,12 +26,12 @@ class AlunoController extends Controller
 
     public function formMatricula($idAluno)
     {
-        
-        $pacote = App\Models\Pacotes::all();
-        $statusMatricula = App\Models\StatusMatricula::all();
+        $aluno = User::find($idAluno);
+        $pacotes = Pacotes::all();
+        $statusMatricula = StatusMatricula::all();
 
 
-        return view('admin/aluno-matricular',['statusMatricula' => $statusMatricula]);
+        return view('admin/alunos-matricular',['statusMatricula' => $statusMatricula,'pacotes' => $pacotes, 'aluno' => $aluno]);
     }
 
     public function matricular()

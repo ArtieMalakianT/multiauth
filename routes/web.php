@@ -22,11 +22,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminHomeController@index')->name('admin.dashboard');  
-    Route::get('/alunos', 'Admin\AlunoController@showAlunos');
+    Route::get('/', 'AdminHomeController@index')->name('admin.dashboard');      
     Route::get('/post', 'Admin\PostController@showForm');
     Route::get('/post/list', 'Admin\PostController@showPosts');
     Route::post('/post', 'Admin\PostController@submitForm');
+
+    Route::get('/alunos', 'Admin\AlunoController@showAlunos');
+    Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
     
 });
 

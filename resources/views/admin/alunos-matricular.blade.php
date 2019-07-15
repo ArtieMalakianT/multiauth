@@ -14,6 +14,7 @@ Like School| Alunos
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="#">Alunos</a></li>
+        <li>Matrícular</li>
       </ol>
     </section>
 
@@ -23,22 +24,28 @@ Like School| Alunos
             <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h2>Lista de Alunos</h2>
+                    <h2>Matrícula</h2>
+                    <label>Aluno:<label> <small>{{ $aluno->name }}</small>
                 </div>
                 <div class="box-body">
-                    <ul >
-                        @foreach($alunos as $value)
-                        <li >{{ $value->name }}</li>
-                        <li >{{ $value->email }}</li>
-                        <a class="btn btn-primary" href="/admin/aluno/matricular/{{ $value->id_user }}">Matricular</a>
-                        <br>
-                        @endforeach
-                    </ul>
+
+                <form>
+
+                    <div calss="form-group">
+                        <label>Status da Matrícula</label>
+                        <select name="status" class="form-control">
+                            @foreach($statusMatricula as $value)
+                            <option value="{{ $value->ID_STATUS_MATRICULA }}" >{{ $value->NOME }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                </form>
+
                 </div>
             </div>
             </div>
         </div>
     </section>
 </div>
-{!! $alunos->links() !!}
 @endsection
