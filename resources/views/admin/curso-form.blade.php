@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Criar Post
+Cadastrar Cursos
 @endsection
 
 @section('content')
@@ -22,7 +22,7 @@ Criar Post
         </div>
     @endif
 
-    <!-- Alert if Sucess -->
+    <!-- Alert if Error -->
     @if (session('error'))
         <div class="box box-default">
             <div class="box-body">
@@ -39,12 +39,12 @@ Criar Post
     <section class="content-header">
       <h1>
         Blog LikeSchool
-        <small>Postagens</small>
+        <small>Cursos</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Blog</a></li>
-        <li class="active">Criar Post</li>
+        <li><a href="#">Cursos</a></li>
+        <li class="active">Cadastrar Cursos</li>
       </ol>
     </section>
 
@@ -55,48 +55,24 @@ Criar Post
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Criar Post</h2>
+				<h2>Cadastrar  Curso</h2>
 			</div>
 			<div class="box-body">
-			<form action="/admin/post" method="POST">
+			<form action="/admin/cursos" method="POST">
             @csrf
 			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
 				<div class="form-group">
-					<label>Titulo do Post</label>
-					<input class="form-control" type="text" name="titulo" maxlenght="200"/>
+					<label>Nome do Curso</label>
+					<input class="form-control" type="text" name="nome" maxlenght="200"/>
 				
 				</div>
+
+        <div class="form-group">
+					<label>Duraçao do Curso</label>
+					<input class="form-control" type="text" name="duracao" maxlenght="200"/>
 				
-				<div class="form-group">
-					<label>Categoria</label>
-					<select name="categoria" class="form-control">
-                        @foreach($categorias as $categoria)
-						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
-                        @endforeach
-					</select>
-				</div>
-				
-				<div class="form-group">
-					<label>Conteúdo do Post</label>
-				  <div class="box box-info">
-					<div class="box-header">
-					  <span class="box-title">Editor de texto</span>
-					  <!-- tools box -->
-					  <div class="pull-right box-tools">
-						<button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
-								title="Mostrar/Ocultar">
-						  <i class="fa fa-minus"></i></button>						
-					  </div>
-					  <!-- /. tools -->
-					</div>
-					<!-- /.box-header -->
-					<div class="box-body pad">
-							<textarea id="editor1" name="conteudo" rows="10" cols="80">
-								Insira ou crie o conteúdo do Post
-							</textarea>
-					</div>
-				  </div>
-				</div>
+				</div>							
+								
 				<div class="form-group">
 					<button class="btn btn-primary">Publicar</button>
 				</div>

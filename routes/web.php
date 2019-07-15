@@ -30,5 +30,13 @@ Route::prefix('admin')->group(function(){
     Route::get('/alunos', 'Admin\AlunoController@showAlunos');
     Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
     
+    Route::get('/cursos', 'Admin\CursosController@showForm');
+    Route::post('/cursos', 'Admin\CursosController@formSubmit');
+
+    Route::get('/categorias','Admin\CategoriasController@showForm');
+    Route::post('/categorias','Admin\CategoriasController@formSubmit');
+
+    Route::get('/pacotes','Admin\PacotesController@showForm');
+    Route::post('/pacotes','Admin\PacotesController@formSubmit');
 });
 
