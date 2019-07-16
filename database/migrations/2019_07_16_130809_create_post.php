@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCursos extends Migration
+class CreatePost extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateCursos extends Migration
      */
     public function up()
     {
-        Schema::create('cursos', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('duracao',100);
-            $table->string('nome',200);
-            
-            //Relação para filtrar categorias
+            $table->string('titulo',150);
+            $table->string('conteudo',300);
+
+            //Chave estrangeira para Categorias
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
+            //Chave estrangeira para Usuário
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('admins');
 
             $table->timestamps();
         });
@@ -33,6 +36,6 @@ class CreateCursos extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('post');
     }
 }

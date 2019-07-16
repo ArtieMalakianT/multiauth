@@ -21,7 +21,7 @@ class AlunoController extends Controller
         $alunos = User::paginate(2);
 
         //mostrar view
-        return view('admin.alunos',['alunos' => $alunos]);
+        return view('admin.alunos.alunos',['alunos' => $alunos]);
     }
 
     public function formMatricula($idAluno)
@@ -31,7 +31,7 @@ class AlunoController extends Controller
         $statusMatricula = StatusMatricula::all();
 
 
-        return view('admin/alunos-matricular',['statusMatricula' => $statusMatricula,'pacotes' => $pacotes, 'aluno' => $aluno]);
+        return view('admin/alunos.alunos-matricular',['statusMatricula' => $statusMatricula,'pacotes' => $pacotes, 'aluno' => $aluno]);
     }
 
     public function matricular()

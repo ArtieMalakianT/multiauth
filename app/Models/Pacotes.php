@@ -11,6 +11,6 @@ class Pacotes extends Model
 
     public function pacote()
     {
-        return $this->hasOne('App\Models\Pacotes','id_pacote');
+        return $this->hasOne('App\Models\pacotesCurso','id_pacote');
     }
 }

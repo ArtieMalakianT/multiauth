@@ -334,7 +334,7 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Blog</span>
+            <i class="fa fa-share-alt"></i> <span>Blog</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -348,7 +348,7 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Alunos</span>
+            <i class="fa fa-group"></i> <span>Alunos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -361,14 +361,16 @@
         
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Cursos</span>
+            <i class="fa fa-graduation-cap"></i> <span>Cursos</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="/admin/categorias/listar"><i class="fa fa-circle-o"></i> Listar Categorias</a></li>
+            <li><a href="/admin/cursos/listar"><i class="fa fa-circle-o"></i> Listar Cursos</a></li>
             <li><a href="/admin/cursos"><i class="fa fa-circle-o"></i> Cadastrar Curso</a></li>
-            <li><a href="/admin/categorias"><i class="fa fa-circle-o"></i> Cadastrar Categoria</a></li>
+            <li><a href="/admin/categorias"><i class="fa fa-circle-o"></i> Cadastrar Categoria</a></li>                        
           </ul>
         </li>
 

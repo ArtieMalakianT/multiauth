@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Cadastrar Cursos
+Pacotes 
 @endsection
 
 @section('content')
@@ -42,9 +42,9 @@ Cadastrar Cursos
         <small>Cursos</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="#">Cursos</a></li>
-        <li class="active">Cadastrar Cursos</li>
+        <li class="active">Pacotes</li>
       </ol>
     </section>
 
@@ -55,27 +55,25 @@ Cadastrar Cursos
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Cadastrar  Curso</h2>
+				<h2>Lista de Pacotes</h2>
+                <a href="/admin/pacotes/{{ $idCat }}">Cadastrar Pacote</a>
 			</div>
-			<div class="box-body">
-			<form action="/admin/cursos" method="POST">
-            @csrf
-			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
-				<div class="form-group">
-					<label>Nome do Curso</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200"/>
-				
-				</div>
+			<div class="box-body">			
+        <ul class="todo-list ui-sortable">            
+          @foreach($pacotes as $pacote)
+          <li><label class="text">{{ $pacote->nome }}</label>
+          <form action="" method="post" style="display: inline">
+          <input type="hidden" name="_METHOD" value="delete">
+            <div class="tools">
+              <a class="fa fa-edit" href="/admin/pacotes/edit/{{$pacote->id}}"></a>
+              <a class="fa fa-eye" href=""></a>
+              <button class="fa fa-trash"></button>
+            </div>
+            </form>
+          <li>
+          @endforeach
+        </ul>
 
-        <div class="form-group">
-					<label>Duraçao do Curso</label>
-					<input class="form-control" type="text" name="duracao" maxlenght="200"/>
-				
-				</div>							
-								
-				<div class="form-group">
-					<button class="btn btn-primary">Publicar</button>
-				</div>
 			</form>
 			</div>
 		</div>

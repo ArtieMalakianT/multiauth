@@ -21,7 +21,7 @@ class PostController extends Controller
     {
         $categorias = Categorias::all();
 
-        return view('admin.post-form',['categorias' => $categorias]);
+        return view('admin.posts.post-form',['categorias' => $categorias]);
     }
 
     //Persiste as informações do formulário do modelo Post
@@ -39,9 +39,9 @@ class PostController extends Controller
 
         //Salva os dados no banco de dados
         $post = new Post();
-        $post->TITULO = $titulo;
-        $post->CONTEUDO = $fileName;
-        $post->ID_CATEGORIA = $categoria;
+        $post->titulo = $titulo;
+        $post->conteudo = $fileName;
+        $post->id_categoria = $categoria;
         $post->id_user = $user;
         $post->save();
 
@@ -78,6 +78,6 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('/admin/post-list',['posts' => $posts]);
+        return view('/admin/posts.post-list',['posts' => $posts]);
     }
 }

@@ -31,12 +31,19 @@ Route::prefix('admin')->group(function(){
     Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
     
     Route::get('/cursos', 'Admin\CursosController@showForm');
+    Route::get('/cursos/listar', 'Admin\CursosController@showAll');
+    Route::get('/cursos/edit/{id}', 'Admin\CursosController@formUpdate');
     Route::post('/cursos', 'Admin\CursosController@formSubmit');
+    Route::get('/cursos/update', 'Admin\CursosController@Update');
 
+    Route::get('/categorias/listar','Admin\CategoriasController@showAll');
     Route::get('/categorias','Admin\CategoriasController@showForm');
     Route::post('/categorias','Admin\CategoriasController@formSubmit');
 
-    Route::get('/pacotes','Admin\PacotesController@showForm');
-    Route::post('/pacotes','Admin\PacotesController@formSubmit');
+    Route::get('/pacotes/listar/{id_cat}','Admin\PacotesController@showAll');
+    Route::get('/pacotes/{id_cat}','Admin\PacotesController@showForm');  
+    Route::get('/pacotes/edit/{id}','Admin\PacotesController@formUpdate');     
+    Route::post('/pacotes','Admin\PacotesController@formSubmit');    
+    Route::post('/pacotes/update','Admin\PacotesController@Update');
 });
 

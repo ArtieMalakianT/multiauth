@@ -23,11 +23,20 @@ Admin | Lista de Posts
                 <h2>Lista de Posts</h2>
             </div>
             <div class="box-body">
-                <ul>
+                <ul class="todo-list ui-sortable">            
                 @foreach($posts as $post)
-                    <li>{{ $post->TITULO }}</li>
+                <li><label class="text">{{ $post->titulo }}</label>
+                    <form action="" method="post" style="display: inline">
+                    <input type="hidden" name="_METHOD" value="delete">
+                        <div class="tools">
+                        <a class="fa fa-edit" href=""></a>
+                        <a class="fa fa-eye" href=""></a>
+                        <button class="fa fa-trash"></button>
+                        </div>
+                    </form>
+                <li>
                 @endforeach
-                </ul>
+                 </ul>
             </div>
         </div>
     </div>

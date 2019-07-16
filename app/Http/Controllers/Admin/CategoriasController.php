@@ -13,11 +13,16 @@ class CategoriasController extends Controller
     {
         $this->middleware('auth:admin');
     }
-    
+    //Mostrar todas as categorias no admin
+    public function showAll()
+    {
+        $categorias = Categorias::all();
+        return view('admin/categorias/show-all',['categorias' => $categorias]);
+    }
     //Mostrar formulário de cadastro de Categorias
     public function showForm()
     {
-        return view('admin.categorias-form');
+        return view('admin.categorias.categorias-form');
     }
     //Tratar dados submetidos do formulario
     public function formSubmit(Request $request)

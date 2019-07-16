@@ -16,8 +16,8 @@ class CreateCursosPacotes extends Migration
         Schema::create('cursos_pacotes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('id_pacote')->unique();
-            $table->unsignedBigInteger('id_curso')->unique();
+            $table->unsignedBigInteger('id_pacote');
+            $table->unsignedBigInteger('id_curso');
 
             $table->foreign('id_pacote')->references('id')->on('pacotes');
             $table->foreign('id_curso')->references('id')->on('cursos');
