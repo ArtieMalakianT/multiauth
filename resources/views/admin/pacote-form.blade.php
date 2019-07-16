@@ -78,7 +78,7 @@ Cadastrar Pacotes
 
                 <div class="form-group">
                 @foreach($cursos as $curso)
-                    <input required type="checkbox" name="cursos[]" value="{{ $curso->id }}">{{ $curso->nome }}
+                    <input type="checkbox" name="cursos[]" value="{{ $curso->id }}">{{ $curso->nome }}
                 @endforeach
                 </div>
 

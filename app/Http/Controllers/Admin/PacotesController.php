@@ -8,10 +8,12 @@ use App\Models\Categorias;
 use App\Models\Cursos;
 use App\Models\Pacotes;
 use App\Models\pacotesCurso;
-use App\DB;
+use DB;
 
 class PacotesController extends Controller
 {
+    protected $cursos;
+
     //Método construtor impede que usuários comuns acessem a administração
     public function __construct()
     {
@@ -36,8 +38,8 @@ class PacotesController extends Controller
         $desc = $request->desc;
         $status = $request->status;
         $ordem = $request->ordem;
-        $duracao = $request->duracao;
-        $cursos = $request->cursos;
+        $duracao = $request->duracao;   
+        $this->cursos = $request->cursos;     
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = new Pacotes();
@@ -48,27 +50,26 @@ class PacotesController extends Controller
         $pacote->status = $status;
         $pacote->ordem = $ordem;
         
-        if($pacote->save())
-        {
+        
+
+            
             $idPacote = DB::getPdo()->lastInsertId();
 
-            foreach($cursos as $curso)
+            foreach($this->cursos as $key => $curso)
             {
                 $obj = new pacotesCurso();
                 $obj->id_curso = $curso;
                 $obj->id_pacote = $idPacote;
-                return $obj->save();                
+                return $obj->save();         
             }
-        }
-        if($obj->save())
-        {
-            return back()->with('status','Dados Cadastrados!');
-        }
-        else
-        {
-            return back()->with('error','Erro ao gravar dados');
-        }
-        
+            if($obj->save())
+            {
+                return back()->with('status','Dados Cadastrados!');
+            }
+            else
+            {
+                return back()->with('error','Erro ao gravar dados');
+            }               
 
     }
 }
