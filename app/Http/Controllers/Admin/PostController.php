@@ -73,11 +73,12 @@ class PostController extends Controller
 
         
     }
+
     //Listar POSTS na área de Admin
     public function showPosts()
     {
-        $posts = Post::all();
+        $posts = Post::all();      
 
-        return view('/admin/posts.post-list',['posts' => $posts]);
+        return view('/admin/posts.post-list',compact('posts'));
     }
 }
