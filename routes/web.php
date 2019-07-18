@@ -49,5 +49,7 @@ Route::prefix('admin')->group(function(){
 
 Route::prefix('blog')->group(function(){
     Route::get('/','Home\BlogController@index');
+    Route::get('/filter/{idCat}','Home\BlogController@filter');
+    Route::get('/show/post/{idPost}','Home\BlogController@showPost');
 });
 

@@ -12,6 +12,11 @@ class Post extends Model
     //Relação com as categorias
     public function categorias()
     {
-        return $this->hasOne('App\Models\Categorias','id_categoria');
+        return $this->belongsTo('App\Models\Categorias','id_categoria');
+    }    
+    //Autor do post
+    public function author()
+    {
+        return $this->belongsTo('App\Admin','id_user');
     }
 }

@@ -58,7 +58,7 @@ Criar Post
 				<h2>Criar Post</h2>
 			</div>
 			<div class="box-body">
-			<form action="/admin/post" method="POST">
+			<form action="/admin/post" method="POST" enctype="multipart/form-data">
             @csrf
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}"/>
 				<div class="form-group">
@@ -74,7 +74,12 @@ Criar Post
 						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
                         @endforeach
 					</select>
-				</div>
+        </div>
+        
+        <div class="form-group">
+          <label>Imagem de capa</label>
+          <input required type="file" name="image" class="form-control" accept="image/*"/>
+        </div>
 				
 				<div class="form-group">
 					<label>Conteúdo do Post</label>

@@ -31,11 +31,13 @@ class PostController extends Controller
         $contents = $request->conteudo;
         $titulo = $request->titulo;
         $categoria = $request->categoria;
-        $user = $request->user;
+        $user = $request->user;    
+        //$capa = $request->image;    
 
         //cria um nome randômico para o conteúdo do post
         $rand = rand(9000,1000000000);
-        $fileName = $rand.".txt";        
+        $fileName = $rand.".xml";
+        //$imageName = $rand.;      
 
         //Salva os dados no banco de dados
         $post = new Post();
@@ -43,7 +45,18 @@ class PostController extends Controller
         $post->conteudo = $fileName;
         $post->id_categoria = $categoria;
         $post->id_user = $user;
-        $post->save();
+        $capa = $request->file('image')->store('images');
+        if($capa)
+        {
+            $post->capa = $capa;
+            $post->save();
+        }
+        else
+        {
+             //Retorna para o formulário com o aviso de erro
+             return back()->with('error', 'Algo deu Errado!');
+        }
+       
 
         //Se os dados forem salvos...
         if($post)
