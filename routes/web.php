@@ -47,3 +47,7 @@ Route::prefix('admin')->group(function(){
     Route::post('/pacotes/update','Admin\PacotesController@Update');
 });
 
+Route::prefix('blog')->group(function(){
+    Route::get('/','Home\BlogController@index');
+});
+
