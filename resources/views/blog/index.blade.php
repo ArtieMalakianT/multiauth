@@ -27,7 +27,7 @@ Blog Like School
 											<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
 										</div>
 										<a href="single-blog.html"><h4>{{ $post->titulo }}</h4></a>	
-										<?php $dec = utf8_decode(htmlspecialchars_decode($post->conteudo)); ?>									
+										<?php $dec = $post->conteudo; ?>									
 										<p><?php echo Storage::get("post/".$dec) ?></p>
 										<a class="blog_btn" href="#">Ler mais...</a>
 									</div>

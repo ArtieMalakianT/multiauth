@@ -28,7 +28,7 @@ class PostController extends Controller
     public function submitForm(Request $request)
     {
         //Recupera os dados submetidos do formulário
-        $contents = utf8_encode(htmlspecialchars_decode($request->conteudo));
+        $contents = $request->conteudo;
         $titulo = $request->titulo;
         $categoria = $request->categoria;
         $user = $request->user;    
