@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
+header('Content-Type: text/html; charset=utf-8');
 
 use Storage;
 use Illuminate\Http\Request;
@@ -28,15 +28,15 @@ class PostController extends Controller
     public function submitForm(Request $request)
     {
         //Recupera os dados submetidos do formulário
-        $contents = $request->conteudo;
+        $contents = utf8_encode(htmlspecialchars_decode($request->conteudo));
         $titulo = $request->titulo;
         $categoria = $request->categoria;
         $user = $request->user;    
         //$capa = $request->image;    
 
         //cria um nome randômico para o conteúdo do post
-        $rand = rand(9000,1000000000);
-        $fileName = $rand.".xml";
+        $rand = rand(90000,1000000000);
+        $fileName = $rand.".txt";
         //$imageName = $rand.;      
 
         //Salva os dados no banco de dados
