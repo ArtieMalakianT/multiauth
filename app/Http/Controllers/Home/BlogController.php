@@ -21,7 +21,7 @@ class BlogController extends Controller
     { 
         $categorias = $this->categorias;       
         $paginatePosts = Post::where('id','>',0)->orderBy('created_at','desc')->paginate(10);
-        return view('Blog.index',compact('paginatePosts','categorias'));
+        return view('blog.index',compact('paginatePosts','categorias'));
     }
     //Mostrar página inicial do blog ordenando os posts por categoria
     public function filter(Request $request)
@@ -29,13 +29,17 @@ class BlogController extends Controller
         $categorias = $this->categorias;
         $catFilter = $request->idCat;       
         $paginatePosts = Post::where('id_categoria',$catFilter)->orderBy('created_at','desc')->paginate(10);        
-        return view('Blog.index',compact('paginatePosts','categorias'));
+        return view('blog.index',compact('paginatePosts','categorias'));
     }
 
     //Mostrar o conteúdo de um post
     public function showPost(Request $request)
     {
         $idPost = $request->idPost;
+        $post = POST::find($idPost);
+        $categorias = $this->categorias;
+
+        return view('blog.single-blog',compact('post','categorias'));
     }
 
     //Registrar um comentário

@@ -29,7 +29,7 @@ Admin | Lista de Posts
                     <form action="" method="post" style="display: inline">
                     <input type="hidden" name="_METHOD" value="delete">
                         <div class="tools">
-                        <a class="fa fa-edit" href=""></a>
+                        <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
                         <a class="fa fa-eye" href=""></a>
                         <button class="fa fa-trash"></button>
                         </div>

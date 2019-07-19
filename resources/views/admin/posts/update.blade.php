@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Criar Post
+Editar Post
 @endsection
 
 @section('content')
@@ -44,7 +44,7 @@ Criar Post
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="#">Blog</a></li>
-        <li class="active">Criar Post</li>
+        <li class="active">Editar Post</li>
       </ol>
     </section>
 
@@ -55,22 +55,27 @@ Criar Post
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Criar Post</h2>
+				<h2>Editar Post</h2>
 			</div>
 			<div class="box-body">
 			<form action="/admin/post" method="POST" enctype="multipart/form-data">
             @csrf
+            @if(!isset($post->id))
+
+            @else
+            <input type="hidden" name="updatingPost" value="{{ $post->id }}"/>
+            @endif
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}"/>
 				<div class="form-group">
 					<label>Titulo do Post</label>
-					<input required class="form-control" type="text" name="titulo" maxlenght="200"/>
+					<input class="form-control" type="text" name="titulo" maxlenght="200" value="{{ $post->titulo }}"/>
 				
         </div>
         
         <div class="form-group">
 					<label>Descrição do Post</label>
 					<textarea required class="form-control" name="descricao" maxlenght="500" rows="5" cols="5">
-
+          {{ $post->descricao }}
           </textarea>
 				
 				</div>
@@ -86,7 +91,7 @@ Criar Post
         
         <div class="form-group">
           <label>Imagem de capa</label><small> Resolução indicada: 1145 x 400</small>
-          <input required type="file" name="image" id="InputFile" accept="image/*"/>
+          <input type="file" name="image" id="InputFile" accept="image/*" value="0"/>
         </div>
 				
 				<div class="form-group">
@@ -105,7 +110,7 @@ Criar Post
 					<!-- /.box-header -->
 					<div class="box-body pad">
 							<textarea id="editor1" name="conteudo" rows="10" cols="80">
-								Insira ou crie o conteúdo do Post
+              {{ Storage::get("post/".$post->conteudo) }}
 							</textarea>
 					</div>
 				  </div>

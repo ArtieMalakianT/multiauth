@@ -502,7 +502,7 @@ button:focus {
 }
 
 .blog_banner .banner_inner .overlay {
-  background: url(../img/banner/banner-2.jpg) no-repeat scroll center center;
+  background: url(/img/banner/banner-2.jpg) no-repeat scroll center center;
   opacity: .5;
   height: 125%;
   position: absolute;
@@ -545,7 +545,7 @@ button:focus {
 .banner_area {
   position: relative;
   z-index: 1;
-  background: url(../img/banner/banner.jpg) no-repeat scroll center left;
+  /*background: url(/img/banner/banner.jpg) no-repeat scroll center left; */
   background-color: #f9f9ff;
   background-size: contain;
 }

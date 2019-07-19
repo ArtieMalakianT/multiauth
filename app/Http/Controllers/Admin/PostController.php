@@ -2,7 +2,9 @@
 namespace App\Http\Controllers\Admin;
 header('Content-Type: text/html; charset=utf-8');
 
-use Storage;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
@@ -17,11 +19,19 @@ class PostController extends Controller
     }
 
     //Mostrar formulário de cadastro de Posts
-    public function showForm()
+    public function showForm(Request $request)
     {
         $categorias = Categorias::all();
-
-        return view('admin.posts.post-form',['categorias' => $categorias]);
+        if(!isset($request->idPost))
+        {
+          return view('admin.posts.post-form',['categorias' => $categorias]);
+        }
+        else
+        {
+          $id = $request->idPost;
+          $post = Post::find($id);
+          return view('admin.posts.update',['categorias' => $categorias,'post'=>$post]);
+        }        
     }
 
     //Persiste as informações do formulário do modelo Post
@@ -31,56 +41,59 @@ class PostController extends Controller
         $contents = $request->conteudo;
         $titulo = $request->titulo;
         $categoria = $request->categoria;
-        $user = $request->user;    
-        //$capa = $request->image;    
+        $user = $request->user;  
+        $descricao = $request->descricao;          
 
         //cria um nome randômico para o conteúdo do post
-        $rand = rand(90000,1000000000);
-        $fileName = $rand.".txt";
+        $date = uniqid(date('HisYmd'));
+        $fileName = "$date.txt";
         //$imageName = $rand.;      
 
         //Salva os dados no banco de dados
-        $post = new Post();
-        $post->titulo = $titulo;
-        $post->conteudo = $fileName;
-        $post->id_categoria = $categoria;
-        $post->id_user = $user;
-        $capa = $request->file('image')->store('images');
-        if($capa)
-        {
+        if(!isset($request->updatingPost))
+        {            
+            $capa = $request->file('image')->store('images');
+            $this->dialog($capa,'Erro no Upload da Capa');
+            $store = Storage::disk('public')->put("/post/$fileName", $contents);
+            $this->dialog($store,'Erro no Upload do conteúdo');
+
+            $post = new Post();
             $post->capa = $capa;
-            $post->save();
+            $post->conteudo = $fileName;
         }
         else
         {
-             //Retorna para o formulário com o aviso de erro
-             return back()->with('error', 'Algo deu Errado!');
+            $post = Post::find($request->updatingPost);
+
+            if($request->file('image') == 0)
+            {
+              
+            }
+            else
+            {                
+                Storage::delete($post->capa);
+                $capa = $request->file('image')->store('images');                                
+
+                $post->capa = $capa;                
+            }
+            //Storage::delete("/post/$post->conteudo");                
+            $store = Storage::disk('public')->put("/post/$post->conteudo", $contents);
+            $this->dialog($store,'Erro no Upload da Capa');           
         }
-       
+        
+        $post->titulo = $titulo;        
+        $post->id_categoria = $categoria;
+        $post->id_user = $user;      
+        $post->descricao = $descricao;  
+        $post->save();       
 
         //Se os dados forem salvos...
         if($post)
-        {
-            //Faz o upload do arquivo $conteudo
-            $store = Storage::disk('public')->put("/post/$fileName", $contents);
-
-            //Se o upload foi feito
-            if($store)
-            {
-                //Retorna para o formulário com o aviso de sucesso
-                return back()->with('status', 'Post Publicado!');
-            }
-            //Caso contrário
-            else
-            {
-                //Retorna para o formulário com o aviso de erro
-                return back()->with('error', 'Algo deu Errado!');
-            }
+        {              
+            return back()->with('status', 'Dados salvos!');                      
         }
-        //Se os dados não forem persistidos...
         else
         {
-            //Retorna para o formulário com o aviso de erro
             return back()->with('error', 'Dados não salvos!');
         }
 
@@ -93,5 +106,17 @@ class PostController extends Controller
         $posts = Post::all();      
 
         return view('/admin/posts.post-list',compact('posts'));
+    }
+
+    public function dialog($cond,$error)
+    {
+        if($cond)
+        {
+            
+        }
+        else
+        {
+            return back()->with('error',$error);
+        }
     }
 }
