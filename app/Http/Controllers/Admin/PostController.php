@@ -90,7 +90,7 @@ class PostController extends Controller
         //Se os dados forem salvos...
         if($post)
         {              
-            return back()->with('status', 'Dados salvos!');                      
+            return back()->with('status', 'Post publicado!');                      
         }
         else
         {

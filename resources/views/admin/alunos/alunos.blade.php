@@ -28,7 +28,7 @@ Like School| Alunos
                 <div class="box-body">
                     <ul >
                         @foreach($alunos as $value)
-                        <li >{{ $value->name }}</li>
+                        <li >{{ $value->nome }}</li>
                         <li >{{ $value->email }}</li>
                         <a class="btn btn-primary" href="/admin/aluno/matricular/{{ $value->id_user }}">Matricular</a>
                         <br>
