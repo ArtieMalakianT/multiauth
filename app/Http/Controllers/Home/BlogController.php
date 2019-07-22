@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Categorias;
+use App\Models\subCategorias;
 
 class BlogController extends Controller
 {
@@ -21,25 +22,36 @@ class BlogController extends Controller
     { 
         $categorias = $this->categorias;       
         $paginatePosts = Post::where('id','>',0)->orderBy('created_at','desc')->paginate(10);
-        return view('blog.index',compact('paginatePosts','categorias'));
+        $cat = subCategorias::all();
+        return view('blog.index',compact('paginatePosts','categorias','cat'));
     }
     //Mostrar página inicial do blog ordenando os posts por categoria
     public function filter(Request $request)
     { 
         $categorias = $this->categorias;
         $catFilter = $request->idCat;       
-        $paginatePosts = Post::where('id_categoria',$catFilter)->orderBy('created_at','desc')->paginate(10);        
-        return view('blog.index',compact('paginatePosts','categorias'));
+        $paginatePosts = Categorias::find($catFilter)->posts()->orderBy('created_at','desc')->paginate(10);  
+        //$subCats = subCategorias::where('id_categoria',$catFilter); 
+        $cat = Categorias::find($catFilter)->sub;     
+        return view('blog.index',compact('paginatePosts','categorias','cat'));
     }
     //Mostrar página com conteúdos pesquisados
     public function search(Request $request)
     {
-        $search = $request->consulta;   
-        //var_dump($search);exit;
+        if(!isset($request->id))
+        {
+            $search = $request->consulta;                       
+        }
+        else
+        {
+            $subId = $request->id;   
+            $sub = subCategorias::find($subId);  
+            $search = $sub->nome;      
+        }
+        
         $paginatePosts = Post::where('titulo','like',"%$search%")->orderBy('created_at','desc')->paginate(10);
-
-        $categorias = $this->categorias;
-        return view('blog.index',compact('paginatePosts','categorias'));
+        $categorias = $this->categorias;        
+        return view('blog.index',compact('paginatePosts','categorias','cat'));
     }
 
     //Mostrar o conteúdo de um post
@@ -48,8 +60,9 @@ class BlogController extends Controller
         $idPost = $request->idPost;
         $post = POST::find($idPost);
         $categorias = $this->categorias;
+        $cat = Categorias::find($post->id_categoria)->sub; 
 
-        return view('blog.single-blog',compact('post','categorias'));
+        return view('blog.single-blog',compact('post','categorias','cat'));
     }
 
     //Registrar um comentário

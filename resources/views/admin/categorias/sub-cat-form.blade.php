@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Categorias 
+Cadastrar Sub-Categorias
 @endsection
 
 @section('content')
@@ -39,12 +39,13 @@ Categorias
     <section class="content-header">
       <h1>
         Blog LikeSchool
-        <small>Cursos</small>
+        <small>Categorias</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
-        <li class="active">Categorias</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
+        <li><a href="/admin/cursos/listar">Cursos</a></li>
+        <li><a href="/admin/categorias/listar">Categorias</a></li>
+        <li class="active">Cadastrar Sub-Categorias</li>
       </ol>
     </section>
 
@@ -55,25 +56,22 @@ Categorias
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Lista de Categorias</h2>        
+				<h2>Cadastrar  Sub-Categoria</h2><small><strong>Categoria pai: </strong>{{$cat->nome}}</small>
 			</div>
-			<div class="box-body">			
-        <ul class="todo-list ui-sortable">            
-          @foreach($categorias as $categoria)
-          <li><label class="text">{{ $categoria->nome }}</label>
-          <form action="" method="post" style="display: inline">
-          <input type="hidden" name="_METHOD" value="delete">
-            <div class="tools">
-              <a class="fa fa-plus" href="/admin/subCategoria/{{ $categoria->id }}" title="Adicionar Sub-Categoria" style="color:green;"></a>
-              <a class="fa fa-edit" href="" title="Editar Categoria"></a>
-              <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $categoria->id }}" title="Visualizar Pacotes"></a>
-              <button class="fa fa-trash"></button>
-            </div>
-            </form>
-          <li>
-          @endforeach
-        </ul>
-
+			<div class="box-body">
+			<form action="/admin/subCategoria/{{$cat->id}}" method="POST">
+            @csrf
+      <input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
+      
+				<div class="form-group">
+					<label>Nome</label>
+					<input class="form-control" type="text" name="nome" maxlenght="200"/>
+				
+        </div>
+                        
+				<div class="form-group">
+					<button class="btn btn-primary">Cadastrar</button>
+				</div>
 			</form>
 			</div>
 		</div>

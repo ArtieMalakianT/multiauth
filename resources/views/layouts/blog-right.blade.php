@@ -2,8 +2,8 @@
 				<div class="blog_right_sidebar">
 					<aside class="single_sidebar_widget search_widget">
 						<div class="input-group">
-                            <form action="/blog/search" method="POST">           
-                            @csrf                 
+                            <form action="/blog/search/" method="POST">           
+							@csrf                 								
                                 <input type="text" class="form-control" placeholder="Pesquisar Posts" name="consulta" id="query"/>
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="lnr lnr-magnifier"></i></button>
@@ -13,15 +13,15 @@
 						<div class="br"></div>
 					</aside>
 					<aside class="single_sidebar_widget author_widget">
-						<img class="author_img img-fluid" src="/img/blog/author.png" alt="">
-						<h4>Charlie Barber</h4>
-						<p>Senior blog writer</p>
-						<p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
+						<img class="author_img img-fluid" src="/img/blog/author.jpg" alt="">
+						<h4>Like School</h4>
+						<a href="https://likeschool.com.br"><p>www.likeschool.com.br</p></a>
+						<p>A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
 						<div class="social_icon">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-github"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
+							<a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.instagram.com/like.school.oficial" target="_blank"><i class="fa fa-instagram"></i></a>
+							<a href="https://m.me/like.school.brazil"><i class="fa fa-facebook-square"></i></a>
+							<a href="https://wa.me/5547988624532"><i class="fa fa-whatsapp"></i></a>
 						</div>
 						<div class="br"></div>
 					</aside>
@@ -68,50 +68,21 @@
 						<div class="br"></div>							
 					</aside>
 					<aside class="single_sidebar_widget post_category_widget">
-						<h4 class="widget_title">Categorias</h4>
+						<h4 class="widget_title">Sub-Categorias</h4>
 						<ul class="list cat-list">
+							@if(!isset($cat))
+
+							@else
+							@foreach($cat as $value)
 							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Technology</p>
-									<p>37</p>
+								<a href="/blog/search/{{$value->id}}" class="d-flex justify-content-between">
+									<p>{{$value->nome}}</p>
+									<p>{{ $value->id }}</p>
 								</a>
 							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Lifestyle</p>
-									<p>24</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Fashion</p>
-									<p>59</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Art</p>
-									<p>29</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Food</p>
-									<p>15</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Architecture</p>
-									<p>09</p>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="d-flex justify-content-between">
-									<p>Adventure</p>
-									<p>44</p>
-								</a>
-							</li>															
+							@endforeach									
+							
+							@endif
 						</ul>
 					</aside>
 				</div>

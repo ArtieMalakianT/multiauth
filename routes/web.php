@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/categorias/listar','Admin\CategoriasController@showAll');
     Route::get('/categorias','Admin\CategoriasController@showForm');
     Route::post('/categorias','Admin\CategoriasController@formSubmit');
+    Route::get('/subCategoria/{catId}','Admin\CategoriasController@showForm');
+    Route::post('/subCategoria/{catId}','Admin\CategoriasController@formSubmit');
 
     Route::get('/pacotes/listar/{id_cat}','Admin\PacotesController@showAll');
     Route::get('/pacotes/{id_cat}','Admin\PacotesController@showForm');  
@@ -52,6 +54,7 @@ Route::prefix('blog')->group(function(){
     Route::get('/','Home\BlogController@index');
     Route::get('/filter/{idCat}','Home\BlogController@filter');
     Route::get('/show/post/{idPost}','Home\BlogController@showPost');
-    Route::post('/search','Home\BlogController@search');
+    Route::get('/search/{id}','Home\BlogController@search');
+    Route::post('/search','Home\BlogController@search');    
 });
 

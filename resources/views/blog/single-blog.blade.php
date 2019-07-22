@@ -30,9 +30,8 @@ Like School | {{ $post->titulo }}
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-       					<div class="main_blog_details">
-       						<img class="img-fluid" src="/img/blog/news-blog.jpg" alt="">
-       						<a href="#"><h4>{{ $post->descricao }}</h4></a>
+       					<div class="main_blog_details">       						
+       						<h3>{{ $post->descricao }}</h3>
        						<div class="user_details">
        							<div class="float-left">
        								<a href="#">Lifestyle</a>

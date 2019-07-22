@@ -14,4 +14,9 @@ class Categorias extends Model
     {
         return $this->hasMany('App\Models\Post','id_categoria');
     }
+    //Retornar todas as subcategorias
+    public function sub()
+    {
+        return $this->hasMany('App\Models\subCategorias','id_categoria');
+    }
 }
