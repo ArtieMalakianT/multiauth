@@ -118,5 +118,5 @@ class PostController extends Controller
         {
             return back()->with('error',$error);
         }
-    }
+    }    
 }

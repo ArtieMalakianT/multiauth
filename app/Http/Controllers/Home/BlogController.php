@@ -31,6 +31,16 @@ class BlogController extends Controller
         $paginatePosts = Post::where('id_categoria',$catFilter)->orderBy('created_at','desc')->paginate(10);        
         return view('blog.index',compact('paginatePosts','categorias'));
     }
+    //Mostrar página com conteúdos pesquisados
+    public function search(Request $request)
+    {
+        $search = $request->consulta;   
+        //var_dump($search);exit;
+        $paginatePosts = Post::where('titulo','like',"%$search%")->orderBy('created_at','desc')->paginate(10);
+
+        $categorias = $this->categorias;
+        return view('blog.index',compact('paginatePosts','categorias'));
+    }
 
     //Mostrar o conteúdo de um post
     public function showPost(Request $request)
