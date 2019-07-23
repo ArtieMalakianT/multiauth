@@ -44,7 +44,11 @@ Like School | {{ $post->titulo }}
        										<p>{{ $post->created_at }}</p>
        									</div>
        									<div class="d-flex">
-       										<img src="/img/blog/user-img.jpg" title="Autor" style="width: 40px; height:40px;">
+										    @if($post->author->perfil)
+												<img src="{{Storage::url($post->author->perfil)}}" title="Autor" style="width: 40px; height:40px;">
+											@else
+												<img src="/assets/dist/img/user-standard.png" title="Autor" style="width: 40px; height:40px;">
+											@endif       					
        									</div>
        								</div>
        							</div>

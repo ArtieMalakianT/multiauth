@@ -13,9 +13,21 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav">
-								<li class="nav-item"><a class="nav-link" href="/blog">Home</a></li> 
-                                @foreach($categorias as $categoria)
-                                <li class="nav-item" title="Filtro de posts"><a class="nav-link" href="/blog/filter/{{$categoria->id}}">{{ $categoria->nome }}</a></li>	
+								<li class="nav-item"><a class="nav-link" href="/blog">Home</a></li>								
+                                @foreach($categorias as $categoria)								
+								@if(isset($categoria->sub))							
+								<li class="nav-item submenu dropdown">
+									<a href="/blog/filter/{{$categoria->id}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $categoria->nome }}</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item"><a class="nav-link" href="/blog/filter/{{$categoria->id}}">Ver todos</a></li>
+										@foreach($categoria->sub as $sub)
+										<li class="nav-item"><a class="nav-link" href="/blog/search/{{$sub->id}}">{{$sub->nome}}</a></li>
+										@endforeach										
+									</ul>
+								</li>
+								@else
+								<li class="nav-item"><a class="nav-link" href="/blog/filter/{{$categoria->id}}">{{ $categoria->nome }}</a></li>
+								@endif                               
                                 @endforeach	
 								<li class="nav-item"><a class="nav-link" href="archive.html">Arquivo</a></li>
 								<li class="nav-item submenu dropdown">
@@ -28,10 +40,10 @@
 								<li class="nav-item"><a class="nav-link" href="contact.html">Contato</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right header_social ml-auto">
-								<li class="nav-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li class="nav-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li class="nav-item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li class="nav-item"><a href="#"><i class="fa fa-behance"></i></a></li>
+								<li class="nav-item" title="Like School Facebook"><a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+								<li class="nav-item"  title="Like School Instagram"><a href="https://www.instagram.com/like.school.oficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
+								<li class="nav-item"  title="Like School Messenger"><a href="https://m.me/like.school.brazil" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
+								<li class="nav-item"  title="Like School Whatsapp"><a href="https://wa.me/5547988624532" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
 							</ul>
 						</div> 
 					</div>

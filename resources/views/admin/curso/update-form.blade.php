@@ -58,30 +58,32 @@ Atualizar Cursos
 				<h2>Atualizar  Curso</h2>
 			</div>
 			<div class="box-body">
-			<form action="/admin/cursos" method="POST">
+			<form action="/admin/cursos/update" method="POST">
             @csrf
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}"/>
+      <input name="id" type="hidden" value="{{ $curso->id }}"/>
 				<div class="form-group">
 					<label>Nome do Curso</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200"/>
+					<input class="form-control" type="text" name="nome" maxlenght="200" value="{{ $curso->nome }}"/>
 				
 				</div>
 
         <div class="form-group">
 					<label>Categoria</label>
-					<select disabled name="categoria" class="form-control">
-						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+					<select disabled class="form-control">
+						<option   >{{ $categoria->nome }}</option>
 					</select>
+          <input type="hidden" name="categoria" value="{{ $categoria->id }}"/>
 				</div>
 
         <div class="form-group">
 					<label>Duraçao do Curso</label>
-					<input class="form-control" type="text" name="duracao" maxlenght="200"/>
+					<input class="form-control" type="text" name="duracao" maxlenght="200" value="{{$curso->duracao}}"/>
 				
 				</div>							
 								
 				<div class="form-group">
-					<button class="btn btn-primary">Publicar</button>
+					<button class="btn btn-primary">Atualizar</button>
 				</div>
 			</form>
 			</div>

@@ -58,19 +58,21 @@ Cursos
 			</div>
 			<div class="box-body">			
         <ul class="todo-list ui-sortable">            
-          @foreach($cursos as $curso)
-          <li><label class="text">{{ $curso->nome }}</label>
-          <form action="" method="post" style="display: inline">
-          <input type="hidden" name="_METHOD" value="delete">
-            <div class="tools">
-              <a class="fa fa-edit" href="/admin/cursos/edit/{{$curso->id}}"></a>
-              <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $curso->id }}"></a>
-              <button class="fa fa-trash"></button>
-            </div>
-            </form>
-          <li>
+          @foreach($categorias as $categoria)
+          <h3>{{$categoria->nome}}</h3>
+            @foreach($categoria->cursos as $curso)
+            <li><label class="text">{{ $curso->nome }}</label>
+            <form action="" method="post" style="display: inline">
+            <input type="hidden" name="_METHOD" value="delete">
+              <div class="tools">
+                <a class="fa fa-edit" href="/admin/cursos/edit/{{$curso->id}}"></a>
+                <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $curso->id }}"></a>
+                <button class="fa fa-trash"></button>
+              </div>
+              </form>
+            </li>
+            @endforeach
           @endforeach
-          {!! $cursos->links() !!}
         </ul>
 
 			</form>

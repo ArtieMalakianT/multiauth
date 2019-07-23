@@ -24,19 +24,23 @@ Admin | Lista de Posts
             </div>
             <div class="box-body">
                 <ul class="todo-list ui-sortable">            
-                @foreach($posts as $post)
-                <li><label class="text">{{ $post->titulo }}</label>
-                    <form action="" method="post" style="display: inline">
-                    <input type="hidden" name="_METHOD" value="delete">
-                        <div class="tools">
-                        <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
-                        <a class="fa fa-eye" href=""></a>
-                        <button class="fa fa-trash"></button>
-                        </div>
-                    </form>
-                <li>
+                @foreach($categorias as $categoria)
+                    <h3>{{$categoria->nome}} <i class="fa fa-anchor"></i></h3>
+                    @foreach($categoria->posts as $post)                
+                    <li><label class="text">{{ $post->titulo }}</label>
+                        <form action="" method="post" style="display: inline">
+                        <input type="hidden" name="_METHOD" value="delete">
+                            <div class="tools">
+                            <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
+                            <a class="fa fa-eye" href="/blog/show/post/{{ $post->id }}" target="_blank"></a>
+                            <button class="fa fa-trash"></button>
+                            </div>
+                        </form>
+                    </li>
+                    @endforeach
                 @endforeach
                  </ul>
+                 
             </div>
         </div>
     </div>

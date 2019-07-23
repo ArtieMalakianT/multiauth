@@ -19,5 +19,9 @@ class pacotesCurso extends Model
     {
         return $this->hasOne('App\Models\Pacotes','id_pacote');
     }
+    public function matricula()
+    {
+        return $this->hasMany('App\Models\Matricula','id_pacotes_cursos');
+    }
         
 }

@@ -24,15 +24,17 @@ class CursosController extends Controller
     //Mostrar todos os cursos
     public function showAll()
     {
-        $cursos = Cursos::paginate(4);
-        return view('admin.curso.show-all',['cursos' => $cursos]);
+        $categorias = Categorias::all();
+        //$cursos = Cursos::paginate(4);
+        return view('admin.curso.show-all',compact('categorias'));
     }
     //Mostrar form para atualizar registro
     public function formUpdate(Request $request)
     {
         $id = $request->id;
         $curso = Cursos::find($id);
-        $categoria = $curso->id_categoria;
+        $idCat = $curso->id_categoria;
+        $categoria = Categorias::find($idCat);
         return view('admin.curso.update-form',['curso' => $curso,'categoria' => $categoria]);
     }
     //Atualizar Curso

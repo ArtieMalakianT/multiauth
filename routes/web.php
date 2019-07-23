@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/cursos/listar', 'Admin\CursosController@showAll');
     Route::get('/cursos/edit/{id}', 'Admin\CursosController@formUpdate');
     Route::post('/cursos', 'Admin\CursosController@formSubmit');
-    Route::get('/cursos/update', 'Admin\CursosController@Update');
+    Route::post('/cursos/update', 'Admin\CursosController@Update');
 
     Route::get('/categorias/listar','Admin\CategoriasController@showAll');
     Route::get('/categorias','Admin\CategoriasController@showForm');
@@ -48,6 +48,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/pacotes/edit/{id}','Admin\PacotesController@formUpdate');     
     Route::post('/pacotes','Admin\PacotesController@formSubmit');    
     Route::post('/pacotes/update','Admin\PacotesController@Update');
+
+    Route::get('/register','Admin\AdminController@index');
+    Route::post('/register','Admin\AdminController@register');
+
+    Route::get('/perfil','Admin\AdminController@perfil');
+    Route::post('/perfil','Admin\AdminController@changePhoto');
 });
 
 Route::prefix('blog')->group(function(){
@@ -57,4 +63,6 @@ Route::prefix('blog')->group(function(){
     Route::get('/search/{id}','Home\BlogController@search');
     Route::post('/search','Home\BlogController@search');    
 });
-
+Route::prefix('home')->group(function(){
+    Route::post('/photo','User\UserController@changePhoto');
+});

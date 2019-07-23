@@ -70,7 +70,7 @@ Pacotes
               <button class="fa fa-trash"></button>
             </div>
             </form>
-          <li>
+          </li>
           @endforeach
         </ul>
 

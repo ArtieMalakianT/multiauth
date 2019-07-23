@@ -103,9 +103,9 @@ class PostController extends Controller
     //Listar POSTS na área de Admin
     public function showPosts()
     {
-        $posts = Post::all();      
+        $categorias =  Categorias::all();     
 
-        return view('/admin/posts.post-list',compact('posts'));
+        return view('/admin/posts.post-list',compact('categorias'));
     }
 
     public function dialog($cond,$error)

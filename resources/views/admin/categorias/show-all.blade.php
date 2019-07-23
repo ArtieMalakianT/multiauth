@@ -38,8 +38,8 @@ Categorias
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blog LikeSchool
-        <small>Cursos</small>
+        Admin LikeSchool
+        <small>Categorias</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
@@ -70,7 +70,16 @@ Categorias
               <button class="fa fa-trash"></button>
             </div>
             </form>
-          <li>
+          </li>
+          <ul>
+            @foreach($categoria->sub as $sub)
+            <form>
+              <li style="margin:5px">{{$sub->nome}} 
+              <a class="fa fa-edit" href="" title="Editar Sub Categoria"></a>
+              <button><i class="fa fa-trash" size="small"></i></button></li>              
+            </form>
+            @endforeach
+          </ul>
           @endforeach
         </ul>
 

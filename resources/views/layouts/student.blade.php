@@ -70,8 +70,8 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                      @if(Auth::user()->perfil)
-                        <img src="{{Storage::url(Auth::user()->perfil)}}" class="img-circle" alt="User Image">
+                      @if(Auth::user()->profile)
+                        <img src="{{Storage::url(Auth::user()->profile)}}" class="img-circle" alt="User Image">
                       @else
                         <img src="/assets/dist/img/user-standard.png" class="img-circle" alt="User Image">
                       @endif
@@ -260,24 +260,24 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            @if(Auth::user()->perfil)
-                        <img src="{{Storage::url(Auth::user()->perfil)}}" class="user-image" alt="User Image">
+            @if(Auth::user()->profile)
+                        <img src="{{Storage::url(Auth::user()->profile)}}" class="user-image" alt="User Image">
                       @else
                         <img src="/assets/dist/img/user-standard.png" class="user-image" alt="User Image">
                       @endif
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+              <span class="hidden-xs">{{ Auth::user()->nome }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                      @if(Auth::user()->perfil)
-                        <img src="{{Storage::url(Auth::user()->perfil)}}" class="img-circle" alt="User Image">
+                      @if(Auth::user()->profile)
+                        <img src="{{Storage::url(Auth::user()->profile)}}" class="img-circle" alt="User Image">
                       @else
                         <img src="/assets/dist/img/user-standard.png" class="img-circle" alt="User Image">
                       @endif
 
                 <p>
-                  {{ Auth::user()->name }} 
+                  {{ Auth::user()->nome }} 
                   <small>Moderador entrou em {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
@@ -299,7 +299,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="/admin/perfil" class="btn btn-default btn-flat">Perfil</a>
+                  <a href="/home" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
@@ -329,14 +329,14 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          @if(Auth::user()->perfil)
-            <img src="{{Storage::url(Auth::user()->perfil)}}" class="img-circle" alt="User Image">
+          @if(Auth::user()->profile)
+            <img src="{{Storage::url(Auth::user()->profile)}}" class="img-circle" alt="User Image">
           @else
             <img src="/assets/dist/img/user-standard.png" class="img-circle" alt="User Image">
           @endif
         </div>
         <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
+          <p>{{ Auth::user()->nome }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -348,46 +348,17 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-share-alt"></i> <span>Blog</span>
+            <i class="fa fa-mortar-board"></i> <span>Minha Carreira</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/post"><i class="fa fa-circle-o"></i> Criar Post</a></li>
-            <li><a href="/admin/post/list"><i class="fa fa-circle-o"></i> Listar Posts</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Comentários</a></li>
+            <li><a href="/admin/post"><i class="fa fa-circle-o"></i> Cursos</a></li>
+            <li><a href="/admin/post/list"><i class="fa fa-circle-o"></i> Histórico</a></li>
+            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Certificados</a></li>
           </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-group"></i> <span>Alunos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/admin/alunos"><i class="fa fa-circle-o"></i> Listar</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Vazio</a></li>
-          </ul>
-        </li>
-        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-graduation-cap"></i> <span>Cursos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="/admin/categorias/listar"><i class="fa fa-circle-o"></i> Listar Categorias</a></li>
-            <li><a href="/admin/cursos/listar"><i class="fa fa-circle-o"></i> Listar Cursos</a></li>
-            <li><a href="/admin/cursos"><i class="fa fa-circle-o"></i> Cadastrar Curso</a></li>
-            <li><a href="/admin/categorias"><i class="fa fa-circle-o"></i> Cadastrar Categoria</a></li>                        
-          </ul>
-        </li>
-        <li><a href="/admin/register"><i class="fa fa-book"></i> <span>Registrar Usuário</span></a></li>
+        </li>        
 
           </ul>
         </li>
