@@ -278,7 +278,7 @@
 
                 <p>
                   {{ Auth::user()->nome }} 
-                  <small>Moderador entrou em {{ Auth::user()->created_at }}</small>
+                  <small>Aluno entrou em {{ Auth::user()->created_at }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
