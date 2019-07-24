@@ -13,7 +13,12 @@ class Post extends Model
     public function categorias()
     {
         return $this->belongsTo('App\Models\Categorias','id_categoria');
-    }    
+    }  
+    //Relação com SubCategorias
+    public function sub()
+    {
+        return $this->belongsTo('App\Models\subCategorias','id_sub_categoria');
+    }  
     //Autor do post
     public function author()
     {

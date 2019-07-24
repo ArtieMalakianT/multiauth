@@ -66,3 +66,7 @@ Route::prefix('blog')->group(function(){
 Route::prefix('home')->group(function(){
     Route::post('/photo','User\UserController@changePhoto');
 });
+
+Route::prefix('ajax')->group(function(){
+    Route::get('/subCat/{idCat}','Admin\PostController@getSubCat');
+});

@@ -23,6 +23,9 @@ class CreatePost extends Migration
             //Chave estrangeira para Categorias
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
+            //Chave estrangeira para SubCategorias
+            $table->unsignedBigInteger('id_sub_categoria');
+            $table->foreign('id_sub_categoria')->references('id')->on('sub_categorias');
             //Chave estrangeira para Usuário
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('admins');

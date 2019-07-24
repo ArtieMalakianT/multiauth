@@ -34,8 +34,7 @@ Like School | {{ $post->titulo }}
        						<h3>{{ $post->descricao }}</h3>
        						<div class="user_details">
        							<div class="float-left">
-       								<a href="#">Lifestyle</a>
-       								<a href="#">Gadget</a>
+       								<a href="/blog/search/{{$post->sub->id}}">{{$post->sub->nome}}</a>
        							</div>
        							<div class="float-right">
        								<div class="media">

@@ -40,16 +40,19 @@ class BlogController extends Controller
     {
         if(!isset($request->id))
         {
-            $search = $request->consulta;                       
+            $search = $request->consulta; 
+            $paginatePosts = Post::where('titulo','like',"%$search%")->orderBy('created_at','desc')->paginate(10);                      
         }
         else
         {
             $subId = $request->id;   
-            $sub = subCategorias::find($subId);  
-            $search = $sub->nome;      
+            $sub = subCategorias::find($subId);
+            $paginatePosts = $sub->posts()->orderBy('created_at','desc')->paginate(10);  
+            //$search = $sub->nome;   
+            //$paginatePosts = Post::where('','like',"%$search%")->orderBy('created_at','desc')->paginate(10);   
         }
         
-        $paginatePosts = Post::where('titulo','like',"%$search%")->orderBy('created_at','desc')->paginate(10);
+        
         $categorias = $this->categorias;        
         return view('blog.index',compact('paginatePosts','categorias','cat'));
     }

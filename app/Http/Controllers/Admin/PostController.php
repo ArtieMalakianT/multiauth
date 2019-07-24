@@ -5,7 +5,9 @@ header('Content-Type: text/html; charset=utf-8');
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
+use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
 use App\Models\Post;
@@ -33,23 +35,29 @@ class PostController extends Controller
           return view('admin.posts.update',['categorias' => $categorias,'post'=>$post]);
         }        
     }
-
+    //função para retornar subcategorias ao ajax
+    public function getSubCat($idCat)
+    {
+            $idCat = $idCat;
+            $categoria = Categorias::find($idCat);
+            $sub = $categoria->sub()->getQuery()->get(['id', 'nome']);
+            //  var_dump($sub);exit;
+            return Response::json($sub);
+        
+    }
     //Persiste as informações do formulário do modelo Post
     public function submitForm(Request $request)
     {
-        //Recupera os dados submetidos do formulário
         $contents = $request->conteudo;
         $titulo = $request->titulo;
         $categoria = $request->categoria;
         $user = $request->user;  
-        $descricao = $request->descricao;          
-
-        //cria um nome randômico para o conteúdo do post
+        $descricao = $request->descricao; 
+        $subCat = $request->sub;         
+        
         $date = uniqid(date('HisYmd'));
-        $fileName = "$date.txt";
-        //$imageName = $rand.;      
+        $fileName = "$date.txt";     
 
-        //Salva os dados no banco de dados
         if(!isset($request->updatingPost))
         {            
             $capa = $request->file('image')->store('images');
@@ -75,19 +83,18 @@ class PostController extends Controller
                 $capa = $request->file('image')->store('images');                                
 
                 $post->capa = $capa;                
-            }
-            //Storage::delete("/post/$post->conteudo");                
+            }              
             $store = Storage::disk('public')->put("/post/$post->conteudo", $contents);
             $this->dialog($store,'Erro no Upload da Capa');           
         }
         
         $post->titulo = $titulo;        
         $post->id_categoria = $categoria;
+        $post->id_sub_categoria = $subCat;
         $post->id_user = $user;      
         $post->descricao = $descricao;  
         $post->save();       
 
-        //Se os dados forem salvos...
         if($post)
         {              
             return back()->with('status', 'Post publicado!');                      
