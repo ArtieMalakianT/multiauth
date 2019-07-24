@@ -53,8 +53,8 @@ class RegisterController extends Controller
             'sobrenome' => ['required','string'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'cpf' => ['required','string','min:14'],
-            'rg' => ['required','string','min:11'],
+            'cpf' => 'required|unique:users|string|min:14',
+            'rg' => ['required','unique:users','string','min:11'],
             'nascimento' => ['required','string'],            
         ]);
     }
