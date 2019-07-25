@@ -76,8 +76,7 @@
 							@foreach($cat as $value)
 							<li>
 								<a href="/blog/search/{{$value->id}}" class="d-flex justify-content-between">
-									<p>{{$value->nome}}</p>
-									<p>{{ $value->id }}</p>
+									<p>{{$value->nome}}</p>									
 								</a>
 							</li>
 							@endforeach									

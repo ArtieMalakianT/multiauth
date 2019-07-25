@@ -22,8 +22,7 @@ Blog Like School
 									<div class="blog_text_inner">
 										<div class="cat">
 										<a href="#"><i class="fa fa-user" aria-hidden="true"></i> {{ $post->author->name }}</a>
-											<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> {{ $post->created_at }}</a>
-											<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+											<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> {{ $post->created_at }}</a>											
 										</div>
 										<a href="/blog/show/post/{{ $post->id }}"><h4>{{ $post->titulo }}</h4></a>								
 										<p>{{ $post->descricao }}</p>
