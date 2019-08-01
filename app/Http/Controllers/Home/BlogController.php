@@ -54,7 +54,7 @@ class BlogController extends Controller
         
         
         $categorias = $this->categorias;        
-        return view('blog.index',compact('paginatePosts','categorias','cat'));
+        return view('blog.index',compact('paginatePosts','categorias'));
     }
 
     //Mostrar o conteúdo de um post

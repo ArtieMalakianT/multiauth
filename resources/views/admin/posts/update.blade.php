@@ -82,10 +82,18 @@ Editar Post
 				
 				<div class="form-group">
 					<label>Categoria</label>
-					<select name="categoria" class="form-control">
+					<select required id="categoria" name="categoria" class="form-control">
+          <option  value="" ></option>
                         @foreach($categorias as $categoria)
 						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
                         @endforeach
+					</select>
+        </div>
+
+        <div class="form-group">
+					<label>Sub Categoria</label>
+					<select id="sub" name="sub" class="form-control">          
+          <option  value="" ></option>
 					</select>
         </div>
         
@@ -130,4 +138,17 @@ Editar Post
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script type="text/javascript">
+        $('#categoria').change(function () {
+            var idCat = $(this).val();
+            $.get('/ajax/subCat/' + idCat, function (sub) {
+                $('#sub').empty();
+                $.each(sub, function (key, value) {
+                    $('#sub').append('<option value=' + value.id + '>' + value.nome + '</option>');
+                });
+            });
+        });
+    </script>
   @endsection
