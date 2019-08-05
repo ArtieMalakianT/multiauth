@@ -83,7 +83,11 @@ Editar Post
 				<small>Categoria atual: <strong>{{$post->categorias->nome}}</strong></small>
 				<div class="form-group">          
 					<label>Categoria</label>
+<<<<<<< HEAD
 					<select id="categoria" name="categoria" class="form-control">
+=======
+					<select required id="categoria" name="categoria" class="form-control">
+>>>>>>> ea6def87364171c52a9b1222757fbd8ca54dfc7c
           <option  value="" ></option>
                         @foreach($categorias as $categoria)
 						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
@@ -91,7 +95,10 @@ Editar Post
 					</select>
         </div>
 
+<<<<<<< HEAD
         <small>Sub Categoria Atual: <strong>{{$post->sub->nome}}</strong></small>
+=======
+>>>>>>> ea6def87364171c52a9b1222757fbd8ca54dfc7c
         <div class="form-group">
 					<label>Sub Categoria</label>
 					<select id="sub" name="sub" class="form-control">          
