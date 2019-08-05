@@ -11,9 +11,10 @@ Blog Like School
 		<div class="row">
 			<div class="col-lg-8">
 				<div class="blog_left_sidebar">																			
-												
+				<div class="row">						
 						@foreach($paginatePosts as $post)
-							<article class="blog_style1">
+							<div class="col-md-6">
+                            <article class="blog_style1 small">
                             	<div class="blog_img">
 									<?php $url = Storage::url($post->capa) ?>
 									<img class="img-fluid" src="{{ $url }}" alt="">
@@ -29,9 +30,10 @@ Blog Like School
 										<a class="blog_btn" href="/blog/show/post/{{ $post->id }}">Ler mais...</a>
 									</div>
 								</div>
-                            </article>								
+                            </article>
+							</div>								
 						@endforeach
-					
+				</div>
 					
 					
 					<nav class="blog-pagination justify-content-center d-flex">

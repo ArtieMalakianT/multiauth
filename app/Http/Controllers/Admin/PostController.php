@@ -53,7 +53,8 @@ class PostController extends Controller
         $categoria = $request->categoria;
         $user = $request->user;  
         $descricao = $request->descricao; 
-        $subCat = $request->sub;         
+        $subCat = $request->sub;
+        $status = $request->status;         
         
         $date = uniqid(date('HisYmd'));
         $fileName = "$date.txt";     
@@ -93,6 +94,7 @@ class PostController extends Controller
         $post->id_sub_categoria = $subCat;
         $post->id_user = $user;      
         $post->descricao = $descricao;  
+        $post->status = $status;
         $post->save();       
 
         if($post)

@@ -401,9 +401,9 @@ button:focus {
 /* Home Banner Area css
 ============================================================================================ */
 .home_banner_area {
-  background: url(/img/banner/home-banner.jpg) no-repeat scroll center left;
+  background: url(/img/banner/home-banner.jpg) no-repeat scroll center;
   background-color: #f9f9ff;
-  background-size: contain;
+  background-size: cover;
 }
 
 .home_banner_area .blog_text_slider {

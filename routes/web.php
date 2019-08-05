@@ -54,6 +54,8 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/perfil','Admin\AdminController@perfil');
     Route::post('/perfil','Admin\AdminController@changePhoto');
+
+    Route::get('/matricular/{id}','Admin\AdminController@changePhoto');
 });
 
 Route::prefix('blog')->group(function(){

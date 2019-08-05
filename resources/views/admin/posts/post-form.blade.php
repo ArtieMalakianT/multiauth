@@ -96,6 +96,14 @@ Criar Post
           <label>Imagem de capa</label><small> Resolução indicada: 1145 x 400</small>
           <input required type="file" name="image" id="InputFile" accept="image/*"/>
         </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select class="form-control" name="status">
+            <option value="1">Visível</option>
+            <option value="0">Oculto</option>
+          </select>         
+        </div>
 				
 				<div class="form-group">
 					<label>Conteúdo do Post</label>

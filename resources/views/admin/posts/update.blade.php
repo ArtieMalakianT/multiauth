@@ -78,20 +78,38 @@ Editar Post
           {{ $post->descricao }}
           </textarea>
 				
-				</div>
-				
-				<div class="form-group">
+        </div>
+        
+				<small>Categoria atual: <strong>{{$post->categorias->nome}}</strong></small>
+				<div class="form-group">          
 					<label>Categoria</label>
-					<select name="categoria" class="form-control">
+					<select id="categoria" name="categoria" class="form-control">
+          <option  value="" ></option>
                         @foreach($categorias as $categoria)
 						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
                         @endforeach
+					</select>
+        </div>
+
+        <small>Sub Categoria Atual: <strong>{{$post->sub->nome}}</strong></small>
+        <div class="form-group">
+					<label>Sub Categoria</label>
+					<select id="sub" name="sub" class="form-control">          
+          <option  value="" ></option>
 					</select>
         </div>
         
         <div class="form-group">
           <label>Imagem de capa</label><small> Resolução indicada: 1145 x 400</small>
           <input type="file" name="image" id="InputFile" accept="image/*" value="0"/>
+        </div>
+
+        <div class="form-group">
+          <label>Status</label>
+          <select class="form-control" name="status">
+            <option value="1">Visível</option>
+            <option value="0">Oculto</option>
+          </select>         
         </div>
 				
 				<div class="form-group">
@@ -130,4 +148,17 @@ Editar Post
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script type="text/javascript">
+        $('#categoria').change(function () {
+            var idCat = $(this).val();
+            $.get('/ajax/subCat/' + idCat, function (sub) {
+                $('#sub').empty();
+                $.each(sub, function (key, value) {
+                    $('#sub').append('<option value=' + value.id + '>' + value.nome + '</option>');
+                });
+            });
+        });
+    </script>
   @endsection

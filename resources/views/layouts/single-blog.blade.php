@@ -10,7 +10,9 @@
         <link rel="stylesheet" href="/css/blog/bootstrap.css">
         <link rel="stylesheet" href="/vendors/linericon/style.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/fontawesome.min.css">
+        <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/brands.min.css">
+        <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/solid.min.css">
         <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
         <link rel="stylesheet" href="/vendors/lightbox/simpleLightbox.css">
         <link rel="stylesheet" href="/vendors/nice-select/css/nice-select.css">

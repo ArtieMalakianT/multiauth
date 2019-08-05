@@ -3,8 +3,8 @@
 @section('title')
 Like School | {{ $post->titulo }}
 @endsection
-
-@section('content')      
+@section('content')
+      
         <!--================Home Banner Area =================-->
         <?php $background = Storage::url("/$post->capa"); ?>
         <section class="banner_area" style="background: url({{$background}}) no-repeat; background-size:cover;">
@@ -75,5 +75,4 @@ Like School | {{ $post->titulo }}
             </div>
         </section>
         <!--================Blog Area =================-->
-@endsection        
-        
+@endsection           

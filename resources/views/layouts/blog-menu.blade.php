@@ -40,10 +40,10 @@
 								<li class="nav-item"><a class="nav-link" href="contact.html">Contato</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right header_social ml-auto">
-								<li class="nav-item" title="Like School Facebook"><a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-								<li class="nav-item"  title="Like School Instagram"><a href="https://www.instagram.com/like.school.oficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
-								<li class="nav-item"  title="Like School Messenger"><a href="https://m.me/like.school.brazil" target="_blank"><i class="fa fa-facebook-square"></i></a></li>
-								<li class="nav-item"  title="Like School Whatsapp"><a href="https://wa.me/5547988624532" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+								<li class="nav-item" title="Like School Facebook"><a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+								<li class="nav-item"  title="Like School Instagram"><a href="https://www.instagram.com/like.school.oficial" target="_blank"><i class="fab fa-instagram"></i></a></li>
+								<li class="nav-item"  title="Like School Messenger"><a href="https://m.me/like.school.brazil" target="_blank"><i class="fab fa-facebook-messenger"></i></a></li>
+								<li class="nav-item"  title="Like School Whatsapp"><a href="https://wa.me/5547988624532" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
 							</ul>
 						</div> 
 					</div>
