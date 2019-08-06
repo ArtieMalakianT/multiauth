@@ -12,12 +12,12 @@ class pacotesCurso extends Model
 
     public function cursos()
     {
-        return $this->hasOne('App\Models\Cursos','id_curso');
+        return $this->hasMany('App\Models\Cursos','id');
     }
 
     public function pacote()
     {
-        return $this->hasOne('App\Models\Pacotes','id_pacote');
+        return $this->hasOne('App\Models\Pacotes','id');
     }
     public function matricula()
     {

@@ -5,7 +5,35 @@ Like School| Alunos
 
 @section('content')
 <div class="content-wrapper">
+
+    <!-- Alert if Sucess -->
+    @if (session('status'))
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="fa fa-check"></i>Alerta</h4>
+                {{ session('status') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <!-- Alert if Error -->
+    @if (session('error'))
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="fa fa-ban"></i>Alerta</h4>
+                {{ session('error') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
     <!-- Content Header (Page header) -->
+    
     <section class="content-header">
       <h1>
         Admin LikeSchool
@@ -25,20 +53,45 @@ Like School| Alunos
             <div class="box box-primary">
                 <div class="box-header">
                     <h2>Matrícula</h2>
-                    <label>Aluno:<label> <small>{{ $aluno->name }}</small>
+                    <label>Aluno: <label>
+                    <p>{{ $aluno->nome }}</p>
                 </div>
                 <div class="box-body">
 
-                <form>
+                <form action="/admin/aluno/matricular" method="POST">
+                @csrf
 
-                    <div calss="form-group">
-                        <label>Status da Matrícula</label>
-                        <select name="status" class="form-control">
-                            @foreach($statusMatricula as $value)
-                            <option value="{{ $value->ID_STATUS_MATRICULA }}" >{{ $value->NOME }}</option>
+                    <div class="form-group">
+                        <label>Pacote</label>
+                        <select name="id_cursos_pacotes" class="form-control">
+                            @foreach($pacotes as $pacote)
+                            <option class="@error('pacote') is-invalid @enderror" value="{{$pacote->pacote->id}}">{{$pacote->pacote->nome}}</option>
                             @endforeach
                         </select>
+                        @error('pacote')
+                        <small style="color:red">{{$message}}</small>
+                        @enderror
                     </div>
+
+                    <div class="form-group">
+                        <input type="hidden" name="id_user" value="{{$aluno->id}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status da Matrícula</label>
+                        <select name="id_status" class="form-control">
+                            @foreach($statusMatricula as $value)
+                            <option class="@error('status') is-invalid @enderror" value="{{ $value->id }}" >{{ $value->nome }}</option>
+                            @endforeach
+                        </select>
+                        @error('status')
+                        <small style="color:red">{{$message}}</small>
+                        @enderror                        
+                    </div>                                        
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Salvar</button>
+                    </div>                        
 
                 </form>
 

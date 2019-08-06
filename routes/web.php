@@ -30,6 +30,8 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/alunos', 'Admin\AlunoController@showAlunos');
     Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
+    Route::post('/aluno/matricular','Admin\AlunoController@matricular');
+    Route::get('/aluno/show/matriculas/{id}','Admin\AlunoController@showMatriculas');
     
     Route::get('/cursos', 'Admin\CursosController@showForm');
     Route::get('/cursos/listar', 'Admin\CursosController@showAll');
@@ -55,7 +57,6 @@ Route::prefix('admin')->group(function(){
     Route::get('/perfil','Admin\AdminController@perfil');
     Route::post('/perfil','Admin\AdminController@changePhoto');
 
-    Route::get('/matricular/{id}','Admin\AdminController@changePhoto');
 });
 
 Route::prefix('blog')->group(function(){

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('titulo')
-Like School| Alunos
+Like School| Matrículas
 @endsection
 
 @section('content')
@@ -9,11 +9,11 @@ Like School| Alunos
     <section class="content-header">
       <h1>
         Admin LikeSchool
-        <small>Alunos</small>
+        <small>Matrículas</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Alunos</a></li>
+        <li><a href="#">Matrículas</a></li>
       </ol>
     </section>
 
@@ -23,16 +23,15 @@ Like School| Alunos
             <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h2>Lista de Alunos</h2>
+                    <h2>Lista de Matrículas</h2>
                 </div>
                 <div class="box-body">
                     <ul style="padding: 0px">
-                        @foreach($alunos as $value)
+                    <li>{{$aluno->id}}</li>
+                        @foreach($aluno->matricula as $value)
                         <div style="background:#f3f3f3; padding: 10px; list-style:none">
-                        <li >{{ $value->nome }}</li>
-                        <li >{{ $value->email }}</li>
-                        <li><a  href="/admin/aluno/matricular/{{ $value->id }}"><i class="fa fa-plus"></i> Nova Matrícula</a></li>
-                        <li><a  href="/admin/aluno/show/matriculas/{{ $value->id }}"><i class="fa fa-eye"></i> Ver Matrículas</a></li>
+                        <li >{{ $value->id }}</li>
+                        <li >{{ $value->pacotes->pacote->nome }}</li>                       
                         <br>
                         </div>
                         @endforeach
@@ -43,5 +42,4 @@ Like School| Alunos
         </div>
     </section>
 </div>
-{!! $alunos->links() !!}
 @endsection

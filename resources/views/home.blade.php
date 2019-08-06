@@ -27,7 +27,7 @@ Perfil
                         @if(Auth::user()->profile)
                         <img class="profile-user-img img-responsive img-circle" src="{{Storage::url(Auth::user()->profile)}}" alt="User profile picture">
                         @else
-                        <img class="profile-user-img img-responsive img-circle" src="/assets/dist/img/user-standard.png" alt="User profile picture">
+                        <img class="profile-user-img img-responsive img-circle" src="/assets/dist/img/avatar.png" alt="User profile picture">
                         @endif
                         <h3 class="profile-username text-center">{{Auth::user()->nome}}  <small>{{  Auth::user()->sobrenome}}</small></h3>
                         <form action="/home/photo" method="POST" enctype="multipart/form-data">
@@ -57,6 +57,11 @@ Perfil
                             <i class="fa fa-file"></i>  RG
                         </strong>
                         <p class="text-muted">{{Auth::user()->rg}}</p>
+                        <hr>
+                        <strong>
+                            <i class="fa fa-file"></i>  CPF
+                        </strong>
+                        <p class="text-muted">{{Auth::user()->cpf}}</p>
 
                     </div>
                 </div>

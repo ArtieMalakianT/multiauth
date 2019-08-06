@@ -67,10 +67,9 @@ Cadastrar Categorias
 				
 				</div>
 
-                <div class="form-group">
+        <div class="form-group">
 					<label>Ordem de exibiçao</label>
-					<input class="form-control" type="text" name="ordem" maxlenght="200"/>
-				
+					<input class="form-control" type="text" name="ordem" maxlenght="200"/>			
 				</div>							
 								
 				<div class="form-group">
