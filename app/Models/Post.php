@@ -14,7 +14,7 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Categorias','id_categoria');
     }  
-    //Relação com SubCategorias
+    //Relação com todas SubCategorias
     public function sub()
     {
         return $this->belongsTo('App\Models\subCategorias','id_sub_categoria');

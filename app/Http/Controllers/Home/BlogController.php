@@ -42,10 +42,15 @@ class BlogController extends Controller
     //Mostrar página com conteúdos pesquisados
     public function search(Request $request)
     {
+        $categorias = $this->categorias;   
+        //$bannerPosts = Post::where('id','>',0)->limit(3)->get();     
+        $popularPosts = Post::where('status','=',1)->orderBy('acessos','desc')->limit(5)->get();
+
         if(!isset($request->id))
         {
             $search = $request->consulta; 
-            $paginatePosts = Post::where('titulo','like',"%$search%")->orderBy('created_at','desc')->paginate(10);                      
+            $paginatePosts = Post::where('descricao','like',"%$search%")->orderBy('created_at','desc')->paginate(10); 
+            return view('blog.index',compact('paginatePosts','categorias','popularPosts'));                     
         }
         else
         {
@@ -53,14 +58,10 @@ class BlogController extends Controller
             $sub = subCategorias::find($subId);
             $paginatePosts = $sub->posts()->where('status','=',1)->orderBy('created_at','desc')->paginate(10);  
             //$search = $sub->nome;   
-            //$paginatePosts = Post::where('','like',"%$search%")->orderBy('created_at','desc')->paginate(10);   
+            //$paginatePosts = Post::where('','like',"%$search%")->orderBy('created_at','desc')->paginate(10);  
+            return view('blog.index',compact('paginatePosts','categorias','sub','popularPosts')); 
         }
-        
-        
-        $categorias = $this->categorias;   
-        //$bannerPosts = Post::where('id','>',0)->limit(3)->get();     
-        $popularPosts = Post::where('status','=',1)->orderBy('acessos','desc')->limit(5)->get();
-        return view('blog.index',compact('paginatePosts','categorias','cat','popularPosts'));
+                               
     }
 
     //Mostrar o conteúdo de um post

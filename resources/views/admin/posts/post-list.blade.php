@@ -23,29 +23,64 @@ Admin | Lista de Posts
                 <h2>Lista de Posts</h2>
             </div>
             <div class="box-body">
-                <ul class="todo-list ui-sortable">            
-                @foreach($categorias as $categoria)
-                    <h3>{{$categoria->nome}} <i class="fa fa-anchor"></i></h3>
-                    @foreach($categoria->sub as $sub)                    
-                        @foreach($sub->posts as $post)  
-                        <small>{{$sub->nome}}</small>                             
-                        <li><label class="text">{{ $post->titulo }}</label>
-                            <form action="" method="post" style="display: inline">
-                            <input type="hidden" name="_METHOD" value="delete">
-                                <div class="tools">
-                                <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
-                                <a class="fa fa-eye" href="/blog/show/post/{{ $post->id }}" target="_blank"></a>
-                                <button class="fa fa-trash"></button>
+                    <div class="row">
+                            <div class="col-md-10">
+                              <!-- Custom Tabs -->
+                              <div class="nav-tabs-custom">
+                                <ul class="nav nav-tabs">
+                                <?php $i = 1; ?>
+                                @foreach($categorias as $categoria)
+                                    @if($i == 1)
+                                  <li class="active"><a href="#tab_{{$i}}" data-toggle="tab">{{$categoria->nome}}</a></li>
+                                  @else
+                                  <li class=""><a href="#tab_{{$i}}" data-toggle="tab">{{$categoria->nome}}</a></li>
+                                  @endif
+                                  <?php $i += 1; ?>
+                                @endforeach              
+                                </ul>
+                                <div class="tab-content">
+                    
+                                <?php $cont = 1; ?>
+                                @foreach($categorias as $categoria)
+                                @if($cont ==1)
+                                <div class="tab-pane active" id="tab_{{$cont}}"> 
+                                @else
+                                <div class="tab-pane" id="tab_{{$cont}}"> 
+                                @endif
+                                                  
+                                            <ul class="todo-list ui-sortable">                                                    
+                                                    @foreach($categoria->sub as $sub)  
+                                                    <small>{{$sub->nome}}</small><br>                                                                                                                                                                                                    
+                                                    @foreach($sub->posts as $post)                                                                                                                                  
+                                                        <li><label class="text">{{ $post->titulo }}</label>
+                                                            <form action="" method="post" style="display: inline">
+                                                            <input type="hidden" name="_METHOD" value="delete">
+                                                                <div class="tools">
+                                                                <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
+                                                                <a class="fa fa-eye" href="/blog/show/post/{{ $post->id }}" target="_blank"></a>
+                                                                <button class="fa fa-trash"></button>
+                                                                </div>
+                                                            </form>
+                                                        </li>
+                                                        @endforeach                                                                        
+                                                    @endforeach   
+                                                    </ul> 
+                                    </div>                                                    
+                                <?php $cont += 1; ?>
+                                @endforeach     
+                                  <!-- /.tab-pane -->
+                                
                                 </div>
-                            </form>
-                        </li>
-                        @endforeach
-                    @endforeach
-                @endforeach
-                 </ul>
-                 
+                                <!-- /.tab-content -->
+                              </div>
+                              <!-- nav-tabs-custom -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        </div>
             </div>
         </div>
     </div>
+    
     </div>
 @endsection

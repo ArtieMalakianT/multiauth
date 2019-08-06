@@ -28,15 +28,7 @@
 								@else
 								<li class="nav-item"><a class="nav-link" href="/blog/filter/{{$categoria->id}}">{{ $categoria->nome }}</a></li>
 								@endif                               
-                                @endforeach	
-								<li class="nav-item"><a class="nav-link" href="archive.html">Arquivo</a></li>
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="single-blog.html">Sinlge Blog</a></li>
-										<li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
-									</ul>
-								</li> 
+                                @endforeach									
 								<li class="nav-item"><a class="nav-link" href="contact.html">Contato</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right header_social ml-auto">

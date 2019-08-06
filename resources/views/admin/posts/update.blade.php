@@ -74,34 +74,32 @@ Editar Post
         
         <div class="form-group">
 					<label>Descrição do Post</label>
-					<textarea required class="form-control" name="descricao" maxlenght="500" rows="5" cols="5">
-          {{ $post->descricao }}
-          </textarea>
+					<textarea required class="form-control" name="descricao" maxlenght="500" rows="5" cols="5">{{ $post->descricao }}</textarea>
 				
         </div>
         
 				<small>Categoria atual: <strong>{{$post->categorias->nome}}</strong></small>
 				<div class="form-group">          
 					<label>Categoria</label>
-<<<<<<< HEAD
-					<select id="categoria" name="categoria" class="form-control">
-=======
+
 					<select required id="categoria" name="categoria" class="form-control">
->>>>>>> ea6def87364171c52a9b1222757fbd8ca54dfc7c
           <option  value="" ></option>
                         @foreach($categorias as $categoria)
-						<option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+                        @if($categoria->id == $post->id_categoria)
+                        <option selected value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+                        @else
+						            <option  value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+                        @endif
                         @endforeach
 					</select>
         </div>
 
-<<<<<<< HEAD
         <small>Sub Categoria Atual: <strong>{{$post->sub->nome}}</strong></small>
-=======
->>>>>>> ea6def87364171c52a9b1222757fbd8ca54dfc7c
+
         <div class="form-group">
 					<label>Sub Categoria</label>
-					<select id="sub" name="sub" class="form-control">          
+					<select id="sub" name="sub" class="form-control">
+          <option selected value="{{$post->sub->id}}">{{$post->sub->nome}}</option>          
           <option  value="" ></option>
 					</select>
         </div>
@@ -141,7 +139,7 @@ Editar Post
 				  </div>
 				</div>
 				<div class="form-group">
-					<button class="btn btn-primary">Publicar</button>
+					<button class="btn btn-primary">Salvar Alterações</button>
 				</div>
 			</form>
 			</div>

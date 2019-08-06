@@ -15,8 +15,8 @@ Like School | {{ $post->titulo }}
 						<div class="banner_content text-center">
 							<h2>{{ $post->titulo }}</h2>
 							<div class="page_link">
-								<a href="index.html">Home</a>
-								<a href="single-blog.html">Post Details</a>
+								<a href="/blog">Home</a>
+								<a href="#">Detalhes do post</a>
 							</div>
 						</div>
 					</div>

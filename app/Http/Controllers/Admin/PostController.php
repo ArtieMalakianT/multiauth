@@ -99,7 +99,7 @@ class PostController extends Controller
 
         if($post)
         {              
-            return back()->with('status', 'Post publicado!');                      
+            return back()->with('status', 'Post salvo!');                      
         }
         else
         {

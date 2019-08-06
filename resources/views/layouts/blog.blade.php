@@ -33,6 +33,13 @@
 					<div class="col-lg-5"></div>
 					<div class="col-lg-7">						
                         @if(!isset($bannerPosts))	
+                        <div class="banner_content text-center" style="background-color:#fff; margin:10em; padding:50px">
+							@if(!isset($sub))
+                            <h3>Página de pesquisa</h3>
+                            @else
+                            <h2>{{$sub->nome}}</h2>
+                            @endif
+						</div>
 				        @else	                        
                         <div class="blog_text_slider owl-carousel">                        
                         @foreach($bannerPosts as $post)

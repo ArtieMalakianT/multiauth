@@ -68,10 +68,9 @@ Criar Post
         </div>
         
         <div class="form-group">
-					<label>Descrição do Post</label>
-					<textarea required class="form-control" name="descricao" maxlenght="500" rows="5" cols="5">
-
-          </textarea>
+					<label>Descrição do Post</label><br>
+          <small></small>
+					<textarea required class="form-control" name="descricao" maxlenght="500" rows="5" cols="5" placeholder="Se necessário, inclua palavras chave para que seu post seja encontrado por buscas, Ex: #Design ou #IntroA"></textarea>
 				
 				</div>
 				
