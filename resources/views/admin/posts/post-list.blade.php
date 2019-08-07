@@ -14,13 +14,14 @@ Admin | Lista de Posts
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="#">Posts</a></li>
       </ol>
     </section>
     <div class="col-md-8">
         <div class="box box-primary">
             <div class="box-header">
                 <h2>Lista de Posts</h2>
+                <a href="/admin/post"><i class="fa fa-plus"></i> Criar post</a>
             </div>
             <div class="box-body">
                     <div class="row">

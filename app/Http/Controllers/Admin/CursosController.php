@@ -83,4 +83,18 @@ class CursosController extends Controller
         }
         
     }
+    public function delete(Request $request)
+    {
+        
+        $id = $request->id;
+        $curso = Cursos::find($id)->delete();
+        if($curso)
+        {
+            return back()->with('status','Curso Deletado!');
+        }
+        else
+        {
+            return back()->with('error','Falha ao deletar curso!');
+        }
+    }
 }

@@ -66,4 +66,17 @@ class AlunoController extends Controller
         $aluno = User::find($id);
         return view('admin.alunos.matriculas',compact('aluno'));
     }
+
+    public function deleteMatricula($id)
+    {
+        $matricula = Matriculas::where('id',$id)->delete();
+        if(!$matricula)
+        {
+            return back()->with('error','Não foi possível deletar');
+        }
+        else
+        {
+            return back()->with('status','Matrícula deletada!');
+        }
+    }
 }

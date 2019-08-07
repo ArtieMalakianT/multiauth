@@ -32,12 +32,14 @@ Route::prefix('admin')->group(function(){
     Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
     Route::post('/aluno/matricular','Admin\AlunoController@matricular');
     Route::get('/aluno/show/matriculas/{id}','Admin\AlunoController@showMatriculas');
+    Route::get('/aluno/delete/matricula/{id}','Admin\AlunoController@deleteMatricula');
     
     Route::get('/cursos', 'Admin\CursosController@showForm');
     Route::get('/cursos/listar', 'Admin\CursosController@showAll');
     Route::get('/cursos/edit/{id}', 'Admin\CursosController@formUpdate');
     Route::post('/cursos', 'Admin\CursosController@formSubmit');
     Route::post('/cursos/update', 'Admin\CursosController@Update');
+    Route::delete('/curso/delete', 'Admin\CursosController@delete');
 
     Route::get('/categorias/listar','Admin\CategoriasController@showAll');
     Route::get('/categorias','Admin\CategoriasController@showForm');

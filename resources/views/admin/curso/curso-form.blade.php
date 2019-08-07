@@ -43,7 +43,7 @@ Cadastrar Cursos
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
+        <li><a href="/admin/cursos/listar">Cursos</a></li>
         <li class="active">Cadastrar Cursos</li>
       </ol>
     </section>

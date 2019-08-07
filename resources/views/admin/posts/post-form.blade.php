@@ -43,7 +43,7 @@ Criar Post
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="/admin/post/list">Posts</a></li>
         <li class="active">Criar Post</li>
       </ol>
     </section>

@@ -41,7 +41,7 @@ Like School| Alunos
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Alunos</a></li>
+        <li><a href="/admin/alunos">Alunos</a></li>
         <li>Matrícular</li>
       </ol>
     </section>
