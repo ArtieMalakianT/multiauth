@@ -16,11 +16,11 @@ class CreateMatriculasTable extends Migration
         Schema::create('matriculas', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('id_cursos_pacotes')->unique();
+            $table->unsignedBigInteger('id_pacote')->unique();
             $table->unsignedBigInteger('id_user');
             $table->unsignedBigInteger('id_status');
 
-            $table->foreign('id_cursos_pacotes')->references('id')->on('cursos_pacotes');
+            $table->foreign('id_pacote')->references('id')->on('pacotes');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_status')->references('id')->on('status_matriculas');
 

@@ -63,9 +63,9 @@ Like School| Alunos
 
                     <div class="form-group">
                         <label>Pacote</label>
-                        <select name="id_cursos_pacotes" class="form-control">
+                        <select name="id_pacote" class="form-control">
                             @foreach($pacotes as $pacote)
-                            <option class="@error('pacote') is-invalid @enderror" value="{{$pacote->pacote->id}}">{{$pacote->pacote->nome}}</option>
+                            <option class="@error('pacote') is-invalid @enderror" value="{{$pacote->id}}">{{$pacote->nome}}</option>
                             @endforeach
                         </select>
                         @error('pacote')

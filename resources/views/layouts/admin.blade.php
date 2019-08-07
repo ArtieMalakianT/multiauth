@@ -282,18 +282,7 @@
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
+              <li class="user-body">                
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
@@ -403,7 +392,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2019 <a href="https://localhost:8080">Like School</a>.</strong>Todos os direitos reservados
+    <strong>Copyright &copy; 2019 <a href="https://adminlte.io" target="_blank">Admin LTE</a>.</strong>Todos os direitos reservados
   </footer>
 
   <!-- Control Sidebar -->

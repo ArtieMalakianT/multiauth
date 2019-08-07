@@ -29,7 +29,7 @@ class AlunoController extends Controller
     public function formMatricula($idAluno)
     {
         $aluno = User::find($idAluno);        
-        $pacotes = pacotesCurso::all();
+        $pacotes = Pacotes::all();
         $statusMatricula = StatusMatricula::all();
 
 
@@ -39,7 +39,7 @@ class AlunoController extends Controller
     public function matricular(Request $request)
     {
          $validationData = $request->validate([
-            'id_cursos_pacotes' => 'integer|required',
+            'id_pacote' => 'integer|required',
             'id_user' => 'required',
             'id_status' => 'integer|required',            
          ]);
@@ -56,7 +56,7 @@ class AlunoController extends Controller
     public function salvar(array $request)
     {
         return Matriculas::create([
-            'id_cursos_pacotes' => $request['id_cursos_pacotes'],
+            'id_pacote' => $request['id_pacote'],
             'id_user' => $request['id_user'],
             'id_status' => $request['id_status'],
         ]);

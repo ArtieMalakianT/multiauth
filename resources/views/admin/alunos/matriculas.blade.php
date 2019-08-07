@@ -23,19 +23,26 @@ Like School| Matrículas
             <div class="col-md-6">
             <div class="box box-primary">
                 <div class="box-header">
-                    <h2>Lista de Matrículas</h2>
+                    <h2>{{$aluno->nome}} <small>{{$aluno->sobrenome}}</small></h2>
                 </div>
-                <div class="box-body">
-                    <ul style="padding: 0px">
-                    <li>{{$aluno->id}}</li>
+                <div class="box-body">                    
+                    @if(!$aluno)
+                    <div class="callout callout-warning">
+                        <h4>Aviso</h4>
+                        <p>Nenhuma matrícula cadastrada!</p>
+                    </div>                    
+                    @else
                         @foreach($aluno->matricula as $value)
-                        <div style="background:#f3f3f3; padding: 10px; list-style:none">
-                        <li >{{ $value->id }}</li>
-                        <li >{{ $value->pacotes->pacote->nome }}</li>                       
+                        <div class="callout callout-info">
+                        <!-- <li >{{ $value->id }}</li> -->
+                        <h4>Pacote</h4>
+                        <p >{{ $value->pacotes->nome}}</p>                       
+                        <h4>Status</h4>
+                        <p >{{ $value->status->nome}}</p> 
                         <br>
                         </div>
                         @endforeach
-                    </ul>
+                    @endif
                 </div>
             </div>
             </div>
