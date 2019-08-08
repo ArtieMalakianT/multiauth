@@ -63,7 +63,7 @@ Cadastrar Categorias
 			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
 				<div class="form-group">
 					<label>Nome do Categoria</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200"/>
+					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200"/>
 				
 				</div>
 
@@ -87,4 +87,13 @@ Cadastrar Categorias
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nome').focus();
+      }
+    );
+  </script>
   @endsection

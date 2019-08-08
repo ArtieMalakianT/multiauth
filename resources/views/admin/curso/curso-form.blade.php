@@ -63,7 +63,7 @@ Cadastrar Cursos
 			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
 				<div class="form-group">
 					<label>Nome do Curso</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200"/>
+					<input id="nomeCurso" class="form-control" type="text" name="nome" maxlenght="200" />
 				
 				</div>
 
@@ -97,4 +97,13 @@ Cadastrar Cursos
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nomeCurso').focus();
+      }
+    );
+  </script>
   @endsection

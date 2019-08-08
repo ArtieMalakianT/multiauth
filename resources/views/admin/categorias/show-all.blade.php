@@ -43,7 +43,7 @@ Categorias
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
+        <li><a href="/admin/cursos/listar">Cursos</a></li>
         <li class="active">Categorias</li>
       </ol>
     </section>
@@ -64,10 +64,10 @@ Categorias
           <form action="" method="post" style="display: inline">
           <input type="hidden" name="_METHOD" value="delete">
             <div class="tools">
-              <a class="fa fa-plus" href="/admin/subCategoria/{{ $categoria->id }}" title="Adicionar Sub-Categoria" style="color:green;"></a>
-              <a class="fa fa-edit" href="" title="Editar Categoria"></a>
-              <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $categoria->id }}" title="Visualizar Pacotes"></a>
-              <button class="fa fa-trash"></button>
+              <a class="fa fa-plus" href="/admin/subCategoria/{{ $categoria->id }}" title="Adicionar Sub-Categoria" style="color:green;"> Adicionar Sub-Categoria</a>
+              <a class="fa fa-edit" href="" title="Editar Categoria"> Editar Categoria</a>
+              <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $categoria->id }}" title="Visualizar Pacotes"> Ver Pacotes</a>
+              <a href="#"><i class="fa fa-trash"></i> Excluir</a>
             </div>
             </form>
           </li>

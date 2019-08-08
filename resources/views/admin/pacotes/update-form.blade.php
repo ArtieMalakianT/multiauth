@@ -44,8 +44,9 @@ Editar Pacote
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
-        <li class="active">Editar Pacotes</li>
+        <li><a href="/admin/categorias/listar">Categorias</a></li>
+        <li><a href="/admin/pacotes/listar/{{$pacote->id_categoria}}">Pacotes</a></li>
+        <li class="active">Editar Pacote</li>
       </ol>
     </section>
 
@@ -65,7 +66,7 @@ Editar Pacote
             @csrf			
 				<div class="form-group">
 					<label>Nome do Pacote</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200" required value="{{ $pacote->nome }}"/>
+					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200" required value="{{ $pacote->nome }}"/>
 				
 				</div>              
 
@@ -128,4 +129,13 @@ Editar Pacote
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nome').focus();
+      }
+    );
+  </script>
   @endsection

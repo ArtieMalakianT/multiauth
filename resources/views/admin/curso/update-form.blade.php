@@ -43,7 +43,7 @@ Atualizar Cursos
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
+        <li><a href="/admin/cursos/listar">Cursos</a></li>
         <li class="active">Atualizar Cursos</li>
       </ol>
     </section>
@@ -64,7 +64,7 @@ Atualizar Cursos
       <input name="id" type="hidden" value="{{ $curso->id }}"/>
 				<div class="form-group">
 					<label>Nome do Curso</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200" value="{{ $curso->nome }}"/>
+					<input id="nomeCurso" class="form-control" type="text" name="nome" maxlenght="200" value="{{ $curso->nome }}"/>
 				
 				</div>
 
@@ -97,4 +97,13 @@ Atualizar Cursos
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nomeCurso').focus();
+      }
+    );
+  </script>
   @endsection

@@ -43,7 +43,7 @@ Pacotes
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
+        <li><a href="/admin/categorias/listar">Categorias</a></li>
         <li class="active">Pacotes</li>
       </ol>
     </section>
@@ -56,7 +56,7 @@ Pacotes
 		<div class="box box-primary">
 			<div class="box-header">
 				<h2>Lista de Pacotes</h2>
-                <a href="/admin/pacotes/{{ $idCat }}">Cadastrar Pacote</a>
+        <a href="/admin/pacotes/{{ $idCat }}"><i class="fa fa-plus"></i> Cadastrar Pacote</a>
 			</div>
 			<div class="box-body">			
         <ul class="todo-list ui-sortable">            

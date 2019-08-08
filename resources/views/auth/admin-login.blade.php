@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title')</title>
+  <title>Administração | Login</title>
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Tell the browser to be responsive to screen width -->
@@ -82,7 +82,7 @@
     </div>
     <!-- /.social-auth-links -->
     @if (Route::has('password.request'))
-    <a href="{{ route('password.request') }}">Esqueci minha senha</a><br>
+    <a href="{{ route('admin.reset') }}">Esqueci minha senha</a><br>
     @endif
     <a href="register.html" class="text-center">Register a new membership</a>
 

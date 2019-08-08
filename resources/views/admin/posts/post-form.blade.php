@@ -63,7 +63,7 @@ Criar Post
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}"/>
 				<div class="form-group">
 					<label>Titulo do Post</label>
-					<input required class="form-control" type="text" name="titulo" maxlenght="200"/>
+					<input id="titulo" required class="form-control" type="text" name="titulo" maxlenght="200"/>
 				
         </div>
         
@@ -153,4 +153,13 @@ Criar Post
             });
         });
     </script>
+    <script>
+    $(document).ready(function()
+      {
+        $('#titulo').focus();
+      }
+    );
+  </script>
   @endsection
+
+ 

@@ -43,7 +43,8 @@ Cadastrar Pacotes
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Cursos</a></li>
+        <li><a href="/admin/categorias/listar">Categorias</a></li>
+        <li><a href="/admin/pacotes/listar/{{$categoria->id}}">Pacotes</a></li>
         <li class="active">Cadastrar Pacotes</li>
       </ol>
     </section>
@@ -64,7 +65,7 @@ Cadastrar Pacotes
             <input name="categoria" type="hidden" value="{{ $categoria->id }}"/> 
 				<div class="form-group">
 					<label>Nome do Pacote</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200" required/>
+					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200" required/>
 				
 				</div>                
 
@@ -83,7 +84,10 @@ Cadastrar Pacotes
 
                 <div class="form-group">
 					<label>Status</label>
-					<input required type="number" class="form-control" name="status"/>
+					<select required name="status" class="form-control">
+                        <option value="1"> Ativo</option>
+                        <option value="0"> Oculto</option>
+                    </select>
 				</div>
 
                 <div class="form-group">
@@ -127,4 +131,13 @@ Cadastrar Pacotes
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nome').focus();
+      }
+    );
+  </script>
   @endsection

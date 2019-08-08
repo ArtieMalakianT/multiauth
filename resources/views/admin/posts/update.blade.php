@@ -42,8 +42,8 @@ Editar Post
         <small>Postagens</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
+        <li><a href="/admin/post/list">Posts</a></li>
         <li class="active">Editar Post</li>
       </ol>
     </section>
@@ -68,7 +68,7 @@ Editar Post
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}"/>
 				<div class="form-group">
 					<label>Titulo do Post</label>
-					<input class="form-control" type="text" name="titulo" maxlenght="200" value="{{ $post->titulo }}"/>
+					<input id="titulo" class="form-control" type="text" name="titulo" maxlenght="200" value="{{ $post->titulo }}"/>
 				
         </div>
         
@@ -165,5 +165,12 @@ Editar Post
                 });
             });
         });
+    </script>
+    <script>
+    $(document).ready(function()
+      {
+        $('#titulo').focus();
+      }
+    );
     </script>
   @endsection

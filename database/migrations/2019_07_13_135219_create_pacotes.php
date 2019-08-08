@@ -18,8 +18,8 @@ class CreatePacotes extends Migration
             $table->string('nome',200);
             $table->string('descricao',200);
             $table->string('duracao',100);
-            $table->integer('status');
-            $table->integer('ordem');
+            $table->enum('status',['1','0']);
+            $table->integer('ordem')->unique();
             //Relação com a tabela categorias
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');

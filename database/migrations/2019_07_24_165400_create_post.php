@@ -20,7 +20,7 @@ class CreatePost extends Migration
             $table->string('capa',300);
             $table->string('descricao',500);
             $table->integer('acessos')->nullable();
-            $table->integer('status')->nullable();
+            $table->enum('status',['1','0'])->nullable();
             
             //Chave estrangeira para Categorias
             $table->unsignedBigInteger('id_categoria');

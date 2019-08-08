@@ -65,7 +65,7 @@ Cadastrar Sub-Categorias
       
 				<div class="form-group">
 					<label>Nome</label>
-					<input class="form-control" type="text" name="nome" maxlenght="200"/>
+					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200"/>
 				
         </div>
                         
@@ -84,4 +84,13 @@ Cadastrar Sub-Categorias
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  @endsection
+  @section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#nome').focus();
+      }
+    );
+  </script>
   @endsection

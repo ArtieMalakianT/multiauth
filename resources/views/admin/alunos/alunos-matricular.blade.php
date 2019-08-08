@@ -63,7 +63,7 @@ Like School| Alunos
 
                     <div class="form-group">
                         <label>Pacote</label>
-                        <select name="id_pacote" class="form-control">
+                        <select id="pacote" name="id_pacote" class="form-control">
                             @foreach($pacotes as $pacote)
                             <option class="@error('pacote') is-invalid @enderror" value="{{$pacote->id}}">{{$pacote->nome}}</option>
                             @endforeach
@@ -102,3 +102,12 @@ Like School| Alunos
     </section>
 </div>
 @endsection
+@section('script')
+  <script>
+    $(document).ready(function()
+      {
+        $('#pacote').focus();
+      }
+    );
+  </script>
+  @endsection
