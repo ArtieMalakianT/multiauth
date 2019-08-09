@@ -15,7 +15,7 @@
 					<aside class="single_sidebar_widget author_widget">
 						<img class="author_img img-fluid" src="/img/blog/author.jpg" alt="">
 						<h4>Like School</h4>
-						<a href="https://likeschool.com.br"><p>www.likeschool.com.br</p></a>
+						<a href="/"><p>www.likeschool.com.br</p></a>
 						<p>A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
 						<div class="social_icon">
 							<a href="https://www.facebook.com/like.school.brazil/" target="_blank" title="Like School Facebook" alt="Página do Facebook Like School"><i class="fab fa-facebook"></i></a>

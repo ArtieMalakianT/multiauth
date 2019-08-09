@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
@@ -30,25 +30,20 @@
     </head>
     <body>
         <header>     
-            <div class="navbar">
+            <div id="nav" class="" style="transition: all 0.5s">
             <nav class="nav-extended blue">
                 <div class="nav-wrapper">                                        
-                    <!-- Left Items -->
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="left hide-on-med-and-down">
-                        <li><a href="">Home</a></li>                        
-                        <li><a href="">Sobre Nós</a></li>
-                        <li><a href="">Projetos</a></li>
-                        <li><a href="">Cursos</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="">Contato</a></li>
+                    <!-- Left Items -->                    
+                    <ul class="">
+                        <li class="brand-logo"><a>Like School</a></li>
                     </ul>
 
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <!-- Right Items -->                                        
-                    <ul class="right">
+                    <ul class="right  hide-on-med-and-down">
                         @if (Route::has('login'))
                         @auth
-                            <li><a href="{{ url('/home') }}"><i class="fas fa-home fa-lg"></i> Área do estudante </a></li>
+                            <li><a href="{{ url('/home') }}"><i class="fas fa-home fa-lg"></i> Área do estudante</a></li>
                         @else
                             <li><a href="{{ route('login') }}"><i class="fas fa-user fa-lg"></i> Login</a></li>
 
@@ -63,28 +58,33 @@
                         <li><a href="" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
                         <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i></a>     </li>
                     </ul>
-                    <div class="nav-content">
-                        <ul class="tabs tabs-transparent">
-                            <li class="tab"><a href="">Home</a></li>                        
-                            <li class="tab"><a href="">Sobre Nós</a></li>
-                            <li class="tab"><a href="">Projetos</a></li>
-                            <li class="tab"><a href="">Cursos</a></li>
-                            <li class="tab"><a href="/blog">Blog</a></li>
-                            <li class="tab"><a href="">Contato</a></li>
-                        </ul>
-                    </div>                
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="">Home</a></li>                        
+                        <li class="tab"><a href="#about">Sobre Nós</a></li>
+                        <li class="tab"><a href="#projects">Projetos</a></li>
+                        <li class="tab"><a href="">Cursos</a></li>
+                        <li class="tab"><a href="#blog">Blog</a></li>
+                        <li class="tab"><a href="">Contato</a></li>
+                    </ul>               
                 </div>                                  
             </nav> 
                
             </div>
             <ul class="sidenav blue"  id="mobile-demo">
-                    <li><a href="">Home</a></li>                        
-                    <li><a href="">Sobre Nós</a></li>
-                    <li><a href="">Projetos</a></li>
-                    <li><a href="">Cursos</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Contato</a></li>
-                    <li style="display:flex"><img class="responsive-img" src="/img/like_logo.png" style="width:100px; height:60px; margin:0px auto"></li>                   
+            @if (Route::has('login'))
+                @auth
+                    <li><a href="{{ url('/home') }}"><i class="fas fa-home fa-lg"></i> Área do estudante</a></li>
+                @else
+                    <li><a href="{{ route('login') }}"><i class="fas fa-user fa-lg"></i> Login</a></li>
+                @if (Route::has('register'))
+                    <li><a href="{{ route('register') }}"><i class="fas fa-key fa-lg"></i> Registrar</a></li>
+                @endif
+                @endauth
+                @endif
+                <li><a href="" style="color: #fff" title="Messenger do facebook" alt="Envie-nos uma mensagem pelo facebook"><i class="fab fa-facebook-messenger fa-lg"></i>Messenger</a> </li>
+                <li><a href="" style="color: #fff" title="Facebook" alt="Acesse nossa página do facebook"><i class="fab fa-facebook fa-lg" ></i>Facebook</a> </li>
+                <li><a href="" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i>Whatsapp</a></li>
+                <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i>Instagram</a> </li>
             </ul>        
                         
 
@@ -93,35 +93,38 @@
             </div>
         </header>
         <!-- About -->
-        <section id="about" class="container center-align">
-            <div class="row">
-                <h4>Sobre Nós</h4>                    
-            </div>
-            <div class="section-description">                
+        <section id="about" class="page-section center-align">
+            <div class="container">
                 <div class="row">
-                    <p>A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
+                    <h4 class="grey-text text-darken-3">Sobre Nós</h4>                    
                 </div>
-            </div>                                          
-            <div class="row"> 
-                    <div class="col s12 m4">
-                        <img class="responsive-img" title="Dedicação 100%" alt="Dedicação 100%" src="img/percent_azul.png">
-                        <p class="txt-left" style="color: #2980b9"><i class="fas fa-award fa-lg"></i> Dedicação</p>
+                <div class="section-description">                
+                    <div class="row">
+                        <p class="grey-text">A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
                     </div>
-                    <div class="col s12 m4">
-                        <img class="responsive-img" title="Compromisso 100%" alt="Compromisso 100%" src="img/percent_preto.png">
-                        <p class="txt-left" style="color: #000"><i class="fas fa-handshake fa-lg"></i> Compromisso</p>
-                    </div>
-                    <div class="col s12 m4">
-                        <img class="responsive-img" title="Social 100%" alt="Social 100%" src="img/percent_vermelho.png">
-                        <p class="txt-left" style="color: #df0024"><i class="fas fa-share-alt fa-lg"></i> Social</p>
-                    </div>                                      
+                </div>                                          
+                <div class="row"> 
+                        <div class="col s12 m4">
+                            <img class="responsive-img" title="Dedicação 100%" alt="Dedicação 100%" src="img/percent_azul.png">
+                            <p class="txt-left" style="color: #2980b9"><i class="fas fa-award fa-lg"></i> Dedicação</p>
+                        </div>
+                        <div class="col s12 m4">
+                            <img class="responsive-img" title="Compromisso 100%" alt="Compromisso 100%" src="img/percent_preto.png">
+                            <p class="txt-left" style="color: #000"><i class="fas fa-handshake fa-lg"></i> Compromisso</p>
+                        </div>
+                        <div class="col s12 m4">
+                            <img class="responsive-img" title="Social 100%" alt="Social 100%" src="img/percent_vermelho.png">
+                            <p class="txt-left" style="color: #df0024"><i class="fas fa-share-alt fa-lg"></i> Social</p>
+                        </div>                                      
+                </div>    
             </div>
+            
         </section>
         <!-- Projects -->
-        <section id="projects" class=" center-align" style="background-image: url('/img/patterns/pattern1.png')">        
+        <section id="projects" class="page-section center-align" style="background-image: url('/img/patterns/pattern1.png')">        
             <div class="row">
-                <h4>Projetos</h4>
-                <small>Você vai amar o que fazemos. Confira!</small>                        
+                <h4 class="grey-text text-darken-3">Projetos</h4>
+                <p class="grey-text">Você vai amar o que fazemos. Confira!</p>                        
             </div>                       
             <div class="row">                
                     <div class="col s6 m3">                        
@@ -138,8 +141,9 @@
                     </div>                
             </div>
         </section>
+
         <!-- Wekness -->
-        <section id="avaliations" class="grey darken-4 center-align">
+        <section id="avaliations" class="page-section center-align" style="background-image: url('/img/thumb2.jpg');background-size: cover;">
             <div class="row">               
                     <div class="">
                         <h4 style="color:#FFF">Avaliações</h4>  
@@ -150,36 +154,79 @@
                             <i class="fas fa-star"></i>                                     
                     </div>                
             </div>
-            <!-- First Comment -->
-            <div id="comments" class=""> 
-                <div class="container" >          
-                    <div class="">
+
+            <div class="carousel carousel-slider center" >
+                <div class="carousel-item">
+                    <div class="" style="color: white">
                             <img src="img/weekness/33151683_655776868094838_1299105767407747072_n.jpg">
                             <p>Getúlio Vargas</p>                       
                     </div>                
-                    <div class="row">
+                    <div class="container" style="height: 100%">
                         <img style="width: 30px;margin-bottom: -25px;" src="img/patterns/arrow_blue.png">
                         <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"Eu gosto de fazer cursos na Like School pelo fato de ser algo que a Ilhota nunca teve, e a escola estar dando certo, está prosseguindo. Os cursos tanto de Inglês como de Informática são bem produtivos e realmente tem um ensino de grande qualidade."</p>
-                    </div>
-            <!-- Second Comment -->                
-                    <div class="">                
+                    </div>    
+                </div>
+
+                <div class="carousel-item">
+                    <div class="" style="color: white">                
                         <img src="img/weekness/67697569_10205950013025036_7384679688280473600_n.jpg">
                         <p>Jenny Thuler</p>                                           
                     </div>                
-                    <div class="row">                    
+                    <div class="container" style="height: 100%">                    
                         <p class="w1 ma"><img style="width: 30px;margin-bottom: -25px" src="img/patterns/arrow_blue.png"></p>
                         <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"Melhor curso da região! Imbatível em criatividade e qualidade de ensino! Super recomendo."</p>                                                                     
                     </div>
                 </div>
-            </div>            
+            </div>     
 
         </section>
+        
+        <!-- Blog -->
+        <section id="blog" class="page-section grey darken-4">
+            <div class="center">
+                <h4 class="white-text">Blog</h4>
+                <small class="grey-text">Posts recentes...</small>
+            </div>
+
+            <div class="carousel carousel-slider center" style="height: 500px!important">                
+
+                @foreach($recentPosts as $post)
+                <div class="carousel-item">
+                        <div class="col s12 m7" style="margin: 0px 20%">
+                            <h2 class="header red-text">{{$post->titulo}}</h2>
+                            <div class="card horizontal">
+                                <div class="card-image">
+                                    <?php $url = Storage::url($post->capa) ?>
+                                    <img src="{{$url}}" height="200">
+                                </div>
+
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <span class="card-title">{{$post->descricao}}</span>
+                                    </div>
+
+                                    <div class="card-action">
+                                        <a class="blue-text" href="/blog/show/post/{{ $post->id }}">Ver Post</a>
+                                    </div>  
+                                </div>                                
+                            </div>
+                        </div>                                                                                                         
+                </div>
+                @endforeach     
+                
+                <div class="carousel-fixed-item center">
+                    <a href="/blog" class="btn waves-effect white grey-text darken-text-2">Ver Blog...</a>
+                </div>
+
+            </div>
+                                                         
+        </section>        
         
         <!-- Cursos -->
         <section id="cursos" class="page-section">
             <div class="section-header">
                 <div class="">
-                    <h2>Cursos</h2>
+                    <h4>Cursos</h4>
                 </div>            
             </div>
             <div class="section-content">
@@ -205,30 +252,24 @@
             </div>
         </section>
 
-        <!-- Blog -->
-        <section id="blog" class="page-section">
-            <div class="section-header">
-                <div class="">
-                    <h2>Blog</h2>
-                </div>
-            </div>
-
-            <div class="section-content">
-                <?php
-                    foreach($recentPosts as $post)
-                    {
-                        echo $post->titulo."<br>";
-                    }
-                ?>
-            </div>
-        </section>
+        
 
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="/js/materialize.min.js">      
         </script>
         <script>
             $(document).ready(function(){
-                $('.sidenav').sidenav();
+                $('.sidenav').sidenav();                
+
+                $('.carousel.carousel-slider').carousel({
+                    fullWidth: true,  
+                    indicators: true                 
+                });
+
+                $(document).ready(function(){
+                    $('.carousel').carousel();
+                });
+
             });
         </script>          
     </body>
