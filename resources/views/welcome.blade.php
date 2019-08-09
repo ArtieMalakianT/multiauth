@@ -226,7 +226,7 @@
         <section id="cursos" class="page-section">
             <div class="section-header">
                 <div class="">
-                    <h4>Cursos</h4>
+                    <h2>Cursos</h2>
                 </div>            
             </div>
             <div class="section-content">

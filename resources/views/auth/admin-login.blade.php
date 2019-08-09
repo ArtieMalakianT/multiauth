@@ -58,13 +58,7 @@
         </span>
         @enderror
       </div>
-      <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>Lembrar-me
-            </label>
-          </div>
-        </div>
+      <div class="row">        
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
@@ -74,17 +68,16 @@
     </form>
 
     <div class="social-auth-links text-center">
-      <p>- OR -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+      <p>- ou -</p>
+      <a href="" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Entrar usando
         Facebook</a>
-      <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+      <a href="" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Entrar usando
         Google+</a>
     </div>
     <!-- /.social-auth-links -->
     @if (Route::has('password.request'))
     <a href="{{ route('admin.reset') }}">Esqueci minha senha</a><br>
-    @endif
-    <a href="register.html" class="text-center">Register a new membership</a>
+    @endif    
 
   </div>
   <!-- /.login-box-body -->

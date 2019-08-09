@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Cadastrar Categorias
+Editar Categoria
 @endsection
 
 @section('content')
@@ -39,12 +39,12 @@ Cadastrar Categorias
     <section class="content-header">
       <h1>
         Blog LikeSchool
-        <small>Cursos</small>
+        <small>Categorias</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="/admin/categorias/listar">Categorias</a></li>
-        <li class="active">Cadastrar Categorias</li>
+        <li class="active">Editar Categoria</li>
       </ol>
     </section>
 
@@ -53,31 +53,31 @@ Cadastrar Categorias
     <section class="content">
       <div class="row">
         <div class="col-md-12">
-		<div class="box box-primary">
-			<div class="box-header">
-				<h2>Cadastrar  Categoria</h2>
-			</div>
-			<div class="box-body">
-			<form action="/admin/categorias" method="POST">
-            @csrf
-			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
-				<div class="form-group">
-					<label>Nome do Categoria</label>
-					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200"/>
-				
-				</div>
-
-        <div class="form-group">
-					<label>Ordem de exibiçao</label>
-					<input class="form-control" type="text" name="ordem" maxlenght="200"/>			
-				</div>							
-								
-				<div class="form-group">
-					<button class="btn btn-primary">Cadastrar</button>
-				</div>
-			</form>
-			</div>
-		</div>
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h2>Editar Categoria</h2>
+                </div>
+                <div class="box-body">
+                    <form action="/admin/categoria/update" method="POST">
+                        @method('PUT')
+                        @csrf
+                        <input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>
+                        <input name="id" type="hidden" value="{{ $categoria->id }}"/>
+                        
+                        <div class="form-group">
+                            <label>Nome do Categoria</label>
+                            <input id="nome" class="form-control" type="text" name="nome" maxlenght="200" value="{{$categoria->nome}}"/>			
+                        </div>
+                        <div class="form-group">
+                            <label>Ordem de exibiçao</label>
+                            <input class="form-control" type="text" name="ordem" maxlenght="200" value="{{$categoria->ordem}}"/>			
+                        </div>							                                            
+                        <div class="form-group">
+                            <button class="btn btn-primary">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
           <!-- /.box -->
         </div>
         <!-- /.col-->

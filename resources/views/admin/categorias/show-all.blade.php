@@ -55,7 +55,8 @@ Categorias
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Lista de Categorias</h2>        
+        <h2>Lista de Categorias</h2>   
+        <a href="/admin/categorias"><i class="fa fa-plus"></i> Adicionar Categoria</a>     
 			</div>
 			<div class="box-body">			
         <ul class="todo-list ui-sortable">            
@@ -65,19 +66,70 @@ Categorias
           <input type="hidden" name="_METHOD" value="delete">
             <div class="tools">
               <a class="fa fa-plus" href="/admin/subCategoria/{{ $categoria->id }}" title="Adicionar Sub-Categoria" style="color:green;"> Adicionar Sub-Categoria</a>
-              <a class="fa fa-edit" href="" title="Editar Categoria"> Editar Categoria</a>
+              <a class="fa fa-edit" href="/admin/categoria/edit/{{$categoria->id}}" title="Editar Categoria"> Editar Categoria</a>
               <a class="fa fa-eye" href="/admin/pacotes/listar/{{ $categoria->id }}" title="Visualizar Pacotes"> Ver Pacotes</a>
-              <a href="#"><i class="fa fa-trash"></i> Excluir</a>
+              <a href="#" data-toggle="modal" data-target="#cat-modal-danger-{{$categoria->id}}"><i class="fa fa-trash"></i> Excluir</a>
             </div>
             </form>
           </li>
+          <div class="modal modal-danger fade" id="cat-modal-danger-{{$categoria->id}}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Aviso!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Tem certeza que deseja excluir a categoria "{{$categoria->nome}}"?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                    <form action="/admin/categoria/delete" method="post">
+                      @method('delete')
+                      @csrf                      
+                      <input type="hidden" name="id" value="{{$categoria->id}}">
+                      <button type="submit" class="btn btn-outline">Excluir</button>
+                    </form>                    
+                  </div>
+                </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+        <!-- /.modal -->
           <ul>
             @foreach($categoria->sub as $sub)
-            <form>
-              <li style="margin:5px">{{$sub->nome}} 
-              <a class="fa fa-edit" href="" title="Editar Sub Categoria"></a>
-              <button><i class="fa fa-trash" size="small"></i></button></li>              
-            </form>
+            <li style="margin:5px">{{$sub->nome}} 
+            <a class="fa fa-edit" href="/admin/subCategoria/edit/{{$sub->id}}" title="Editar Sub Categoria"></a>
+            <a href="#" data-toggle="modal" data-target="#sub-modal-danger-{{$sub->id}}"><i class="fa fa-trash" size="small"></i></a></li>
+
+            <div class="modal modal-danger fade" id="sub-modal-danger-{{$sub->id}}">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title">Aviso!</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Tem certeza que deseja excluir a sub categoria "{{$sub->nome}}"?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                      <form action="/admin/subCategoria/delete" method="post">
+                        @method('delete')
+                        @csrf                      
+                        <input type="hidden" name="id" value="{{$sub->id}}">
+                        <button type="submit" class="btn btn-outline">Excluir</button>
+                      </form>                    
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+          <!-- /.modal -->
             @endforeach
           </ul>
           @endforeach

@@ -44,9 +44,16 @@ Route::prefix('admin')->group(function(){
     Route::delete('/curso/delete', 'Admin\CursosController@delete');
 
     Route::get('/categorias/listar','Admin\CategoriasController@showAll');
-    Route::get('/categorias','Admin\CategoriasController@showForm');
-    Route::post('/categorias','Admin\CategoriasController@formSubmit');
+    Route::get('/categorias','Admin\CategoriasController@showForm');    
+    Route::get('/categoria/edit/{id}','Admin\CategoriasController@showEditCatForm');
+    Route::put('/categoria/update','Admin\CategoriasController@updateCategoria');
+    Route::delete('/categoria/delete','Admin\CategoriasController@deleteCategoria');
+    Route::post('/categorias','Admin\CategoriasController@formSubmit');    
+
     Route::get('/subCategoria/{catId}','Admin\CategoriasController@showForm');
+    Route::put('/subCategoria/update','Admin\CategoriasController@updatesubCategoria');
+    Route::get('/subCategoria/edit/{id}','Admin\CategoriasController@showEditSubCatForm');
+    Route::delete('/subCategoria/delete','Admin\CategoriasController@deleteSub');
     Route::post('/subCategoria/{catId}','Admin\CategoriasController@formSubmit');
 
     Route::get('/pacotes/listar/{id_cat}','Admin\PacotesController@showAll');

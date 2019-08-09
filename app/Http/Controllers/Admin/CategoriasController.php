@@ -35,6 +35,83 @@ class CategoriasController extends Controller
         }
         
     }
+    public function showEditCatForm(Request $request)
+    {
+        $id = $request->id;
+        $categoria = Categorias::find($id);
+        return view('admin.categorias.edit',compact('categoria'));
+    }
+    public function updateCategoria(Request $request)
+    {
+        $id = $request->id;
+        $nome = $request->nome;
+        $ordem = $request->ordem;
+
+        $categoria = Categorias::find($id);
+        $categoria->nome = $nome;
+        $categoria->ordem = $ordem;
+
+        if($categoria->save())
+        {
+            return back()->with('status','Categoria alterada com sucesso!');
+        }
+        else
+        {
+            return back()->with('error','Erro ao editar Categoria');
+        }
+
+    }
+    public function showEditSubCatForm(Request $request)
+    {
+        $id = $request->id;
+        $subCategoria = subCategorias::find($id);
+        return view('admin.categorias.editSub',compact('subCategoria'));
+    }
+    public function deleteCategoria(Request $request)
+    {
+        $id = $request->id;
+        $categoria = Categorias::find($id);
+        if($categoria->delete())
+        {
+            return back()->with('status','Categoria deletada com sucesso!');
+        }
+        else
+        {
+            return back()->with('error','Erro ao deletar Categoria');
+        }
+    }
+    public function updateSubCategoria(Request $request)
+    {
+        $id = $request->id;
+        $nome = $request->nome;
+
+        $subCategoria = subCategorias::find($id);
+        $subCategoria->nome = $nome;        
+
+        if($subCategoria->save())
+        {
+            return back()->with('status','Sub Categoria alterada com sucesso!');
+        }
+        else
+        {
+            return back()->with('error','Erro ao editar Sub Categoria');
+        }
+
+    }
+    public function deleteSub(Request $request)
+    {
+        $id = $request->id;
+        $subCategoria = subCategorias::find($id);
+        if($subCategoria->delete())
+        {
+            return back()->with('status','Sub Categoria deletada com sucesso!');
+        }
+        else
+        {
+            return back()->with('error','Erro ao deletar Sub Categoria');
+        }
+    }
+
     //Tratar dados submetidos do formulario
     public function formSubmit(Request $request)
     {
