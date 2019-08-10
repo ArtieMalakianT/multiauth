@@ -91,6 +91,13 @@
             <div class="banner">
                 <img class="responsive-img" src="img/banner site.jpg">
             </div>
+
+            <div class="fixed-action-btn">
+                <a href="#" class="btn-floating">
+                    <i class="large material-icons blue">arrow_upward</i>
+                </a>
+                
+            </div>
         </header>
         <!-- About -->
         <section id="about" class="page-section center-align">
@@ -121,7 +128,7 @@
             
         </section>
         <!-- Projects -->
-        <section id="projects" class="page-section center-align" style="background-image: url('/img/patterns/pattern1.png')">        
+        <section id="projects" class="page-section center-align" style="background-image: url('/img/patterns/pattern1.png');display: flow-root">        
             <div class="row">
                 <h4 class="grey-text text-darken-3">Projetos</h4>
                 <p class="grey-text">Você vai amar o que fazemos. Confira!</p>                        
@@ -143,25 +150,22 @@
         </section>
 
         <!-- Wekness -->
-        <section id="avaliations" class="page-section center-align" style="background-image: url('/img/thumb2.jpg');background-size: cover;">
-            <div class="row">               
-                    <div class="">
-                        <h4 style="color:#FFF">Avaliações</h4>  
-                            <i class="fas fa-star"></i>                                                   
-                            <i class="fas fa-star"></i>    
-                            <i class="fas fa-star"></i>    
-                            <i class="fas fa-star"></i>    
-                            <i class="fas fa-star"></i>                                     
-                    </div>                
-            </div>
+        <section id="avaliations" class="page-section center-align" style="background-image: url('/img/thumb.jpg');background-size: cover;">
+            <div class="row">                               
+                <h4 style="color:#FFF">Avaliações</h4>  
+                <i class="fas fa-star"></i>                                                   
+                <i class="fas fa-star"></i>    
+                <i class="fas fa-star"></i>    
+                <i class="fas fa-star"></i>    
+                <i class="fas fa-star"></i>                                                                                 
+            </div>            
 
-            <div class="carousel carousel-slider center" >
-                <div class="carousel-item">
-                    <div class="" style="color: white">
-                            <img src="img/weekness/33151683_655776868094838_1299105767407747072_n.jpg">
-                            <p>Getúlio Vargas</p>                       
-                    </div>                
-                    <div class="container" style="height: 100%">
+            <div class="carousel carousel-slider">
+                <div class="carousel-item" > 
+                    <div class="container" style="color: white">
+                        <img src="img/weekness/33151683_655776868094838_1299105767407747072_n.jpg" width="100">
+                        <p>Getúlio Vargas</p>
+                    
                         <img style="width: 30px;margin-bottom: -25px;" src="img/patterns/arrow_blue.png">
                         <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"Eu gosto de fazer cursos na Like School pelo fato de ser algo que a Ilhota nunca teve, e a escola estar dando certo, está prosseguindo. Os cursos tanto de Inglês como de Informática são bem produtivos e realmente tem um ensino de grande qualidade."</p>
                     </div>    
@@ -172,37 +176,53 @@
                         <img src="img/weekness/67697569_10205950013025036_7384679688280473600_n.jpg">
                         <p>Jenny Thuler</p>                                           
                     </div>                
-                    <div class="container" style="height: 100%">                    
+                    <div class="container">                    
                         <p class="w1 ma"><img style="width: 30px;margin-bottom: -25px" src="img/patterns/arrow_blue.png"></p>
                         <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"Melhor curso da região! Imbatível em criatividade e qualidade de ensino! Super recomendo."</p>                                                                     
                     </div>
-                </div>
+                </div>                
             </div>     
 
         </section>
-        
+
+        <!-- Cursos -->
+        <section id="cursos" class="page-section center-align">
+            <div class="container">
+                <h4 class="grey-text text-darken-3">Cursos</h4>
+                <div class="row">
+                    @foreach($categorias as $categoria)
+                        <div class="col s12 m4">
+                            <h4 >{{$categoria->nome}}</h4>
+                            <a href="#" class="btn btn-large waves-effect waves-light red darken">Ver pacotes <i class="material-icons right">send</i></a>
+                        </div>                    
+                    @endforeach     
+                </div>
+                   
+            </div>
+
+            
+        </section>
+
         <!-- Blog -->
-        <section id="blog" class="page-section grey darken-4">
+        <section id="blog" class="page-section grey darken-4" style="display:flow-root">
             <div class="center">
                 <h4 class="white-text">Blog</h4>
                 <small class="grey-text">Posts recentes...</small>
-            </div>
-
-            <div class="carousel carousel-slider center" style="height: 500px!important">                
-
-                @foreach($recentPosts as $post)
-                <div class="carousel-item">
-                        <div class="col s12 m7" style="margin: 0px 20%">
-                            <h2 class="header red-text">{{$post->titulo}}</h2>
-                            <div class="card horizontal">
+            </div>    
+            <div class="container center-align">
+                <div class="row">
+                    @foreach($recentPosts as $post)                
+                        <div class="col s6 m3">                            
+                            <div class="card">
                                 <div class="card-image">
                                     <?php $url = Storage::url($post->capa) ?>
-                                    <img src="{{$url}}" height="200">
+                                    <img src="{{$url}}" height="150">
                                 </div>
 
                                 <div class="card-stacked">
                                     <div class="card-content">
-                                        <span class="card-title">{{$post->descricao}}</span>
+                                        <span class="card-title truncate" title="{{$post->titulo}}">{{$post->titulo}}</span>
+                                        <small>{{$post->sub->nome}}</small>
                                     </div>
 
                                     <div class="card-action">
@@ -210,48 +230,50 @@
                                     </div>  
                                 </div>                                
                             </div>
-                        </div>                                                                                                         
-                </div>
-                @endforeach     
-                
-                <div class="carousel-fixed-item center">
-                    <a href="/blog" class="btn waves-effect white grey-text darken-text-2">Ver Blog...</a>
-                </div>
-
-            </div>
-                                                         
+                        </div>                                                                                                             
+                    @endforeach                         
+                </div> 
+                <div class="row">
+                    <div class="col s12">
+                        <a href="/blog" class="btn blue">Ver Blog</a>
+                    </div>                    
+                </div>   
+            </div>                                                                                                                                           
         </section>        
         
-        <!-- Cursos -->
-        <section id="cursos" class="page-section">
-            <div class="section-header">
-                <div class="">
-                    <h2>Cursos</h2>
-                </div>            
-            </div>
-            <div class="section-content">
-                <div class="" style="color: #fff">
-                    <div class="col w3" style="background-color: #2980b9">
-                        <div class="">
-                            <i class="fas fa-comment-alt fa-5x"></i>
-                        </div>                        
-                        <p>Idiomas</p>
-                    </div>
-                    <div class="col w3" style="background-color: #000">
-                        <div class="">
-                            <i class="fas fa-code fa-5x"></i>
-                        </div>
-                        <p>Informática</p>
-                    </div>
-                    <div class="col w3" style="background-color: #df0024">
-                    <div class="">
-                       <i class="fas fa-chart-bar fa-5x"></i>
-                    </div>
-                    <p>Negócios</p>
-                </div>
+        <section id="contato" class="page-section">
+            <div class="center">
+                <h4 class="grey-text text-darken-3" >Contato</h4>
             </div>
         </section>
 
+        <!-- Footer -->
+        <footer class="page-footer blue">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5>Like School</h5>
+                        <small>Inglês Absoluto</small>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5>Menu</h5>
+                        <ul>
+                            <li ><a class="white-text" href="">Home</a></li>                        
+                            <li ><a class="white-text" href="#about">Sobre Nós</a></li>
+                            <li ><a class="white-text" href="#projects">Projetos</a></li>
+                            <li ><a class="white-text" href="">Cursos</a></li>
+                            <li ><a class="white-text" href="#blog">Blog</a></li>
+                            <li ><a class="white-text" href="">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    @ 2019 Like School, todos os direitos reservados
+                </div>
+            </div>            
+        </footer>
         
 
         <!--JavaScript at end of body for optimized loading-->
@@ -261,13 +283,22 @@
             $(document).ready(function(){
                 $('.sidenav').sidenav();                
 
-                $('.carousel.carousel-slider').carousel({
-                    fullWidth: true,  
-                    indicators: true                 
+                $(document).ready(function(){
+                    $('.carousel').carousel({
+                        indicators: true
+                    });
                 });
 
-                $(document).ready(function(){
-                    $('.carousel').carousel();
+                var topHeight = 100;
+                $(window).bind('scroll',function(){                    
+                    if($(window).scrollTop() > topHeight)
+                    {
+                        $('.fixed-action-btn').css('display','block');
+                    }
+                    else
+                    {
+                        $('.fixed-action-btn').css('display','none');
+                    }
                 });
 
             });
