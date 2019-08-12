@@ -62,9 +62,9 @@
                         <li class="tab"><a href="">Home</a></li>                        
                         <li class="tab"><a href="#about">Sobre Nós</a></li>
                         <li class="tab"><a href="#projects">Projetos</a></li>
-                        <li class="tab"><a href="">Cursos</a></li>
+                        <li class="tab"><a href="#cursos">Cursos</a></li>
                         <li class="tab"><a href="#blog">Blog</a></li>
-                        <li class="tab"><a href="">Contato</a></li>
+                        <li class="tab"><a href="#contato">Contato</a></li>
                     </ul>               
                 </div>                                  
             </nav> 
@@ -241,10 +241,51 @@
             </div>                                                                                                                                           
         </section>        
         
-        <section id="contato" class="page-section">
-            <div class="center">
+        <section id="contato" class="page-section center-align">
+            <div class="container">
                 <h4 class="grey-text text-darken-3" >Contato</h4>
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input type="text" placeholder="Nome" id="first_name"  class="validate">
+                                <label for="first_name">Primeiro Nome</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" id="second_name"  class="validate">
+                                <label for="second_name">Sobrenome</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">phone</i>
+                                <input type="tel" id="tel"  class="validate">
+                                <label for="tel">Telefone</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix">email</i>
+                                <input type="email" id="email"  class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix">sms</i>
+                                <textarea id="msg" class="materialize-textarea" data-length="120"></textarea>
+                                <label for="msg">Sua mensagem</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field">                                
+                                <input class="btn black" type="submit" value="Enviar">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
             </div>
+
         </section>
 
         <!-- Footer -->
@@ -258,12 +299,12 @@
                     <div class="col l4 offset-l2 s12">
                         <h5>Menu</h5>
                         <ul>
-                            <li ><a class="white-text" href="">Home</a></li>                        
+                            <li ><a class="white-text" href="#">Home</a></li>                        
                             <li ><a class="white-text" href="#about">Sobre Nós</a></li>
                             <li ><a class="white-text" href="#projects">Projetos</a></li>
-                            <li ><a class="white-text" href="">Cursos</a></li>
+                            <li ><a class="white-text" href="#cursos">Cursos</a></li>
                             <li ><a class="white-text" href="#blog">Blog</a></li>
-                            <li ><a class="white-text" href="">Contato</a></li>
+                            <li ><a class="white-text" href="#contaot">Contato</a></li>
                         </ul>
                     </div>
                 </div>    
@@ -300,6 +341,8 @@
                         $('.fixed-action-btn').css('display','none');
                     }
                 });
+
+                $('textarea#msg').characterCounter();
 
             });
         </script>          

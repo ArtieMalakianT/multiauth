@@ -36,6 +36,36 @@ class AlunoController extends Controller
         return view('admin/alunos.alunos-matricular',['statusMatricula' => $statusMatricula,'pacotes' => $pacotes, 'aluno' => $aluno]);
     }
 
+    public function formEditMatricula($idMatricula)
+    {
+        $matricula = Matriculas::find($idMatricula);
+        $pacotes = Pacotes::all();
+        $statusMatricula = StatusMatricula::all();
+        return view('admin.alunos.edit-matricula',compact('matricula','pacotes','statusMatricula'));
+    }
+
+    public function updateMatricula(Request $request)
+    {
+        $idMatricula = $request->id_matricula;
+        $pacote = $request->id_pacote;
+        $status = $request->id_status;
+
+        $matricula = Matriculas::find($idMatricula);
+
+        $matricula->id_pacote = $pacote;
+        $matricula->id_status = $status;
+
+        if($matricula->save())
+        {
+            return back()->with('status','Matrícula alterada com sucesso!');
+        }
+        else
+        {
+            return back()->with('error','Erro na alteração!');
+        }
+
+    }
+
     public function matricular(Request $request)
     {
          $validationData = $request->validate([

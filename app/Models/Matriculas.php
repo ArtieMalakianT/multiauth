@@ -10,7 +10,7 @@ class Matriculas extends Model
 
     public function aluno()
     {
-        return $this->hasOne('App\User','id');
+        return $this->belongsTo('App\User','id_user');
     }
     public function pacotes()
     {

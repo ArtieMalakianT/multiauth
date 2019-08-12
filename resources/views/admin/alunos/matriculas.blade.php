@@ -71,7 +71,7 @@ Like School| Matrículas
                             <p >{{ $value->status->nome}}</p> 
                             <br>
                             <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$value->id}}">Excluir matrícula</button>
-                            <a class="btn btn-primary" href="{{$value->id}}">Editar matrícula</a>
+                            <a class="btn btn-primary" href="/admin/aluno/edit/matricula/{{$value->id}}">Editar matrícula</a>
                         </div>
 
                         <!-- Modals -->

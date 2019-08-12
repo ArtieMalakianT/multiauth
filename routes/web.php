@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/aluno/matricular','Admin\AlunoController@matricular');
     Route::get('/aluno/show/matriculas/{id}','Admin\AlunoController@showMatriculas');
     Route::get('/aluno/delete/matricula/{id}','Admin\AlunoController@deleteMatricula');
+    Route::get('/aluno/edit/matricula/{id}','Admin\AlunoController@formEditMatricula');
+    Route::put('/aluno/matricula/update','Admin\AlunoController@updateMatricula');
     
     Route::get('/cursos', 'Admin\CursosController@showForm');
     Route::get('/cursos/listar', 'Admin\CursosController@showAll');
