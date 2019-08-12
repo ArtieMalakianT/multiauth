@@ -66,6 +66,37 @@ Perfil
                     </div>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <i class="fas fa-award fa-lg"></i>
+                        <h3 class="box-title">Matrículas</h3>
+                    </div>
+                    <div class="box-footer">
+                            @foreach(Auth::user()->matriculas as $matricula)    
+                            <div class="callout callout-default ">
+                                <i class="fas fa-box"></i>
+                                <strong>Pacote</strong>                        
+                                <p>{{$matricula->pacotes->nome}}</p>
+                                <i class="fas fa-briefcase"></i>                                                            
+                                <strong>Cursos</strong>                            
+                                @foreach($matricula->pacotes->pacote as $rel)
+                                    <p>{{$rel->cursos->nome}} </p>                                                                  
+                                @endforeach                                   
+                                
+                                <i class="fas fa-bookmark"></i>
+                                <strong>Status</strong>
+                                <p>{{$matricula->status->nome}}</p> 
+                                <a type="button" href="#" class="btn btn-success" style="text-decoration: none;">Baixar histórico</a> 
+                                <p>Última atualização - {{$matricula->created_at}}</p>
+                            </div>                 
+                                                                                                                          
+                            @endforeach                            
+                        
+                    </div>
+                </div>
+            </div>
+
             </div>
     </section>
 </div>

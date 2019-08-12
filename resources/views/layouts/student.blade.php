@@ -9,7 +9,10 @@
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/fontawesome.min.css">
   <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/brands.css">
+  <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/solid.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="/assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
@@ -103,7 +106,7 @@
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a href="#" data-toggle="control-sidebar"><i class="fas fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -124,7 +127,7 @@
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->nome }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fas fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
@@ -135,15 +138,15 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-mortar-board"></i> <span>Minha Carreira</span>
+            <i class="fas fa-mortar-board"></i> <span>Minha Carreira</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+              <i class="fas fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/post"><i class="fa fa-circle-o"></i> Cursos</a></li>
-            <li><a href="/admin/post/list"><i class="fa fa-circle-o"></i> Histórico</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Certificados</a></li>
+            <li><a href="/admin/post"><i class="fas fa-circle-o"></i> Cursos</a></li>
+            <li><a href="/admin/post/list"><i class="fas fa-circle-o"></i> Histórico</a></li>
+            <li><a href="../../index2.html"><i class="fas fa-circle-o"></i> Certificados</a></li>
           </ul>
         </li>        
 
@@ -168,8 +171,8 @@
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fas fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fas fa-gears"></i></a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -179,7 +182,7 @@
         <ul class="control-sidebar-menu">
           <li>
             <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+              <i class="menu-icon fas fa-birthday-cake bg-red"></i>
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
@@ -190,7 +193,7 @@
           </li>
           <li>
             <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
+              <i class="menu-icon fas fa-user bg-yellow"></i>
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Frodo Updated His Perfil</h4>
@@ -201,7 +204,7 @@
           </li>
           <li>
             <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+              <i class="menu-icon fas fa-envelope-o bg-light-blue"></i>
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
@@ -212,7 +215,7 @@
           </li>
           <li>
             <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
+              <i class="menu-icon fas fa-file-code-o bg-green"></i>
 
               <div class="menu-info">
                 <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
@@ -344,7 +347,7 @@
           <div class="form-group">
             <label class="control-sidebar-subheading">
               Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+              <a href="javascript:void(0)" class="text-red pull-right"><i class="fas fa-trash-o"></i></a>
             </label>
           </div>
           <!-- /.form-group -->
@@ -364,8 +367,8 @@
 <script src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/assets/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- fas tClick -->
+<script src="/assets/bower_components/fas tclick/lib/fas tclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/assets/dist/js/adminlte.min.js"></script>
 <!-- Sparkline -->

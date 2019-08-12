@@ -40,7 +40,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function matricula()
+    public function matriculas()
     {
         return $this->hasMany('App\Models\Matriculas','id_user');
     }

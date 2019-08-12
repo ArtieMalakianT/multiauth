@@ -12,7 +12,7 @@ class pacotesCurso extends Model
 
     public function cursos()
     {
-        return $this->hasMany('App\Models\Cursos','id');
+        return $this->belongsTo('App\Models\Cursos','id_curso');
     }
 
     public function pacote()

@@ -8,6 +8,7 @@ use App\Models\Cursos;
 use App\Models\Pacotes;
 use App\Models\Categorias;
 use App\Models\pacotesCurso;
+use Illuminate\Support\Facades\Storage;
 
 class PacotesController extends Controller
 {
@@ -57,17 +58,13 @@ class PacotesController extends Controller
         $status = $request->status;
         $ordem = $request->ordem;
         $duracao = $request->duracao;   
-        $this->cursos = $request->cursos;  
-
-         //cria um nome randômico para o conteúdo da descrição
-         $rand = rand(9000,1000000000);
-         $fileName = $rand.".txt";  
+        $this->cursos = $request->cursos;            
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = Pacotes::find($idPacote);
         $pacote->id_categoria = $cat;
         $pacote->nome = $nome;
-        $pacote->descricao = $fileName;
+        $pacote->descricao = $desc;
         $pacote->duracao = $duracao;
         $pacote->status = $status;
         $pacote->ordem = $ordem;
@@ -82,28 +79,13 @@ class PacotesController extends Controller
         }
         else
         {
-            //Faz o upload do arquivo $conteudo
-            $store = Storage::disk('public')->put("/cursos/$fileName", $desc);
-
-            //Se o upload foi feito
-            if($store)
-            {
-                //Retorna para o formulário com o aviso de sucesso
-                return back()->with('status', 'Post Publicado!');
-            }
-            //Caso contrário
-            else
-            {
-                //Retorna para o formulário com o aviso de erro
-                return back()->with('error', 'Algo deu Errado!');
-            }
             foreach($this->cursos as $key => $curso)
             {                                
                 $newRel = new pacotesCurso();
                 $newRel->id_curso = $curso;
                 $pacote->pacote()->save($newRel);                
             }
-            return back()->with('status','Dados Alterados com sucesso!');
+            return back()->with('status','Dados Alterados com sucesso!');            
         }        
     }
 

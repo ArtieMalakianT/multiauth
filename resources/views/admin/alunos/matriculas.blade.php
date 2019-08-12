@@ -55,14 +55,14 @@ Like School| Matrículas
                     <a href="/admin/aluno/matricular/{{$aluno->id}}"><i class="fa fa-plus"></i> Nova Matrícula</a>
                 </div>
                 <div class="box-body">                    
-                    @if(!$aluno->matricula)
+                    @if(!$aluno->matriculas)
                     <div class="callout callout-warning">
                         <h4>Aviso</h4>
                         <p>Nenhuma matrícula cadastrada!</p>
                     </div>                    
                     @else
 
-                        @foreach($aluno->matricula as $value)
+                        @foreach($aluno->matriculas as $value)
 
                         <div class="callout callout-default">                        
                             <h4>Pacote</h4>
