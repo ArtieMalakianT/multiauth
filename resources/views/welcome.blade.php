@@ -150,7 +150,7 @@
         </section>
 
         <!-- Wekness -->
-        <section id="avaliations" class="page-section center-align" style="background-image: url('/img/thumb.jpg');background-size: cover;">
+        <section id="avaliations" class="page-section center-align" style="background-image: url('/img/thumb.jpg');background-size: cover; background-attachment: fixed;">
             <div class="row">                               
                 <h4 style="color:#FFF">Avaliações</h4>  
                 <i class="fas fa-star"></i>                                                   
@@ -222,7 +222,7 @@
                                 <div class="card-stacked">
                                     <div class="card-content">
                                         <span class="card-title truncate" title="{{$post->titulo}}">{{$post->titulo}}</span>
-                                        <small>{{$post->sub->nome}}</small>
+                                        <small class="truncate" title="{{$post->sub->nome}}">{{$post->sub->nome}}</small>
                                     </div>
 
                                     <div class="card-action">
@@ -241,15 +241,17 @@
             </div>                                                                                                                                           
         </section>        
         
+        <!-- Contato -->
         <section id="contato" class="page-section center-align">
             <div class="container">
                 <h4 class="grey-text text-darken-3" >Contato</h4>
                 <div class="row">
-                    <form class="col s12">
+                    <form class="col s12" action="/mail/contact" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">account_circle</i>
-                                <input type="text" placeholder="Nome" id="first_name"  class="validate">
+                                <input name="nome" type="text" placeholder="Nome" id="first_name"  class="validate">
                                 <label for="first_name">Primeiro Nome</label>
                             </div>
                             <div class="input-field col s6">
@@ -260,19 +262,19 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">phone</i>
-                                <input type="tel" id="tel"  class="validate">
+                                <input name="telefone" type="tel" id="tel"  class="validate">
                                 <label for="tel">Telefone</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix">email</i>
-                                <input type="email" id="email"  class="validate">
+                                <input name="email" type="email" id="email"  class="validate">
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">sms</i>
-                                <textarea id="msg" class="materialize-textarea" data-length="120"></textarea>
+                                <textarea name="msg" id="msg" class="materialize-textarea" data-length="120"></textarea>
                                 <label for="msg">Sua mensagem</label>
                             </div>
                         </div>
@@ -283,6 +285,26 @@
                         </div>
 
                     </form>
+                </div>
+                <div class="row">
+                    <div class="col s6 ">
+                        <label>Like School - Gaspar</label>
+                        <p>
+                            R. João Silvino da Cunha, 140
+                                Sete de Setembro, Gaspar - SC, 89114-810
+                                <strong class="red-text">(47) 3332-4750</strong>
+                        </p>                        
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.190393316261!2d-48.94825768448777!3d-26.92917798312048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df24b0b0d24b2b%3A0x15a995e281e83e18!2sLike+School+Gaspar!5e0!3m2!1spt-BR!2sbr!4v1547583443635"  frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="col s6 ">                        
+                        <label>Like School - Ilhota</label>
+                        <p>
+                            R. Leoberto Leal, 265
+                            Centro, Ilhota - SC, 88320-000
+                            <strong class="red-text">(47) 3343-7883</strong>
+                        </p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113845.54212668908!2d-48.965065354932115!3d-26.91386507096155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df3025fdf86205%3A0x402cbeb46c64f3d1!2sLike+School+Ilhota!5e0!3m2!1sen!2sbr!4v1557149209281!5m2!1sen!2sbr"  frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
 
@@ -311,7 +333,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    @ 2019 Like School, todos os direitos reservados
+                    @ <?php echo date('Y'); ?> Like School, todos os direitos reservados
                 </div>
             </div>            
         </footer>

@@ -12,6 +12,7 @@
 */
 
 Route::get('/','Home\WelcomeController@index');
+Route::post('/mail/contact','Home\WelcomeController@contatoMail');
 
 Auth::routes();
 
