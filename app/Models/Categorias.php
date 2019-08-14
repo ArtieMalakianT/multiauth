@@ -24,4 +24,8 @@ class Categorias extends Model
     {
         return $this->hasMany('App\Models\Cursos','id_categoria');
     }
+    public function pacotes()
+    {
+        return $this->hasMany('App\Models\Pacotes','id_categoria');
+    }
 }

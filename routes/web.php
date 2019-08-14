@@ -13,6 +13,7 @@
 
 Route::get('/','Home\WelcomeController@index');
 Route::post('/mail/contact','Home\WelcomeController@contatoMail');
+Route::get('/curso/{idPacote}','Home\WelcomeController@showCurso');
 
 Auth::routes();
 
@@ -38,6 +39,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/aluno/delete/matricula/{id}','Admin\AlunoController@deleteMatricula');
     Route::get('/aluno/edit/matricula/{id}','Admin\AlunoController@formEditMatricula');
     Route::put('/aluno/matricula/update','Admin\AlunoController@updateMatricula');
+    Route::get('/aluno/edit/historico/{idMatricula}','Admin\AlunoController@formHistorico');
+    Route::post('/aluno/historico','Admin\AlunoController@salvarHistorico');
     
     Route::get('/cursos', 'Admin\CursosController@showForm');
     Route::get('/cursos/listar', 'Admin\CursosController@showAll');

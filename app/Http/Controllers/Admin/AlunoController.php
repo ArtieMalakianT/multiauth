@@ -9,6 +9,8 @@ use App\Models\Pacotes;
 use App\Models\pacotesCurso;
 use App\Models\Matriculas;
 use App\Models\StatusMatricula;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class AlunoController extends Controller
 {
@@ -82,6 +84,44 @@ class AlunoController extends Controller
          {
             return back()->with('error','Algo deu errado!');
          }
+    }
+    public function formHistorico(Request $request)
+    {
+        $idMatricula = $request->idMatricula;
+        $matricula = Matriculas::find($idMatricula);
+        return view('admin.alunos.form-historico',compact('matricula'));
+    }
+    public function salvarHistorico(Request $request)
+    {        
+        $idMatricula = $request->id_matricula;
+        $matricula = Matriculas::find($idMatricula);
+
+        if($matricula->historico)
+        {
+            Storage::delete($matricula->historico);
+            $fileHistorico = $request->file('historico')->store('historicos');
+        }
+        else
+        {
+            $fileHistorico = $request->file('historico')->store('historicos');            
+        }
+        if($fileHistorico)
+        {            
+            $matricula->historico = $fileHistorico;
+            if($matricula->save())
+            {
+                return back()->with('status','Histórico salvo!');
+            }
+            else
+            {
+                Storage::delete($fileHistorico);
+            }
+        }       
+        else
+        {
+            return back()->with('error','Erro no upload do arquivo!');
+            Storage::delete($fileHistorico);
+        }     
     }
     public function salvar(array $request)
     {

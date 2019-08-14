@@ -138,15 +138,15 @@
 
         <li class="treeview">
           <a href="#">
-            <i class="fas fa-mortar-board"></i> <span>Minha Carreira</span>
+            <i class="fa fa-mortar-board"></i> <span>Minha Carreira</span>
             <span class="pull-right-container">
-              <i class="fas fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="/admin/post"><i class="fas fa-circle-o"></i> Cursos</a></li>
-            <li><a href="/admin/post/list"><i class="fas fa-circle-o"></i> Histórico</a></li>
-            <li><a href="../../index2.html"><i class="fas fa-circle-o"></i> Certificados</a></li>
+            <li><a href="/admin/post"><i class="fas fa-circle"></i> Cursos</a></li>
+            <li><a href="/admin/post/list"><i class="fas fa-circle"></i> Histórico</a></li>
+            <li><a href="../../index2.html"><i class="fas fa-circle"></i> Certificados</a></li>
           </ul>
         </li>        
 

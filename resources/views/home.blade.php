@@ -51,7 +51,7 @@ Perfil
                         <strong>
                             <i class="fa fa-birthday-cake"></i> Idade
                         </strong>
-                        <p class="text-muted"><?php $year = date('y'); $sub = substr(Auth::user()->nascimento,-4,1); $idade = $year - $sub; echo $idade."  Anos";  ?></p>
+                        <p class="text-muted"><?php $year = date('Y'); $sub = substr(Auth::user()->nascimento,0,4); $idade = $year - $sub; echo $idade."  Anos";  ?></p>                     
                         <hr>
                         <strong>
                             <i class="fa fa-file"></i>  RG
@@ -79,16 +79,22 @@ Perfil
                                 <strong>Pacote</strong>                        
                                 <p>{{$matricula->pacotes->nome}}</p>
                                 <i class="fas fa-briefcase"></i>                                                            
-                                <strong>Cursos</strong>                            
+                                <strong>Cursos</strong>
+                                <ul>                            
                                 @foreach($matricula->pacotes->pacote as $rel)
-                                    <p>{{$rel->cursos->nome}} </p>                                                                  
+                                    <li>{{$rel->cursos->nome}} </li>                                                                  
                                 @endforeach                                   
-                                
+                                </ul>
                                 <i class="fas fa-bookmark"></i>
                                 <strong>Status</strong>
                                 <p>{{$matricula->status->nome}}</p> 
-                                <a type="button" href="#" class="btn btn-success" style="text-decoration: none;">Baixar histórico</a> 
-                                <p>Última atualização - {{$matricula->created_at}}</p>
+                                @if($matricula->historico)
+                                <?php $fileHistorico = Storage::url($matricula->historico) ?>
+                                <a type="button" href="{{$fileHistorico}}" class="btn btn-success" style="text-decoration: none;" target="_blank">Baixar histórico</a> 
+                                <p>Última atualização - @if($matricula->updated_at){{$matricula->updated_at}} @else{{$matricula->created_at}} @endif</p>
+                                @else
+                                <p style="color: red">Nenhum histórico salvo deste curso</p>
+                                @endif
                             </div>                 
                                                                                                                           
                             @endforeach                            

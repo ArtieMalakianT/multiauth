@@ -15,6 +15,7 @@ class CreateMatriculasTable extends Migration
     {
         Schema::create('matriculas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('historico',300)->nullable();
 
             $table->unsignedBigInteger('id_pacote')->unique();
             $table->unsignedBigInteger('id_user');

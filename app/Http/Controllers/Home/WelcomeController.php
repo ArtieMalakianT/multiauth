@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Categorias;
 use App\Mail\SendMailContact;
+use App\Models\Pacotes;
+use App\Models\Cusos;
+use App\Models\pacotesCurso;
 
 use Illuminate\Support\Facades\Mail;
 
@@ -26,5 +29,11 @@ class WelcomeController extends Controller
         $msg = $request->msg;
         Mail::to('maiconalexdesouza@gmail.com')->send(new SendMailContact($email,$nome,$tel,$msg));
 
+    }
+    public function showCurso(Request $request)
+    {
+        $id = $request->idPacote;
+        $pacote = Pacotes::find($id);
+        return view('curso',compact('pacote'));
     }
 }

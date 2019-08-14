@@ -41,7 +41,7 @@
     <form action="{{ route('admin.login.submit') }}" method="post">
       @csrf
       <div class="form-group has-feedback">
-        <input id="email"  type="email"  class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" required autocomplete="email" value="{{ old('email') }}">
+        <input autofocus id="email"  type="email"  class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" required autocomplete="email" value="{{ old('email') }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @error('email')
         <span class="invalid-feedback" role="alert">

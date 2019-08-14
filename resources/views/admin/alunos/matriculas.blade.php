@@ -62,20 +62,28 @@ Like School| Matrículas
                     </div>                    
                     @else
 
-                        @foreach($aluno->matriculas as $value)
+                        @foreach($aluno->matriculas as $matricula)
 
                         <div class="callout callout-default">                        
                             <h4>Pacote</h4>
-                            <p >{{ $value->pacotes->nome}}</p>                       
+                            <p >{{ $matricula->pacotes->nome}}</p>                       
                             <h4>Status</h4>
-                            <p >{{ $value->status->nome}}</p> 
+                            <p >{{ $matricula->status->nome}}</p> 
                             <br>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$value->id}}">Excluir matrícula</button>
-                            <a class="btn btn-primary" href="/admin/aluno/edit/matricula/{{$value->id}}">Editar matrícula</a>
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger-{{$matricula->id}}">Excluir matrícula</button>
+                            <a class="btn btn-primary" href="/admin/aluno/edit/matricula/{{$matricula->id}}">Editar matrícula</a>
+                            <hr>
+                            @if($matricula->historico)
+                            <?php $fileHistorico = Storage::url($matricula->historico) ?>
+                            <a class="btn btn-warning" href="{{$fileHistorico}}" target="_blank">Ver histórico</a>
+                            <a class="btn btn-success" href="/admin/aluno/edit/historico/{{$matricula->id}}">Alterar Histórico</a>
+                            @else
+                            <a class="btn btn-success" href="/admin/aluno/edit/historico/{{$matricula->id}}">Upload Histórico</a>
+                            @endif                            
                         </div>
 
                         <!-- Modals -->
-                        <div class="modal modal-danger fade" id="modal-danger-{{$value->id}}">
+                        <div class="modal modal-danger fade" id="modal-danger-{{$matricula->id}}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -84,11 +92,11 @@ Like School| Matrículas
                                         <h4 class="modal-title">Aviso!</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Você está certo que deseja excluir esta matrícula?&hellip; {{$value->pacotes->nome}}</p>
+                                        <p>Você está certo que deseja excluir esta matrícula?&hellip; {{$matricula->pacotes->nome}}</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                                        <a href="/admin/aluno/delete/matricula/{{$value->id}}" type="button" class="btn btn-outline">Excluir</a>
+                                        <a href="/admin/aluno/delete/matricula/{{$matricula->id}}" type="button" class="btn btn-outline">Excluir</a>
                                     </div>
                                 </div>
                                 <!-- /.modal-content -->
