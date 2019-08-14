@@ -131,7 +131,7 @@ Like School | Inglês Absoluto
         <div class="container center-align">
             <div class="row">
                 @foreach($recentPosts as $post)                
-                    <div class="col s6 m3">                            
+                    <div class="col s6 m4">                            
                         <div class="card">
                             <div class="card-image">
                                 <?php $url = Storage::url($post->capa) ?>
@@ -206,7 +206,7 @@ Like School | Inglês Absoluto
                 </form>
             </div>
             <div class="row">
-                <div class="col s6 ">
+                <div class="col s12 m6">
                     <label>Like School - Gaspar</label>
                     <p>
                         R. João Silvino da Cunha, 140
@@ -215,7 +215,7 @@ Like School | Inglês Absoluto
                     </p>                        
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.190393316261!2d-48.94825768448777!3d-26.92917798312048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df24b0b0d24b2b%3A0x15a995e281e83e18!2sLike+School+Gaspar!5e0!3m2!1spt-BR!2sbr!4v1547583443635"  frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-                <div class="col s6 ">                        
+                <div class="col s12 m6">                        
                     <label>Like School - Ilhota</label>
                     <p>
                         R. Leoberto Leal, 265
