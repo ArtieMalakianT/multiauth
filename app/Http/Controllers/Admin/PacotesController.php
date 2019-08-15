@@ -8,6 +8,7 @@ use App\Models\Cursos;
 use App\Models\Pacotes;
 use App\Models\Categorias;
 use App\Models\pacotesCurso;
+use App\Models\Cores;
 use Illuminate\Support\Facades\Storage;
 
 class PacotesController extends Controller
@@ -32,8 +33,9 @@ class PacotesController extends Controller
         $idCat = $request->id_cat;
         $categoria = Categorias::find($idCat);
         $cursos = Cursos::where('id_categoria',$idCat)->orderBy('nome')->get();
+        $cores = Cores::all();
 
-        return view('admin.pacotes.pacote-form',['categoria' => $categoria,'cursos' => $cursos]);
+        return view('admin.pacotes.pacote-form',['categoria' => $categoria,'cursos' => $cursos,'cores' => $cores]);
     }
     //Mostrar form para editar Pacote
     public function formUpdate(Request $request)
@@ -41,9 +43,10 @@ class PacotesController extends Controller
         $idPacote = $request->id;
         $pacote = Pacotes::find($idPacote);
         $idCat = $pacote->id_categoria;
+        $cores = Cores::all();
 
         $cursos = Cursos::where('id_categoria',$idCat)->orderBy('nome')->get();
-        return view('admin.pacotes.update-form',['pacote' => $pacote,'cursos' => $cursos]);
+        return view('admin.pacotes.update-form',['pacote' => $pacote,'cursos' => $cursos,'cores' => $cores]);
     }
     //Atualiza os pacotes
     public function Update(Request $request)
@@ -58,7 +61,8 @@ class PacotesController extends Controller
         $status = $request->status;
         $ordem = $request->ordem;
         $duracao = $request->duracao;   
-        $this->cursos = $request->cursos;            
+        $this->cursos = $request->cursos;
+        $cor = $request->cores;            
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = Pacotes::find($idPacote);
@@ -68,6 +72,7 @@ class PacotesController extends Controller
         $pacote->duracao = $duracao;
         $pacote->status = $status;
         $pacote->ordem = $ordem;
+        $pacote->id_cor = $cor;
 
         $rel = pacotesCurso::where('id_pacote',$idPacote);
         $rel->delete();
@@ -99,7 +104,8 @@ class PacotesController extends Controller
         $status = $request->status;
         $ordem = $request->ordem;
         $duracao = $request->duracao;   
-        $this->cursos = $request->cursos;     
+        $this->cursos = $request->cursos;  
+        $cor = $request->cores;   
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = new Pacotes();
@@ -109,6 +115,7 @@ class PacotesController extends Controller
         $pacote->duracao = $duracao;
         $pacote->status = $status;
         $pacote->ordem = $ordem;
+        $pacote->id_cor = $cor;
         if(!$pacote->save())
         {
             return back()->with('error','Erro ao gravar dados');
@@ -119,7 +126,14 @@ class PacotesController extends Controller
             {
                 $obj = new pacotesCurso();
                 $obj->id_curso = $curso;
-                $pacote->pacote()->save($obj);                
+                if(!$pacote->pacote()->save($obj))
+                {
+                    $pacote->delete();
+                }
+                else
+                {
+
+                }
             }
             return back()->with('status','Dados Cadastrados!');
         }             

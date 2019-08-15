@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\Controller;
 use App\Models\Categorias;
 use App\Models\Post;
+use Image;
 
 class PostController extends Controller
 {
@@ -62,7 +63,13 @@ class PostController extends Controller
         if(!isset($request->updatingPost))
         {            
             $capa = $request->file('image')->store('images');
-            $this->dialog($capa,'Erro no Upload da Capa');
+            $arquivoCapa = Storage::get($capa);
+            $thumb = Image::make($arquivoCapa);                        
+            $thumb->resize(null,2000,function ($constraint) {
+                $constraint->aspectRatio();});
+            $thumb->crop(2000,2000);          
+            $thumb->save(public_path().'/storage/'.$capa);            
+            /*$this->dialog($capa,'Erro no Upload da Capa');*/
             $store = Storage::disk('public')->put("/post/$fileName", $contents);
             $this->dialog($store,'Erro no Upload do conteúdo');
 
@@ -81,7 +88,13 @@ class PostController extends Controller
             else
             {                
                 Storage::delete($post->capa);
-                $capa = $request->file('image')->store('images');                                
+                $capa = $request->file('image')->store('images'); 
+                $arquivoCapa = Storage::get($capa);
+                $thumb = Image::make($arquivoCapa);                        
+                $thumb->resize(null,2000,function ($constraint) {
+                    $constraint->aspectRatio();}); 
+                $thumb->crop(2000,2000);         
+                $thumb->save(public_path().'/storage/'.$capa);                               
 
                 $post->capa = $capa;                
             }              

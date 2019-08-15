@@ -115,6 +115,16 @@ Cadastrar Pacotes
                     </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="cores">Cor de fundo</label>
+                    <select name="cores" id="cores" class="form-control">
+                    @foreach($cores as $cor)
+                        <option value="{{$cor->id}}">{{$cor->nome}}</option>
+                    @endforeach        
+                    </select>
+               
+                </div>
 								
 				<div class="form-group">
 					<input type="submit" class="btn btn-primary" value="Cadastrar"/>

@@ -13,4 +13,8 @@ class Pacotes extends Model
     {
         return $this->hasMany('App\Models\pacotesCurso','id_pacote');
     }
+    public function cor()
+    {
+        return $this->hasOne('App\Models\Cores','id_cor');
+    }
 }

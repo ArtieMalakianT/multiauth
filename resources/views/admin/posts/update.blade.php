@@ -105,7 +105,7 @@ Editar Post
         </div>
         
         <div class="form-group">
-          <label>Imagem de capa</label><small> Resolução indicada: 1145 x 400</small>
+          <label>Imagem de capa</label><small> Resolução indicada: 2000 x 2000</small>
           <input type="file" name="image" id="InputFile" accept="image/*" value="0"/>
         </div>
 

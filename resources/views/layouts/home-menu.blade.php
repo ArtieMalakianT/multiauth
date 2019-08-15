@@ -35,7 +35,7 @@
                 <div class="nav-wrapper">                                        
                     <!-- Left Items -->                    
                     <ul class="">
-                        <li class="brand-logo"><a>Like School</a></li>
+                        <li class="brand-logo"><a>{{config('app.name','Laravel')}}</a></li>
                     </ul>
 
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -59,12 +59,12 @@
                         <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i></a>     </li>
                     </ul>
                     <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="">Home</a></li>                        
-                        <li class="tab"><a href="#about">Sobre Nós</a></li>
-                        <li class="tab"><a href="#projects">Projetos</a></li>
-                        <li class="tab"><a href="#cursos">Cursos</a></li>
-                        <li class="tab"><a href="#blog">Blog</a></li>
-                        <li class="tab"><a href="#contato">Contato</a></li>
+                        <li class="tab"><a href="{{url('/')}}">Home</a></li>                        
+                        <li class="tab"><a href="{{url('/#about')}}">Sobre Nós</a></li>
+                        <li class="tab"><a href="{{url('/#projects')}}">Projetos</a></li>
+                        <li class="tab"><a href="{{url('/#cursos')}}">Cursos</a></li>
+                        <li class="tab"><a href="{{url('/#blog')}}">Blog</a></li>
+                        <li class="tab"><a href="{{url('/#contato')}}">Contato</a></li>
                     </ul>               
                 </div>                                  
             </nav> 
@@ -112,12 +112,12 @@
                     <div class="col l4 offset-l2 s12">
                         <h5>Menu</h5>
                         <ul>
-                            <li ><a class="white-text" href="#">Home</a></li>                        
-                            <li ><a class="white-text" href="#about">Sobre Nós</a></li>
-                            <li ><a class="white-text" href="#projects">Projetos</a></li>
-                            <li ><a class="white-text" href="#cursos">Cursos</a></li>
-                            <li ><a class="white-text" href="#blog">Blog</a></li>
-                            <li ><a class="white-text" href="#contaot">Contato</a></li>
+                            <li ><a class="white-text" href="{{url('/')}}">Home</a></li>                        
+                            <li ><a class="white-text" href="{{url('/#about')}}">Sobre Nós</a></li>
+                            <li ><a class="white-text" href="{{url('/#projects')}}">Projetos</a></li>
+                            <li ><a class="white-text" href="{{url('/#cursos')}}">Cursos</a></li>
+                            <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
+                            <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
                         </ul>
                     </div>
                 </div>    

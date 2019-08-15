@@ -103,7 +103,7 @@ Like School | Inglês Absoluto
                     <div class="col s12 m4">
                         <div class="card red">
                             <div class="card-content  white-text">                                    
-                                <span class="card-title"><i class="fas fa-award"></i> {{$categoria->nome}}</span>
+                                <span class="card-title"><i class="{{$categoria->icon}}"></i> {{$categoria->nome}}</span>
                                 <p>Certificações</p>                                    
                             </div>
                             <div class="card-action white">
@@ -135,7 +135,7 @@ Like School | Inglês Absoluto
                         <div class="card">
                             <div class="card-image">
                                 <?php $url = Storage::url($post->capa) ?>
-                                <img src="{{$url}}" height="150">
+                                <img src="{{$url}}">
                             </div>
 
                             <div class="card-stacked">

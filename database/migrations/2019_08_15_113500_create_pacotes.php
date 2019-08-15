@@ -20,9 +20,13 @@ class CreatePacotes extends Migration
             $table->string('duracao',100);
             $table->enum('status',['1','0']);
             $table->integer('ordem')->unique();
+            $table->unsignedBigInteger('id_cor');
+
             //Relação com a tabela categorias
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categorias');
+
+            $table->foreign('id_cor')->references('id')->on('cores');
 
             $table->timestamps();
         });
