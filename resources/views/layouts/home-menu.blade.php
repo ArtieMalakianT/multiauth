@@ -17,6 +17,7 @@
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
         <script src="/js/jquery-3.4.1.js" ></script>
+        <script type="text/javascript" src="/js/blog/jquery.mask.min.js"></script>
 
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -137,7 +138,8 @@
                 $('.sidenav').sidenav();   
                 $('.fixed-action-btn').floatingActionButton();             
                 $('.carousel').carousel({indicators: true});
-                $('.datepicker').datepicker();
+                $('.datepicker').datepicker();                
+                $("#telefone").mask("(00) 0000-0000");
 
                 var topHeight = 100;
                 $(window).bind('scroll',function(){                    

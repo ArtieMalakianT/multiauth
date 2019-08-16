@@ -18,6 +18,7 @@ Curso
 
 <div class="container">
     <div class="row">
+        <!-- Informações do curso -->
         <div class="col s12 m6">
             <table class="responsive-table">
                 <thead>
@@ -40,14 +41,18 @@ Curso
                 </tbody>
             </table>        
         </div>
+        <!-- Contato -->
         <div class="col s12 m6">
             <div class="row right-align">
-                    <p>Se interessou pelo curso? Envienos uma mensagem para saber mais informações de disponibilidade! <i class="fas fa-check-circle {{$pacote->cor->nome}}-text"></i></p>
+                    <p>Se interessou pelo curso? Preencha o formulário para receber mais informações de disponibilidade! <i class="fas fa-check-circle {{$pacote->cor->nome}}-text"></i></p>
             </div>
             
             <div class="row">
                 <form class="col s12" action="/mail/contact" method="POST">
                     @csrf
+
+                    <input type="hidden" name="pacote" value="{{$pacote->nome}}">
+
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">account_circle</i>
@@ -58,8 +63,8 @@ Curso
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">phone</i>
-                            <input name="telefone" type="tel" id="tel"  class="validate">
-                            <label for="tel">Telefone</label>
+                            <input name="telefone" type="tel" id="telefone"  class="validate" data-mask="(00) 0000-0000">
+                            <label for="telefone">Telefone</label>
                         </div>
                     </div>
                     <div class="row">
@@ -72,8 +77,8 @@ Curso
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">event</i>
-                            <input type="text" class="datepicker">
-                            <label for="msg">Sua mensagem</label>
+                            <input id="datepicker" type="text" class="datepicker" name="nascmiento">
+                            <label for="datepicker">Data de Nascimento</label>
                         </div>
                     </div>
                     <div class="row">
@@ -86,6 +91,7 @@ Curso
         </div>
     </div>    
 </div>
+<!-- Posts relacionados -->
 <section class="page-section {{$pacote->cor->nome}} darken-4">
     <div class="row">
         <div class="center">

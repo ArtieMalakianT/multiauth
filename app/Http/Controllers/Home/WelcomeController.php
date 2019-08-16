@@ -23,6 +23,7 @@ class WelcomeController extends Controller
         $categorias = Categorias::where('id','>',0)->orderBy('ordem')->get();
         return view('welcome',compact('recentPosts','categorias'));
     }
+    //Envio de email Formulário de contato da página principal
     public function contatoMail(Request $request)
     {
         $user = new User();
@@ -39,12 +40,26 @@ class WelcomeController extends Controller
         });
         return back()->with('input');
     }
+    //Envio de email do formulário de interesse de curso
     public function interesseMail(Request $request)
     {
         $user = new User();
 
-        $user;
+        $user->email = $request->email;
+        $user->name = $request->nome;
+        $user->telefone = $request->telefone;
+        $user->pacote = $request->pacote;
+        $user->dataNascimento = $request->nascimento;
+        $user->message = "Teste";
+
+        Mail::send('mail.contact', ['msg' => $user->message,'email' => $user->email, 'name' => $user->name,'tel' => $user->telefone], function ($m) use ($user){
+            $m->from ('info@likeschool.com.br','Info LikeSchool');
+
+            $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site');
+        });
+        return back()->with('input');
     }
+    //Mostra a página do curso
     public function showCurso(Request $request)
     {
         $id = $request->idPacote;
