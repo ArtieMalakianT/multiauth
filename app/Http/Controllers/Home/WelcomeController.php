@@ -10,8 +10,10 @@ use App\Mail\SendMailContact;
 use App\Models\Pacotes;
 use App\Models\Cusos;
 use App\Models\pacotesCurso;
+use App\Models\subCategorias;
+use App\User;
 
-use Illuminate\Support\Facades\Mail;
+use Mail;
 
 class WelcomeController extends Controller
 {
@@ -23,17 +25,35 @@ class WelcomeController extends Controller
     }
     public function contatoMail(Request $request)
     {
-        $nome = $request->nome;
-        $tel = $request->tel;
-        $email = $request->email;
-        $msg = $request->msg;
-        Mail::to('maiconalexdesouza@gmail.com')->send(new SendMailContact($email,$nome,$tel,$msg));
+        $user = new User();
 
+        $user->name = $request->nome;
+        $user->email = $request->email;
+        $user->tel = $request->telefone;
+        $message = $request->msg;
+
+        Mail::send('mail.contact', ['msg' => $message,'email' => $user->email, 'name' => $user->name,'tel' => $user->tel], function ($m) use ($user){
+            $m->from ('info@likeschool.com.br','Info LikeSchool');
+
+            $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site');
+        });
+        return back()->with('input');
+    }
+    public function interesseMail(Request $request)
+    {
+        $user = new User();
+
+        $user;
     }
     public function showCurso(Request $request)
     {
         $id = $request->idPacote;
         $pacote = Pacotes::find($id);
-        return view('curso',compact('pacote'));
+
+        $subId = $pacote->id_sub_categoria;   
+        $sub = subCategorias::find($subId);
+        $paginatePosts = $sub->posts()->where('status','=',1)->orderBy('created_at','desc')->paginate(4);  
+        
+        return view('curso',compact('pacote','paginatePosts'));
     }
 }

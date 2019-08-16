@@ -87,15 +87,14 @@
                 <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i>Instagram</a> </li>
             </ul>        
                         
-            <div class="banner">
+            <div class="banner" style="display:flex;">
                 @yield('banner')                
             </div>
 
             <div class="fixed-action-btn">
-                <a href="#" class="btn-floating">
-                    <i class="large material-icons blue">arrow_upward</i>
-                </a>
-                
+                <a href="#" class="btn-floating blue">                    
+                    <i class="large material-icons">arrow_upward</i>
+                </a>                              
             </div>
         </header>
         
@@ -135,13 +134,10 @@
         </script>
         <script>
             $(document).ready(function(){
-                $('.sidenav').sidenav();                
-
-                $(document).ready(function(){
-                    $('.carousel').carousel({
-                        indicators: true
-                    });
-                });
+                $('.sidenav').sidenav();   
+                $('.fixed-action-btn').floatingActionButton();             
+                $('.carousel').carousel({indicators: true});
+                $('.datepicker').datepicker();
 
                 var topHeight = 100;
                 $(window).bind('scroll',function(){                    
@@ -157,7 +153,7 @@
 
                 $('textarea#msg').characterCounter();
 
-            });
+            });                      
         </script>          
     </body>
 </html>

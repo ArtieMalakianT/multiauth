@@ -1,8 +1,13 @@
 <html>
+    <head>
+        <meta charset="utf-8">
+    </head>
     <body>
         <p>Olá!</p>
-        <p></p>
-        <p>Esse é apenas um e-mail de teste, para exemplificar o funcionamento do envio de e-mails no Laravel.</p>
+        <p>A LikeSchool Recebeu uma mensagem de <strong>{{$name}}</strong>, </p>
+        <p>Email: {{$email}}</p>
+        <p>Mensagem: {{$msg}}</p>
+        <p>Telefone: {{$tel}}</p>
         <p></p>
         <p>Att, <br>
         </p>

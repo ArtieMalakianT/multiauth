@@ -62,13 +62,22 @@ Editar Pacote
             <div class="box-body">
               <form action="/admin/pacotes/update" method="POST">
                 <input type="hidden" name="id" value="{{$pacote->id}}">
-                <input type="hidden" name="categoria" value="{{$pacote->id_categoria}}"/>
+                <input type="hidden" name="id_categoria" value="{{$pacote->id_categoria}}"/>
                 @csrf			
                 <div class="form-group">
                   <label>Nome do Pacote</label>
                   <input id="nome" class="form-control" type="text" name="nome" maxlenght="200" required value="{{ $pacote->nome }}"/>
                 
                 </div> 
+
+                <div class="form-group">
+                  <label>Sub Categoria</label>
+                  <select id="sub" name="id_sub_categoria" class="form-control"> 
+                                @foreach($categoria->sub as $subCategoria)
+                                    <option  value="{{$subCategoria->id}}" >{{$subCategoria->nome}}</option>
+                                @endforeach                    
+                  </select>
+                </div>
 
                 <div class="form-group">
                   @foreach($cursos as $curso)                                                      
@@ -83,7 +92,10 @@ Editar Pacote
 
                 <div class="form-group">
                   <label>Status</label>
-                  <input  type="number" class="form-control" name="status" value="{{ $pacote->status }}"/>
+                  <select required name="status" class="form-control">
+                    <option value="1"> Ativo</option>
+                    <option value="0"> Oculto</option>
+                  </select>
                 </div>
 
                 <div class="form-group">

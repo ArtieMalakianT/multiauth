@@ -62,12 +62,20 @@ Cadastrar Pacotes
 			<form action="/admin/pacotes" method="POST">
             @csrf
 			<input name="user" type="hidden" value="{{ Auth::user()->id_user }}"/>            
-            <input name="categoria" type="hidden" value="{{ $categoria->id }}"/> 
+            <input name="id_categoria" type="hidden" value="{{ $categoria->id }}"/> 
 				<div class="form-group">
 					<label>Nome do Pacote</label>
-					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200" required/>
-				
-				</div>                
+					<input id="nome" class="form-control" type="text" name="nome" maxlenght="200" required/>				
+                </div>                                 
+
+                <div class="form-group">
+					<label>Sub Categoria</label>
+					<select id="sub" name="id_sub_categoria" class="form-control"> 
+                        @foreach($categoria->sub as $subCategoria)
+                            <option  value="{{$subCategoria->id}}" >{{$subCategoria->nome}}</option>
+                        @endforeach                    
+					</select>
+                </div>
 
                 <div class="form-group">
                 @foreach($cursos as $curso)
@@ -149,5 +157,5 @@ Cadastrar Pacotes
         $('#nome').focus();
       }
     );
-  </script>
+  </script>  
   @endsection

@@ -55,7 +55,8 @@ class PacotesController extends Controller
                 
 
         //Recebe os dados submtidos
-        $cat = $request->categoria;
+        $cat = $request->id_categoria;
+        $sub = $request->id_sub_categoria;
         $nome = $request->nome;
         $desc = $request->desc;
         $status = $request->status;
@@ -67,15 +68,14 @@ class PacotesController extends Controller
         //Cria um objeto $pacote e define suas propriedades
         $pacote = Pacotes::find($idPacote);
         $pacote->id_categoria = $cat;
+        $pacote->id_sub_categoria = $sub;
         $pacote->nome = $nome;
         $pacote->descricao = $desc;
         $pacote->duracao = $duracao;
         $pacote->status = $status;
         $pacote->ordem = $ordem;
         $pacote->id_cor = $cor;
-
-        $rel = pacotesCurso::where('id_pacote',$idPacote);
-        $rel->delete();
+       
         
 
         if(!$pacote->save())
@@ -84,13 +84,25 @@ class PacotesController extends Controller
         }
         else
         {
-            foreach($this->cursos as $key => $curso)
-            {                                
-                $newRel = new pacotesCurso();
-                $newRel->id_curso = $curso;
-                $pacote->pacote()->save($newRel);                
+            if(!isset($this->cursos))
+            {
+                return back()->with('status','Dados Alterados com sucesso! Porém nenhum curso alterado'); 
             }
-            return back()->with('status','Dados Alterados com sucesso!');            
+            else
+            {
+                $rel = pacotesCurso::where('id_pacote',$idPacote);
+                $rel->delete();
+                foreach($this->cursos as $key => $curso)
+                {   
+
+                    $newRel = new pacotesCurso();
+                    $newRel->id_curso = $curso;
+                    $pacote->pacote()->save($newRel); 
+                                
+                }
+                return back()->with('status','Dados Alterados com sucesso!');    
+            }
+                        
         }        
     }
 
@@ -98,7 +110,8 @@ class PacotesController extends Controller
     public function formSubmit(Request $request)
     {        
         //Recebe os dados submtidos
-        $cat = $request->categoria;
+        $cat = $request->id_categoria;
+        $sub = $request->id_sub_categoria;
         $nome = $request->nome;
         $desc = $request->desc;
         $status = $request->status;
@@ -110,6 +123,7 @@ class PacotesController extends Controller
         //Cria um objeto $pacote e define suas propriedades
         $pacote = new Pacotes();
         $pacote->id_categoria = $cat;
+        $pacote->id_sub_categoria = $sub;
         $pacote->nome = $nome;
         $pacote->descricao = $desc;
         $pacote->duracao = $duracao;
@@ -122,20 +136,28 @@ class PacotesController extends Controller
         }
         else
         {
-            foreach($this->cursos as $key => $curso)
+            if(!isset($this->cursos))
             {
-                $obj = new pacotesCurso();
-                $obj->id_curso = $curso;
-                if(!$pacote->pacote()->save($obj))
-                {
-                    $pacote->delete();
-                }
-                else
-                {
-
-                }
+                return back()->with('status','Dados Cadastrados! Porém nenhum curso adicionado');
             }
-            return back()->with('status','Dados Cadastrados!');
+            else
+            {
+                foreach($this->cursos as $key => $curso)
+                {
+                    $obj = new pacotesCurso();
+                    $obj->id_curso = $curso;
+                    if(!$pacote->pacote()->save($obj))
+                    {
+                        $pacote->delete();
+                    }
+                    else
+                    {
+
+                    }
+                }
+                return back()->with('status','Dados Cadastrados!');    
+            }
+            
         }             
     }
 }

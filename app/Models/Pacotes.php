@@ -15,6 +15,6 @@ class Pacotes extends Model
     }
     public function cor()
     {
-        return $this->hasOne('App\Models\Cores','id_cor');
+        return $this->belongsTo('App\Models\Cores','id_cor');
     }
 }

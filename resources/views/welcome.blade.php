@@ -107,7 +107,7 @@ Like School | Inglês Absoluto
                                 <p>Certificações</p>                                    
                             </div>
                             <div class="card-action white">
-                                @foreach($categoria->pacotes as $pacote)
+                                @foreach($categoria->pacotes->where('status',1) as $pacote)
                                 <a href="/curso/{{$pacote->id}}" class="red-text truncate" title="{{$pacote->nome}}">{{$pacote->nome}}</a><br>
                                 @endforeach
                             </div>
