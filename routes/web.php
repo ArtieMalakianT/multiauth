@@ -13,6 +13,7 @@
 
 Route::get('/','Home\WelcomeController@index');
 Route::post('/mail/contact','Home\WelcomeController@contatoMail');
+Route::post('/mail/curso','Home\WelcomeController@interesseMail');
 Route::get('/curso/{idPacote}','Home\WelcomeController@showCurso');
 
 Auth::routes();
@@ -31,6 +32,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/post/edit/{idPost}','Admin\PostController@showForm');
     Route::get('/post/list', 'Admin\PostController@showPosts');
     Route::post('/post', 'Admin\PostController@submitForm');
+    Route::delete('/post/delete', 'Admin\PostController@Delete');
 
     Route::get('/alunos', 'Admin\AlunoController@showAlunos');
     Route::get('/aluno/matricular/{id}','Admin\AlunoController@formMatricula');
@@ -67,6 +69,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/pacotes/edit/{id}','Admin\PacotesController@formUpdate');     
     Route::post('/pacotes','Admin\PacotesController@formSubmit');    
     Route::post('/pacotes/update','Admin\PacotesController@Update');
+    Route::delete('/pacote/delete','Admin\PacotesController@Delete');
 
     Route::get('/register','Admin\AdminController@index');
     Route::post('/register','Admin\AdminController@register');

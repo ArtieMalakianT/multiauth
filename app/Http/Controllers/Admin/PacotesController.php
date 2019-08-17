@@ -43,10 +43,11 @@ class PacotesController extends Controller
         $idPacote = $request->id;
         $pacote = Pacotes::find($idPacote);
         $idCat = $pacote->id_categoria;
+        $categoria = Categorias::find($idCat);
         $cores = Cores::all();
 
         $cursos = Cursos::where('id_categoria',$idCat)->orderBy('nome')->get();
-        return view('admin.pacotes.update-form',['pacote' => $pacote,'cursos' => $cursos,'cores' => $cores]);
+        return view('admin.pacotes.update-form',['pacote' => $pacote,'cursos' => $cursos,'cores' => $cores,'categoria' => $categoria]);
     }
     //Atualiza os pacotes
     public function Update(Request $request)
@@ -159,5 +160,26 @@ class PacotesController extends Controller
             }
             
         }             
+    }
+    public function Delete(Request $request)
+    {
+        $idPacote = $request->id_pacote;
+        $pacote = Pacotes::find($idPacote);
+        if($pacote->pacote)
+        {
+            foreach($pacote->pacote as $relacao)
+            {
+                $relacao->delete();
+            }    
+        }
+       
+        if($pacote->delete())
+        {
+            return back()->with('status','Pacote Deletado!');    
+        }
+        else
+        {
+            return back()->with('error','Não foi possível deletar o pacote!');    
+        }
     }
 }

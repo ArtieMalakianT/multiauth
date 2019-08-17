@@ -62,14 +62,13 @@ Pacotes
         <ul class="todo-list ui-sortable">            
           @foreach($pacotes as $pacote)
           <li><label class="text">{{ $pacote->nome }}</label>
-          <form action="" method="post" style="display: inline">
-          <input type="hidden" name="_METHOD" value="delete">
+          
             <div class="tools">
               <a class="fa fa-edit" href="/admin/pacotes/edit/{{$pacote->id}}"></a>
               <a class="fa fa-eye" href=""></a>
-              <button class="fa fa-trash"></button>
+              <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$pacote->id}}" data-toggle="modal"></a>
             </div>
-            </form>
+           
           </li>
           @endforeach
         </ul>
@@ -82,6 +81,32 @@ Pacotes
         <!-- /.col-->
       </div>
       <!-- ./row -->
+      <div class="modal modal-danger fade" id="modal-danger-@if(isset($pacote)){{$pacote->id}}@endif">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Aviso!</h4>
+            </div>
+            <div class="modal-body">
+              <p>Tem certeza que deseja excluir o pacote "@if(isset($pacote)){{$pacote->nome}}@endif"?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+              <form action="/admin/pacote/delete" method="post">
+                @method('delete')
+                @csrf                      
+                <input type="hidden" name="id_pacote" value="@if(isset($pacote)){{$pacote->id}}@endif">
+                <button type="submit" class="btn btn-outline">Excluir</button>
+              </form>                    
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+  <!-- /.modal -->
     </section>
     <!-- /.content -->
   </div>

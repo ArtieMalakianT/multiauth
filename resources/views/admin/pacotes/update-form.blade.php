@@ -73,9 +73,14 @@ Editar Pacote
                 <div class="form-group">
                   <label>Sub Categoria</label>
                   <select id="sub" name="id_sub_categoria" class="form-control"> 
-                                @foreach($categoria->sub as $subCategoria)
-                                    <option  value="{{$subCategoria->id}}" >{{$subCategoria->nome}}</option>
-                                @endforeach                    
+                      @foreach($categoria->sub as $subCategoria)
+                        @if($pacote->id_sub_categoria == $subCategoria->id)
+                        <option selected  value="{{$subCategoria->id}}" >{{$subCategoria->nome}}</option>
+                        @else
+                        <option  value="{{$subCategoria->id}}" >{{$subCategoria->nome}}</option>
+                        @endif
+                      
+                      @endforeach                    
                   </select>
                 </div>
 

@@ -130,6 +130,20 @@ class PostController extends Controller
         return view('/admin/posts.post-list',compact('categorias'));
     }
 
+    public function Delete(Request $request)
+    {
+        $idPost = $request->id_post;
+        $post = Post::find($idPost);
+        if($post->delete())
+        {
+            return back()->with('status', 'Post deletado!'); 
+        }
+        else
+        {
+            return back()->with('error', 'Não foi possível deletar o Post!'); 
+        }
+    }
+
     public function dialog($cond,$error)
     {
         if($cond)

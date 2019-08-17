@@ -1,11 +1,11 @@
 @extends('layouts.home-menu')
 
 @section('titulo')
-Curso
+Like School | {{$pacote->nome}}
 @endsection
 
 @section('banner')
-<img class="responsive-img" src="/img/banner/certificado.png">
+<img class="responsive-img" style="width:100%" src="/img/banner/certificado.png">
 @endsection
 
 @section('conteudo')
@@ -48,7 +48,7 @@ Curso
             </div>
             
             <div class="row">
-                <form class="col s12" action="/mail/contact" method="POST">
+                <form class="col s12" action="/mail/curso" method="POST">
                     @csrf
 
                     <input type="hidden" name="pacote" value="{{$pacote->nome}}">
@@ -92,7 +92,7 @@ Curso
     </div>    
 </div>
 <!-- Posts relacionados -->
-<section class="page-section {{$pacote->cor->nome}} darken-4">
+<section class="page-section {{$pacote->cor->nome}} darken-2">
     <div class="row">
         <div class="center">
             <h4 class="white-text">Blog Like School</h4>

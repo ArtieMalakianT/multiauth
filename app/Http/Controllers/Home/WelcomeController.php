@@ -49,13 +49,12 @@ class WelcomeController extends Controller
         $user->name = $request->nome;
         $user->telefone = $request->telefone;
         $user->pacote = $request->pacote;
-        $user->dataNascimento = $request->nascimento;
-        $user->message = "Teste";
+        $user->dataNascimento = $request->nascimento;        
 
-        Mail::send('mail.contact', ['msg' => $user->message,'email' => $user->email, 'name' => $user->name,'tel' => $user->telefone], function ($m) use ($user){
+        Mail::send('mail.contact', ['pacote' => $user->pacote,'email' => $user->email, 'name' => $user->name,'tel' => $user->telefone], function ($m) use ($user){
             $m->from ('info@likeschool.com.br','Info LikeSchool');
 
-            $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site');
+            $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site | Interesse');
         });
         return back()->with('input');
     }

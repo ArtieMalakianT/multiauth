@@ -181,8 +181,8 @@ Like School | Inglês Absoluto
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
-                            <input name="telefone" type="tel" id="tel"  class="validate">
-                            <label for="tel">Telefone</label>
+                            <input name="telefone" type="tel" id="telefone"  class="validate">
+                            <label for="telefone">Telefone</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">email</i>

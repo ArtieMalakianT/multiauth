@@ -7,6 +7,33 @@ Admin | Lista de Posts
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+
+        <!-- Alert if Sucess -->
+    @if (session('status'))
+    <div class="box box-default">
+        <div class="box-body">
+            <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="fa fa-check"></i>Alerta</h4>
+                {{ session('status') }}
+            </div>
+        </div>
+    </div>
+    @endif
+
+    <!-- Alert if Error -->
+    @if (session('error'))
+        <div class="box box-default">
+            <div class="box-body">
+                <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="fa fa-ban"></i>Alerta</h4>
+                    {{ session('error') }}
+                </div>
+            </div>
+        </div>
+    @endif
+    
     <section class="content-header">
       <h1>
         Admin LikeSchool
@@ -49,24 +76,23 @@ Admin | Lista de Posts
                                 <div class="tab-pane" id="tab_{{$cont}}"> 
                                 @endif
                                                   
-                                            <ul class="todo-list ui-sortable">                                                    
-                                                    @foreach($categoria->sub as $sub)  
-                                                    <small>{{$sub->nome}}</small><br>                                                                                                                                                                                                    
-                                                    @foreach($sub->posts as $post)                                                                                                                                  
-                                                        <li><label class="text">{{ $post->titulo }}</label>
-                                                            <form action="" method="post" style="display: inline">
-                                                            <input type="hidden" name="_METHOD" value="delete">
-                                                                <div class="tools">
-                                                                <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
-                                                                <a class="fa fa-eye" href="/blog/show/post/{{ $post->id }}" target="_blank"></a>
-                                                                <button class="fa fa-trash"></button>
-                                                                </div>
-                                                            </form>
-                                                        </li>
-                                                        @endforeach                                                                        
-                                                    @endforeach   
-                                                    </ul> 
-                                    </div>                                                    
+                                  <ul class="todo-list ui-sortable">                                                    
+                                    @foreach($categoria->sub as $sub)  
+                                    <small>{{$sub->nome}}</small><br>                                                                                                                                                                                                    
+                                      @foreach($sub->posts as $post)                                                                                                                                  
+                                        <li><label class="text">{{ $post->titulo }}</label>
+                                                                                                                                 
+                                            <div class="tools">
+                                              <a class="fa fa-edit" href="/admin/post/edit/{{ $post->id }}"></a>
+                                              <a class="fa fa-eye" href="/blog/show/post/{{ $post->id }}" target="_blank"></a>
+                                              <a href="#" class="fa fa-trash" data-toggle="modal" data-target="#modal-danger-{{$post->id}}"></a>
+                                            </div>
+                                          
+                                        </li>
+                                      @endforeach                                                                        
+                                    @endforeach   
+                                  </ul> 
+                                </div>                                                    
                                 <?php $cont += 1; ?>
                                 @endforeach     
                                   <!-- /.tab-pane -->
@@ -78,6 +104,32 @@ Admin | Lista de Posts
                             </div>
                             <!-- /.col -->
                         </div>
+                        <div class="modal modal-danger fade" id="modal-danger-@if(isset($post)){{$post->id}}@endif">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Aviso!</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Tem certeza que deseja excluir o post "@if(isset($post)){{$post->titulo}}@endif"?</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                                <form action="/admin/post/delete" method="post">
+                                  @method('delete')
+                                  @csrf                      
+                                  <input type="hidden" name="id_post" value="@if(isset($post)){{$post->id}}@endif">
+                                  <button type="submit" class="btn btn-outline">Excluir</button>
+                                </form>                    
+                              </div>
+                            </div>
+                            <!-- /.modal-content -->
+                          </div>
+                          <!-- /.modal-dialog -->
+                      </div>
+                    <!-- /.modal -->
                         </div>
             </div>
         </div>
