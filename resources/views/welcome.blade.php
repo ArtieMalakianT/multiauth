@@ -67,7 +67,7 @@ Like School | Inglês Absoluto
             <i class="fas fa-star"></i>    
             <i class="fas fa-star"></i>    
             <i class="fas fa-star"></i>                                                                                 
-        </div>            
+        </div>                    
 
         <div class="carousel carousel-slider">
             <div class="carousel-item" > 
@@ -89,11 +89,10 @@ Like School | Inglês Absoluto
                     <p class="w1 ma"><img style="width: 30px;margin-bottom: -25px" src="img/patterns/arrow_blue.png"></p>
                     <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"Melhor curso da região! Imbatível em criatividade e qualidade de ensino! Super recomendo."</p>                                                                     
                 </div>
-            </div>                
-        </div>     
-
-    </section>
-
+            </div>                            
+        </div>                    
+    </section>    
+    
     <!-- Cursos -->
     <section id="cursos" class="page-section center-align">
         <div class="container">
@@ -227,5 +226,35 @@ Like School | Inglês Absoluto
             </div>
         </div>
 
+    </section>
+
+    <!-- Registrar Avaliação -->
+    <section>
+        <div class="container">
+            <h4 class="grey-text text-darken-3 center-align" >FeedBack</h4>
+
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">chat</i>Conte-nos o que você achou da Like School
+                    </div>                        
+                    <div class="collapsible-body">                        
+                        <form action="">  
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea name="comment" id="comment" class="materialize-textarea" data-length="120"></textarea>
+                                    <label for="comment">Comentário</label>
+                                </div> 
+                            </div>    
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input type="submit" class="btn black" value="Registrar">
+                                </div>
+                            </div>                                                                                                     
+                        </form>
+                    </div>                  
+                </li>
+            </ul>
+        </div>
     </section>
     @endsection

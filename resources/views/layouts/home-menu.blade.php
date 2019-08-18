@@ -138,6 +138,7 @@
                 $('.sidenav').sidenav();   
                 $('.fixed-action-btn').floatingActionButton();             
                 $('.carousel').carousel({indicators: true});
+                $('.collapsible').collapsible();
                 $('.datepicker').datepicker();                
                 $("#telefone").mask("(00) 0000-0000");
 
@@ -154,6 +155,7 @@
                 });
 
                 $('textarea#msg').characterCounter();
+                $('textarea#comment').characterCounter();
 
             });                      
         </script>          

@@ -129,7 +129,34 @@ Like School | {{$pacote->nome}}
     </div>
 </section>
 
-
+<!-- Registrar Avaliação -->
+<section>
+    <div class="container">
+        <h4 class="grey-text text-darken-3 center-align" >FeedBack</h4>
+        <ul class="collapsible">
+            <li>
+                <div class="collapsible-header">
+                    <i class="material-icons">chat</i>Conte-nos o que você achou da Like School
+                </div>                        
+                <div class="collapsible-body">                        
+                    <form action="">  
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea name="comment" id="comment" class="materialize-textarea" data-length="120"></textarea>
+                                <label for="comment">Comentário</label>
+                            </div> 
+                        </div>    
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="submit" class="btn black" value="Registrar">
+                            </div>
+                        </div>                                                                                                     
+                    </form>
+                </div>                  
+            </li>
+        </ul>
+    </div>
+</section>
 
 
 @endsection
