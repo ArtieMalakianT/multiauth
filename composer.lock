@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfb13b29129ce515e48b13eff508433c",
+    "content-hash": "d8db1b0515ed71764b7b44feb77c303e",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4392,8 +4392,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "The PHP Unit Testing framework.",

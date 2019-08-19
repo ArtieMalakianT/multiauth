@@ -10,6 +10,19 @@ Like School | {{$pacote->nome}}
 
 @section('conteudo')
 
+<!-- Modals -->
+@if(session('success'))
+<div class="modal green white-text" id="modal_success">
+ <div class="modal-content">
+    <h4>Aviso</h4>
+    <p>{{session('success')}}</p>
+ </div>
+ <div class="modal-footer">
+    <a href="#" class="modal-close btn-flat green white-text">Ok</a>
+ </div>
+</div>
+@endif
+
 <div class="row {{$pacote->cor->nome}} darken-2">
     <div class="col s12 center-align">
         <h4 class="white-text" style="font-variant: small-caps"><i class="fas fa-award"></i> {{$pacote->nome}}</h4>
@@ -130,6 +143,7 @@ Like School | {{$pacote->nome}}
 </section>
 
 <!-- Registrar Avaliação -->
+@if(Auth::user())
 <section>
     <div class="container">
         <h4 class="grey-text text-darken-3 center-align" >FeedBack</h4>
@@ -139,9 +153,11 @@ Like School | {{$pacote->nome}}
                     <i class="material-icons">chat</i>Conte-nos o que você achou da Like School
                 </div>                        
                 <div class="collapsible-body">                        
-                    <form action="">  
+                    <form action="/wekness/comment" method="post">  
+                    @csrf
                         <div class="row">
                             <div class="input-field col s12">
+                                <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
                                 <textarea name="comment" id="comment" class="materialize-textarea" data-length="120"></textarea>
                                 <label for="comment">Comentário</label>
                             </div> 
@@ -157,6 +173,7 @@ Like School | {{$pacote->nome}}
         </ul>
     </div>
 </section>
+@endif
 
 
 @endsection

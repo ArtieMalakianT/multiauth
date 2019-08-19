@@ -15,6 +15,8 @@ Route::get('/','Home\WelcomeController@index');
 Route::post('/mail/contact','Home\WelcomeController@contatoMail');
 Route::post('/mail/curso','Home\WelcomeController@interesseMail');
 Route::get('/curso/{idPacote}','Home\WelcomeController@showCurso');
+Route::post('/wekness/comment','Home\WelcomeController@receiveComment');
+
 
 Auth::routes();
 
@@ -76,6 +78,10 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/perfil','Admin\AdminController@perfil');
     Route::post('/perfil','Admin\AdminController@changePhoto');
+
+    Route::get('/comments','Admin\CommentsController@showAll');
+    Route::get('/comment/accept/{id}','Admin\CommentsController@acceptComment');
+    Route::delete('/comment/delete','Admin\CommentsController@deleteComment');
 
 });
 

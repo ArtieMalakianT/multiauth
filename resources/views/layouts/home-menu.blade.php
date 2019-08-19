@@ -153,7 +153,8 @@
                         $('.fixed-action-btn').css('display','none');
                     }
                 });
-
+                $('#modal_success').modal();
+                $('#modal_success').modal('open');
                 $('textarea#msg').characterCounter();
                 $('textarea#comment').characterCounter();
 

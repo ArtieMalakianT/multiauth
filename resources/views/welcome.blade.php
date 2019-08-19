@@ -8,6 +8,19 @@ Like School | Inglês Absoluto
 @endsection
 
 @section('conteudo')
+
+<!-- Modals -->
+@if(session('success'))
+<div class="modal green white-text" id="modal_success">
+ <div class="modal-content">
+    <h4>Aviso</h4>
+    <p>{{session('success')}}</p>
+ </div>
+ <div class="modal-footer">
+    <a href="#" class="modal-close btn-flat green white-text">Ok</a>
+ </div>
+</div>
+@endif
 <!-- About -->
 <section id="about" class="page-section center-align">
         <div class="container">
@@ -70,6 +83,17 @@ Like School | Inglês Absoluto
         </div>                    
 
         <div class="carousel carousel-slider">
+            @foreach($avaliacoes as $avaliacao)
+                <div class="carousel-item" > 
+                    <div class="container" style="color: white">
+                        <img src="{{Storage::url($avaliacao->user->profile)}}" width="100">
+                        <p>{{$avaliacao->user->nome}}</p>
+                    
+                        <img style="width: 30px;margin-bottom: -25px;" src="img/patterns/arrow_blue.png">
+                        <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"{{$avaliacao->comment}}"</p>
+                    </div>    
+                </div>
+            @endforeach
             <div class="carousel-item" > 
                 <div class="container" style="color: white">
                     <img src="img/weekness/33151683_655776868094838_1299105767407747072_n.jpg" width="100">
@@ -229,7 +253,8 @@ Like School | Inglês Absoluto
     </section>
 
     <!-- Registrar Avaliação -->
-    <section>
+    @if(Auth::user())
+    <section class="page-section">
         <div class="container">
             <h4 class="grey-text text-darken-3 center-align" >FeedBack</h4>
 
@@ -239,9 +264,11 @@ Like School | Inglês Absoluto
                         <i class="material-icons">chat</i>Conte-nos o que você achou da Like School
                     </div>                        
                     <div class="collapsible-body">                        
-                        <form action="">  
+                        <form action="/wekness/comment" method="post">  
+                            @csrf
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <input type="hidden" name="id_user" value="{{Auth::user()->id}}">
                                     <textarea name="comment" id="comment" class="materialize-textarea" data-length="120"></textarea>
                                     <label for="comment">Comentário</label>
                                 </div> 
@@ -257,4 +284,5 @@ Like School | Inglês Absoluto
             </ul>
         </div>
     </section>
+    @endif
     @endsection

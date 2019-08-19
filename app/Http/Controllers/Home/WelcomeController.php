@@ -12,6 +12,7 @@ use App\Models\Cusos;
 use App\Models\pacotesCurso;
 use App\Models\subCategorias;
 use App\User;
+use App\Models\Avaliacoes;
 
 use Mail;
 
@@ -21,7 +22,8 @@ class WelcomeController extends Controller
     {
         $recentPosts = Post::where('status',1)->orderBy('created_at','desc')->limit(3)->get();
         $categorias = Categorias::where('id','>',0)->orderBy('ordem')->get();
-        return view('welcome',compact('recentPosts','categorias'));
+        $avaliacoes = Avaliacoes::where('status','1')->orderBy('created_at','desc')->limit(4)->get();
+        return view('welcome',compact('recentPosts','categorias','avaliacoes'));
     }
     //Envio de email Formulário de contato da página principal
     public function contatoMail(Request $request)
@@ -38,7 +40,7 @@ class WelcomeController extends Controller
 
             $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site');
         });
-        return back()->with('input');
+        return back()->with('success','Sua mensagem foi enviada com sucesso!');
     }
     //Envio de email do formulário de interesse de curso
     public function interesseMail(Request $request)
@@ -56,7 +58,7 @@ class WelcomeController extends Controller
 
             $m->to('contato@likeschool.com.br', 'Contato LikeSchool')->subject('Mensagem do site | Interesse');
         });
-        return back()->with('input');
+        return back()->with('success','Sua mensagem foi enviada com sucesso! Entraremos em contato assim que possível :)');
     }
     //Mostra a página do curso
     public function showCurso(Request $request)
@@ -69,5 +71,32 @@ class WelcomeController extends Controller
         $paginatePosts = $sub->posts()->where('status','=',1)->orderBy('created_at','desc')->paginate(4);  
         
         return view('curso',compact('pacote','paginatePosts'));
+    }
+
+    //Registrar comentários e avaliações
+    public function receiveComment(Request $request)
+    {
+        $validateData = $request->validate([
+            'id_user' => 'required',
+            'comment' => 'required|max:900',
+        ]);
+
+        $comment = $this->saveComment($validateData);
+        if($comment)
+        {
+            return back()->with('success','Sua mensagem foi enviada com sucesso! Entraremos em contato assim que possível :)');
+        }
+        else
+        {
+            return back()->with('success','Erro :(');
+        }
+
+    }
+    public function saveComment(array $data)
+    {
+        return Avaliacoes::create([
+            'id_user' => $data['id_user'],
+            'comment' => $data['comment'],
+        ]);
     }
 }

@@ -6,7 +6,7 @@
         <p>Olá!</p>
         <p>A LikeSchool Recebeu uma mensagem de <strong>{{$name}}</strong>, </p>
         <p>Email: {{$email}}</p>
-        @if(!$pacote)
+        @if(!isset($pacote))
         <p>Mensagem: {{$msg}}</p>
         @else
         <p>Mensagem: Tenho interesse no curso de {{$pacote}}</p>        

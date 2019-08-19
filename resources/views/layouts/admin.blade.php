@@ -176,6 +176,11 @@
             <li><a href="/admin/categorias"><i class="fa fa-circle-o"></i> Cadastrar Categoria</a></li>                        
           </ul>
         </li>
+        <li>
+          <a href="/admin/comments">
+            <i class="fa fa-commenting"> Comentários</i>
+          </a>
+        </li>
         <li><a href="/admin/register"><i class="fa fa-book"></i> <span>Registrar Usuário</span></a></li>
 
           </ul>
