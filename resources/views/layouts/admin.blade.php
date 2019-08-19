@@ -183,9 +183,23 @@
         </li>
         <li><a href="/admin/register"><i class="fa fa-book"></i> <span>Registrar Usuário</span></a></li>
 
+        <li class="header">LAYOUT</li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-image"></i><span class="">Sessão Banner</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>          
+          <ul class="treeview-menu">
+            <li><a href="/admin/layout/banners"><i class="fa fa-list"></i>Listar</a></li>
+            <li><a href="/admin/layout/banners/create"><i class="fa fa-image"></i>Criar</a></li>
           </ul>
         </li>
-      </ul>
+
+      </ul>       
+      
     </section>
     <!-- /.sidebar -->
   </aside>
@@ -413,8 +427,7 @@
 <script src="/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- ChartJS -->
 <script src="/assets/bower_components/chart.js/Chart.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/assets/dist/js/pages/dashboard2.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="/assets/dist/js/demo.js"></script>
 <!-- CK Editor -->

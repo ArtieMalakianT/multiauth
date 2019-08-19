@@ -84,7 +84,7 @@ class WelcomeController extends Controller
         $comment = $this->saveComment($validateData);
         if($comment)
         {
-            return back()->with('success','Sua mensagem foi enviada com sucesso! Entraremos em contato assim que possível :)');
+            return back()->with('success','Seu comentário foi salvo em nosso sistema, em breve ele estará visível no site!');
         }
         else
         {

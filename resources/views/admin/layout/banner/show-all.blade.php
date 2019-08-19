@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Pacotes 
+Layout | Banners 
 @endsection
 
 @section('content')
@@ -39,12 +39,12 @@ Pacotes
     <section class="content-header">
       <h1>
         Admin LikeSchool
-        <small>Cursos</small>
+        <small>Banners</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
-        <li><a href="/admin/categorias/listar">Categorias</a></li>
-        <li class="active">Pacotes</li>
+        <li><a href="/admin">Layout</a></li>
+        <li class="active">Banners</li>
       </ol>
     </section>
 
@@ -55,18 +55,21 @@ Pacotes
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Lista de Pacotes</h2>
-        <a href="/admin/pacotes/{{ $idCat }}"><i class="fa fa-plus"></i> Cadastrar Pacote</a>
+				<h2>Lista de Banners</h2>
+        <a href="/admin/layout/banners/create"><i class="fa fa-plus"></i> Cadastrar Banner</a>
 			</div>
 			<div class="box-body">			
         <ul class="todo-list ui-sortable">            
-          @foreach($pacotes as $pacote)
-          <li><label class="text">{{ $pacote->nome }}</label>
+          @foreach($banners as $banner)
+          <li>
+          <label class="text">
+            <img src="{{Storage::url($banner->path)}}" alt="" width="200">
+          </label>
           
             <div class="tools">
-              <a class="fa fa-edit" href="/admin/pacotes/edit/{{$pacote->id}}"></a>
+              <a class="fa fa-edit" href="/admin/pacotes/edit/{{$banner->id}}"></a>
               <a class="fa fa-eye" href=""></a>
-              <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$pacote->id}}" data-toggle="modal"></a>
+              <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$banner->id}}" data-toggle="modal"></a>
             </div>
            
           </li>
@@ -81,7 +84,7 @@ Pacotes
         <!-- /.col-->
       </div>
       <!-- ./row -->
-      <div class="modal modal-danger fade" id="modal-danger-@if(isset($pacote)){{$pacote->id}}@endif">
+      <div class="modal modal-danger fade" id="modal-danger-@if(isset($banner)){{$banner->id}}@endif">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -90,14 +93,14 @@ Pacotes
               <h4 class="modal-title">Aviso!</h4>
             </div>
             <div class="modal-body">
-              <p>Tem certeza que deseja excluir o pacote "@if(isset($pacote)){{$pacote->nome}}@endif"?</p>
+              <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->id}}@endif"?</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
               <form action="/admin/pacote/delete" method="post">
                 @method('delete')
                 @csrf                      
-                <input type="hidden" name="id_pacote" value="@if(isset($pacote)){{$pacote->id}}@endif">
+                <input type="hidden" name="id_pacote" value="@if(isset($banner)){{$banner->id}}@endif">
                 <button type="submit" class="btn btn-outline">Excluir</button>
               </form>                    
             </div>

@@ -39,11 +39,10 @@ class PostController extends Controller
     //função para retornar subcategorias ao ajax
     public function getSubCat($idCat)
     {
-            $idCat = $idCat;
-            $categoria = Categorias::find($idCat);
-            $sub = $categoria->sub()->getQuery()->get(['id', 'nome']);
-            //  var_dump($sub);exit;
-            return Response::json($sub);
+        $idCat = $idCat;
+        $categoria = Categorias::find($idCat);
+        $sub = $categoria->sub()->getQuery()->get(['id', 'nome']);            
+        return Response::json($sub);
         
     }
     //Persiste as informações do formulário do modelo Post
@@ -65,7 +64,7 @@ class PostController extends Controller
             $capa = $request->file('image')->store('images');
             $arquivoCapa = Storage::get($capa);
             $thumb = Image::make($arquivoCapa);                        
-            $thumb->resize(null,2000,function ($constraint) {
+            $thumb->resize(2000,null,function ($constraint) {
                 $constraint->aspectRatio();});
             $thumb->crop(2000,2000);          
             $thumb->save(public_path().'/storage/'.$capa);            

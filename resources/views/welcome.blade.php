@@ -144,6 +144,15 @@ Like School | Inglês Absoluto
 
         
     </section>
+    
+    <!-- Vídeo -->
+    <section class="page-section">
+        <div class="video-container">
+            <video class="responsive-video" width="100%" muted autoplay repeat>
+                <source src="{{Storage::url('/videos/Carol of the Hells.mp4')}}" type="video/mp4">
+            </video>
+        </div>
+    </section>
 
     <!-- Blog -->
     <section id="blog" class="page-section grey darken-4" style="display:flow-root">
@@ -284,5 +293,7 @@ Like School | Inglês Absoluto
             </ul>
         </div>
     </section>
+
+    
     @endif
     @endsection

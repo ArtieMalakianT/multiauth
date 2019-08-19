@@ -83,6 +83,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/comment/accept/{id}','Admin\CommentsController@acceptComment');
     Route::delete('/comment/delete','Admin\CommentsController@deleteComment');
 
+    Route::prefix('layout')->group(function(){
+        Route::get('/banners','Admin\Layout\BannerController@showAll');
+        Route::get('/banners/create','Admin\Layout\BannerController@showForm');
+        Route::post('/banners/create','Admin\Layout\BannerController@saveBanner');
+    });
+
 });
 
 Route::prefix('blog')->group(function(){
