@@ -4,7 +4,14 @@ Like School | Inglês Absoluto
 @endsection
 
 @section('banner')
-<img class="responsive-img" src="img/banner site.jpg">
+
+@foreach($banners as $banner)
+<div class="carousel carousel-slider">
+
+</div>
+
+@endforeach
+
 @endsection
 
 @section('conteudo')
