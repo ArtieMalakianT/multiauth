@@ -4,7 +4,11 @@ Like School | Inglês Absoluto
 @endsection
 
 @section('banner')
-<img class="responsive-img" src="img/banner site.jpg">
+
+@foreach($banners as $banner)
+<img class="responsive-img" src="{{Storage::url($banner->path)}}">
+@endforeach
+
 @endsection
 
 @section('conteudo')
