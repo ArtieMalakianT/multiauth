@@ -66,13 +66,37 @@ Layout | Banners
             <img src="{{Storage::url($banner->path)}}" alt="" width="200">
           </label>
           
-            <div class="tools">
-              <a class="fa fa-edit" href="/admin/pacotes/edit/{{$banner->id}}"></a>
-              <a class="fa fa-eye" href=""></a>
+            <div class="tools">              
               <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$banner->id}}" data-toggle="modal"></a>
             </div>
            
           </li>
+          <div class="modal modal-danger fade" id="modal-danger-@if(isset($banner)){{$banner->id}}@endif">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Aviso!</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->id}}@endif"?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                    <form action="/admin/layout/banner/delete" method="post">
+                      @method('delete')
+                      @csrf                      
+                      <input type="hidden" name="id" value="@if(isset($banner)){{$banner->id}}@endif">
+                      <button type="submit" class="btn btn-outline">Excluir</button>
+                    </form>                    
+                  </div>
+                </div>
+                <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+          </div>
+        <!-- /.modal -->
           @endforeach
         </ul>
 
@@ -84,32 +108,7 @@ Layout | Banners
         <!-- /.col-->
       </div>
       <!-- ./row -->
-      <div class="modal modal-danger fade" id="modal-danger-@if(isset($banner)){{$banner->id}}@endif">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Aviso!</h4>
-            </div>
-            <div class="modal-body">
-              <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->id}}@endif"?</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-              <form action="/admin/pacote/delete" method="post">
-                @method('delete')
-                @csrf                      
-                <input type="hidden" name="id_pacote" value="@if(isset($banner)){{$banner->id}}@endif">
-                <button type="submit" class="btn btn-outline">Excluir</button>
-              </form>                    
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-  <!-- /.modal -->
+      
     </section>
     <!-- /.content -->
   </div>

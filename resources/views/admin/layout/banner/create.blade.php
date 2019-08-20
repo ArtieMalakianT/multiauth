@@ -62,7 +62,7 @@ Cadastrar Banner
 			<form action="/admin/layout/banners/create" method="POST" enctype="multipart/form-data">
             @csrf	           
                 <div class="form-group">
-                    <label for="InputFile">Arquivo de imagem</label>
+                    <label for="InputFile">Arquivo de imagem</label><small> - Resolução recomendada: 1920 x 480</small>
                     <input required type="file" name="banner" id="InputFile" accept="image/*"/>
                 </div>
 
