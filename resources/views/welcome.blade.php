@@ -6,10 +6,7 @@ Like School | Inglês Absoluto
 @section('banner')
 
 @foreach($banners as $banner)
-<div class="carousel carousel-slider">
-
-</div>
-
+<img class="responsive-img" src="{{Storage::url($banner->path)}}">
 @endforeach
 
 @endsection
