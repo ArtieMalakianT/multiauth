@@ -65,7 +65,7 @@ Pacotes
           
             <div class="tools">
               <a class="fa fa-edit" href="/admin/pacotes/edit/{{$pacote->id}}"></a>
-              <a class="fa fa-eye" href=""></a>
+              <a class="fa fa-eye" href="/curso/{{$pacote->id}}" target="_blank"></a>
               <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$pacote->id}}" data-toggle="modal"></a>
             </div>
            
