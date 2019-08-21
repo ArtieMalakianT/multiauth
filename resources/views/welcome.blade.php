@@ -4,7 +4,16 @@ Like School | Inglês Absoluto
 @endsection
 
 @section('banner')
-<img class="responsive-img" src="img/banner site.jpg">
+
+<div class="carousel carousel-slider" id="slider-banner">
+    @foreach($banners as $banner)
+        <a href="#" class="carousel-item">
+            <img class="responsive-img" src="{{Storage::url($banner->path)}}">
+        </a>
+    @endforeach
+</div>
+
+
 @endsection
 
 @section('conteudo')
@@ -82,12 +91,12 @@ Like School | Inglês Absoluto
             <i class="fas fa-star"></i>                                                                                 
         </div>                    
 
-        <div class="carousel carousel-slider">
+        <div class="carousel carousel-slider" id="slider-avaliacoes">
             @foreach($avaliacoes as $avaliacao)
                 <div class="carousel-item" > 
                     <div class="container" style="color: white">
                         <img src="{{Storage::url($avaliacao->user->profile)}}" width="100">
-                        <p>{{$avaliacao->user->nome}}</p>
+                        <p>{{$avaliacao->user->nome}} {{$avaliacao->user->sobrenome}}</p>
                     
                         <img style="width: 30px;margin-bottom: -25px;" src="img/patterns/arrow_blue.png">
                         <p style="background:#2980b9;color:#FFF;border-radius:10px;padding:10px">"{{$avaliacao->comment}}"</p>
@@ -149,7 +158,7 @@ Like School | Inglês Absoluto
     <section class="page-section">
         <div class="video-container">
             <video class="responsive-video" width="100%" muted autoplay repeat>
-                <source src="{{Storage::url('/videos/Carol of the Hells.mp4')}}" type="video/mp4">
+                <source src="{{Storage::url('/videos/homevideo.mp4')}}" type="video/mp4">
             </video>
         </div>
     </section>

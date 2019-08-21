@@ -87,6 +87,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/banners','Admin\Layout\BannerController@showAll');
         Route::get('/banners/create','Admin\Layout\BannerController@showForm');
         Route::post('/banners/create','Admin\Layout\BannerController@saveBanner');
+        Route::delete('/banner/delete','Admin\Layout\BannerController@Delete');
     });
 
 });

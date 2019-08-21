@@ -18,7 +18,7 @@ class BannerController extends Controller
     //Listar todos os banners
     public function showAll()
     {
-        $banners = Banner::where('id','>','0')->get();
+        $banners = Banner::where('id','>','0')->orderBy('created_at')->get();
         return view('admin.layout.banner.show-all',compact('banners'));
     }
 
@@ -40,28 +40,44 @@ class BannerController extends Controller
         $image->save(public_path()."/storage/$file");
         if($image)
         {
-            
+            $banner = new Banner();
+            $banner->path = $file;
+            if($banner->save())
+            {
+                return back()->with('status','Banner Registrado com sucesso!');
+            }
+            else
+            {
+                return back()->with('error','Erro ao registrar Banner !');
+            }    
         }
         else
         {
             return back()->with('error','Erro ao registrar Banner !');
-        }
-        $banner = new Banner();
-        $banner->path = $file;
-        if($banner->save())
-        {
-            return back()->with('status','Banner Registrado com sucesso!');
-        }
-        else
-        {
-            return back()->with('error','Erro ao registrar Banner !');
-        }
-
+        }        
     }
 
     //Excluir banner
-    public function deleteBanner()
+    public function Delete(Request $request)
     {
-
+        $idBanner = $request->id;
+        $banner = Banner::find($idBanner);        
+        $fileDeleted = Storage::delete($banner->path);
+        if($fileDeleted)
+        {
+            if($banner->delete())
+            {
+                return back()->with('status','Banner deletado com sucesso!');
+            }
+            else
+            {
+                return back()->with('error','arquivo do Banner deletado porém continua armazenado no banco de dados');
+            }
+            
+        }        
+        else
+        {
+            return back()->with('error','Erro ao deletar banner');
+        }
     }
 }

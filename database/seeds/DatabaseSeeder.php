@@ -31,5 +31,14 @@ class DatabaseSeeder extends Seeder
             'ordem' => 3,
             'icon' => 'fas fa-briefcase',                                   
         ]);
+        DB::table('cores')->insert([
+            'nome' => 'blue',                                   
+        ]);
+        DB::table('cores')->insert([
+            'nome' => 'red',                                   
+        ]);
+        DB::table('cores')->insert([
+            'nome' => 'green',                                   
+        ]);        
     }
 }

@@ -137,7 +137,12 @@
             $(document).ready(function(){
                 $('.sidenav').sidenav();   
                 $('.fixed-action-btn').floatingActionButton();             
-                $('.carousel').carousel({indicators: true});
+                $('#slider-avaliacoes').carousel({indicators: true});
+                $('#slider-banner').carousel({fullWidth:true});
+                setInterval(function(){
+                    $('#slider-banner').carousel('next');
+                    $('#slider-avaliacoes').carousel('next');
+                }, 10000);
                 $('.collapsible').collapsible();
                 $('.datepicker').datepicker();                
                 $("#telefone").mask("(00) 0000-0000");

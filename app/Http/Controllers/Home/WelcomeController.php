@@ -13,6 +13,7 @@ use App\Models\pacotesCurso;
 use App\Models\subCategorias;
 use App\User;
 use App\Models\Avaliacoes;
+use App\Models\Banner;
 
 use Mail;
 
@@ -23,7 +24,8 @@ class WelcomeController extends Controller
         $recentPosts = Post::where('status',1)->orderBy('created_at','desc')->limit(3)->get();
         $categorias = Categorias::where('id','>',0)->orderBy('ordem')->get();
         $avaliacoes = Avaliacoes::where('status','1')->orderBy('created_at','desc')->limit(4)->get();
-        return view('welcome',compact('recentPosts','categorias','avaliacoes'));
+        $banners = Banner::where('id','>','0')->orderBy('created_at','desc')->get();
+        return view('welcome',compact('recentPosts','categorias','avaliacoes','banners'));
     }
     //Envio de email Formulário de contato da página principal
     public function contatoMail(Request $request)
