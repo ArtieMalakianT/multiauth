@@ -157,9 +157,7 @@ Like School | Inglês Absoluto
     <!-- Vídeo -->
     <section class="page-section">
         <div class="video-container">
-            <video class="responsive-video" width="100%" muted autoplay repeat>
-                <source src="{{Storage::url('/videos/homevideo.mp4')}}" type="video/mp4">
-            </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/v83IxT2K19A?controls=0&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -302,7 +300,11 @@ Like School | Inglês Absoluto
             </ul>
         </div>
     </section>
-
-    
     @endif
-    @endsection
+   
+    <!-- Galeria -->
+    <section class="page-section">
+
+    </section>
+            
+    @endsection    

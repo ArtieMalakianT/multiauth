@@ -85,8 +85,10 @@ Editar Pacote
                 </div>
 
                 <div class="form-group">
-                  @foreach($cursos as $curso)                                                      
-                  <input type="checkbox" name="cursos[]" value="{{ $curso->id }}" class="">{{ $curso->nome }}                                                                                                       
+                  @foreach($cursos as $curso)               
+                  <label for=""></label>                                       
+                  <input type="checkbox" name="cursos[]" value="{{ $curso->id }}" class="minimal">
+                  {{ $curso->nome }}                                                                                                       
                   @endforeach
                 </div>
 
@@ -163,6 +165,11 @@ Editar Pacote
     $(document).ready(function()
       {
         $('#nome').focus();
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass   : 'iradio_minimal-blue'
+        });
       }
     );
   </script>

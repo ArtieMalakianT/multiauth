@@ -24,7 +24,7 @@ class WelcomeController extends Controller
         $recentPosts = Post::where('status',1)->orderBy('created_at','desc')->limit(3)->get();
         $categorias = Categorias::where('id','>',0)->orderBy('ordem')->get();
         $avaliacoes = Avaliacoes::where('status','1')->orderBy('created_at','desc')->limit(4)->get();
-        $banners = Banner::where('id','>','0')->orderBy('created_at','desc')->get();
+        $banners = Banner::where('id','>','0')->orderBy('ordem')->get();
         return view('welcome',compact('recentPosts','categorias','avaliacoes','banners'));
     }
     //Envio de email Formulário de contato da página principal
@@ -100,5 +100,9 @@ class WelcomeController extends Controller
             'id_user' => $data['id_user'],
             'comment' => $data['comment'],
         ]);
+    }
+    public function showGalerias()
+    {
+        return view('galerias');
     }
 }

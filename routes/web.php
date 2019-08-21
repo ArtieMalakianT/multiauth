@@ -16,6 +16,7 @@ Route::post('/mail/contact','Home\WelcomeController@contatoMail');
 Route::post('/mail/curso','Home\WelcomeController@interesseMail');
 Route::get('/curso/{idPacote}','Home\WelcomeController@showCurso');
 Route::post('/wekness/comment','Home\WelcomeController@receiveComment');
+Route::get('/galerias','Home\WelcomeController@showGalerias');
 
 
 Auth::routes();
@@ -88,8 +89,20 @@ Route::prefix('admin')->group(function(){
         Route::get('/banners/create','Admin\Layout\BannerController@showForm');
         Route::post('/banners/create','Admin\Layout\BannerController@saveBanner');
         Route::delete('/banner/delete','Admin\Layout\BannerController@Delete');
-    });
+        Route::get('/banner/update/{id}','Admin\Layout\BannerController@showUpdateForm');
+        Route::put('/banner/update','Admin\Layout\BannerController@update');
 
+        Route::get('/galerias','Admin\Layout\GaleriaController@showDirectories');
+        Route::get('/galeria/create', function(){
+            return view('/admin.layout.galeria.create');
+        });
+        Route::post('/galeria/create','Admin\Layout\GaleriaController@create');
+        Route::get('/galeria/edit/galerias/{nomeGaleria}',function(Request $request){
+            $diretorio = $nomeGaleria;
+            return view('/admin.layout.galeria.update',compact('diretorio'));
+        });
+
+    });
 });
 
 Route::prefix('blog')->group(function(){

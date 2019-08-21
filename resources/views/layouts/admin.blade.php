@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <!-- iCheck -->
+   <link rel="stylesheet" href="/assets/plugins/iCheck/all.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -195,6 +197,19 @@
           <ul class="treeview-menu">
             <li><a href="/admin/layout/banners"><i class="fa fa-list"></i>Listar</a></li>
             <li><a href="/admin/layout/banners/create"><i class="fa fa-image"></i>Criar</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-image"></i><span class="">Sessão Galeria</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>          
+          <ul class="treeview-menu">
+            <li><a href="/admin/layout/galerias"><i class="fa fa-list"></i>Listar</a></li>
+            <li><a href="/admin/layout/galeria/create"><i class="fa fa-image"></i>Criar</a></li>
           </ul>
         </li>
 

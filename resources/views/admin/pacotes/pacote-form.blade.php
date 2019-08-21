@@ -79,7 +79,11 @@ Cadastrar Pacotes
 
                 <div class="form-group">
                 @foreach($cursos as $curso)
-                    <input type="checkbox" name="cursos[]" value="{{ $curso->id }}">{{ $curso->nome }}
+                <label>           
+                    <input type="checkbox" name="cursos[]" value="{{ $curso->id }}" class="minimal">
+                    {{ $curso->nome }}                               
+                </label>
+                    
                 @endforeach
                 </div>
 
@@ -155,7 +159,13 @@ Cadastrar Pacotes
     $(document).ready(function()
       {
         $('#nome').focus();
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+        checkboxClass: 'icheckbox_minimal-blue',
+        radioClass   : 'iradio_minimal-blue'
+        });
       }
     );
-  </script>  
+  </script>
+  <script src="/assets/plugins/iCheck/icheck.min.js"></script>  
   @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Layout | Banners 
+Layout | Galerias 
 @endsection
 
 @section('content')
@@ -39,12 +39,12 @@ Layout | Banners
     <section class="content-header">
       <h1>
         Admin LikeSchool
-        <small>Banners</small>
+        <small>Galerias</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="/admin">Layout</a></li>
-        <li class="active">Banners</li>
+        <li class="/admin/layout/galerias">Galerias</li>
       </ol>
     </section>
 
@@ -55,24 +55,25 @@ Layout | Banners
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Lista de Banners</h2>
-        <a href="/admin/layout/banners/create"><i class="fa fa-plus"></i> Cadastrar Banner</a>
+				<h2>Lista de Galerias</h2>
+        <a href="/admin/layout/galeria/create"><i class="fa fa-plus"></i> Cadastrar Galeria</a>
 			</div>
 			<div class="box-body">			
         <ul class="todo-list ui-sortable">            
-          @foreach($banners as $banner)
+          @foreach($directories as $galeria)
           <li>
           <label class="text">
-            <p>Ordem: {{$banner->ordem}}</p>
-            <img src="{{Storage::url($banner->path)}}" alt="" width="200">
+            <p>Galeria: {{substr($galeria,9)}}</p>
+            
           </label>
           
             <div class="tools">              
-            <a class="fa fa-edit" href="/admin/layout/banner/update/{{$banner->id}}"> Editar</a>
-              <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$banner->id}}" data-toggle="modal"> Deletar</a>
+            <a class="fa fa-edit" href="/admin/layout/galeria/edit/{{$galeria}}"> Editar</a>
+              <a class="fa fa-trash" href="#" data-target="#modal-danger-" data-toggle="modal"> Deletar</a>
             </div>
            
           </li>
+          <!-- 
           <div class="modal modal-danger fade" id="modal-danger-@if(isset($banner)){{$banner->id}}@endif">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -94,11 +95,11 @@ Layout | Banners
                     </form>                    
                   </div>
                 </div>
-                <!-- /.modal-content -->
+                
               </div>
-              <!-- /.modal-dialog -->
+             
           </div>
-        <!-- /.modal -->
+         /.modal -->
           @endforeach
         </ul>
 

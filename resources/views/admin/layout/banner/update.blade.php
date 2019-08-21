@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('titulo')
-Cadastrar Banner
+Atualizar Banner
 @endsection
 
 @section('content')
@@ -38,14 +38,14 @@ Cadastrar Banner
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blog LikeSchool
-        <small>Cursos</small>
+        Admin LikeSchool
+        <small>Banners</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="">Layout</a></li>
         <li><a href="/admin/layout/banners">Banners</a></li>
-        <li class="active">Cadastrar Banners</li>
+        <li class="active">Atualizar Banner</li>
       </ol>
     </section>
 
@@ -56,23 +56,25 @@ Cadastrar Banner
         <div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-				<h2>Cadastrar  Banner</h2>
+				<h2>Atualizar  Banner</h2>
 			</div>
 			<div class="box-body">
-			<form action="/admin/layout/banners/create" method="POST" enctype="multipart/form-data">
-            @csrf	           
+			<form action="/admin/layout/banner/update" method="POST" enctype="multipart/form-data">
+            @csrf	 
+            @METHOD('put')          
                 <div class="form-group">
-                    <label for="InputFile">Arquivo de imagem</label><small> - Resolução recomendada: 1920 x 480</small>
-                    <input required type="file" name="banner" id="InputFile" accept="image/*"/>
+                    <label for="image"></label>
+                 <img src="{{Storage::url($banner->path)}}" alt="" width="200" id="image">
                 </div>
 
                 <div class="form-group">
                   <label for="ordem">Ordem de exibição</label>
-                  <input type="number" name="ordem" id="ordem" class="form-control">
+                  <input type="hidden" name="id" value="{{$banner->id}}">
+                  <input type="number" name="ordem" id="ordem" class="form-control" value="{{$banner->ordem}}">
                 </div>
 
 				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Cadastrar"/>
+					<input type="submit" class="btn btn-primary" value="Atualizar"/>
 				</div>
 			</form>
 			</div>
@@ -86,13 +88,4 @@ Cadastrar Banner
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  @endsection
-  @section('script')
-  <script>
-    $(document).ready(function()
-      {
-        $('#nome').focus();
-      }
-    );
-  </script>  
-  @endsection
+  @endsection  
