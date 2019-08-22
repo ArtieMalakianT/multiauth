@@ -14,6 +14,8 @@ use App\Models\subCategorias;
 use App\User;
 use App\Models\Avaliacoes;
 use App\Models\Banner;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 use Mail;
 
@@ -103,6 +105,13 @@ class WelcomeController extends Controller
     }
     public function showGalerias()
     {
-        return view('galerias');
+        $directories = Storage::directories('/galerias');        
+        return view('galerias',compact('directories'));
+    }
+    public function showFotos(Request $request)
+    {
+        $galeria = $request->galeria;
+        $fotos = Storage::files("/galerias/$galeria");
+        return view ('fotos',compact('fotos'));
     }
 }

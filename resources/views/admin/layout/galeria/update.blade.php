@@ -64,6 +64,7 @@ Atualizar Galeria
             @METHOD('put')          
                 <div class="form-group">
                     <label for="image"></label>
+                    <input type="hidden" name="oldName" value="{{$diretorio}}">
                     <input type="text" name="nome" value="{{$diretorio}}">
                 </div>                
 

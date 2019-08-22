@@ -3,6 +3,7 @@
 Like School | Inglês Absoluto
 @endsection
 
+
 @section('banner')
 
 <div class="carousel carousel-slider" id="slider-banner">
@@ -308,3 +309,37 @@ Like School | Inglês Absoluto
     </section>
             
     @endsection    
+
+    @section('script')
+    <script>            
+            $(document).ready(function(){
+                $('.sidenav').sidenav();   
+                $('.fixed-action-btn').floatingActionButton();             
+                $('#slider-avaliacoes').carousel({indicators: true});
+                $('#slider-banner').carousel({fullWidth:true});
+                setInterval(function(){
+                    $('#slider-banner').carousel('next');
+                    $('#slider-avaliacoes').carousel('next');
+                }, 10000);
+                $('.collapsible').collapsible();
+                $('.datepicker').datepicker();                
+                $("#telefone").mask("(00) 0000-0000");
+
+                var topHeight = 100;
+                $(window).bind('scroll',function(){                    
+                    if($(window).scrollTop() > topHeight)
+                    {
+                        $('.fixed-action-btn').css('display','block');
+                    }
+                    else
+                    {
+                        $('.fixed-action-btn').css('display','none');
+                    }
+                });
+                $('#modal_success').modal();
+                $('#modal_success').modal('open');
+                $('textarea#msg').characterCounter();
+                $('textarea#comment').characterCounter();                
+            });                      
+        </script>          
+    @endsection

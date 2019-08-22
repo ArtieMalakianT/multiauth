@@ -52,29 +52,46 @@ Layout | Galerias
 
     <section class="content">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
 		<div class="box box-primary">
 			<div class="box-header">
 				<h2>Lista de Galerias</h2>
         <a href="/admin/layout/galeria/create"><i class="fa fa-plus"></i> Cadastrar Galeria</a>
 			</div>
-			<div class="box-body">			
-        <ul class="todo-list ui-sortable">            
-          @foreach($directories as $galeria)
-          <li>
-          <label class="text">
-            <p>Galeria: {{substr($galeria,9)}}</p>
-            
-          </label>
-          
-            <div class="tools">              
-            <a class="fa fa-edit" href="/admin/layout/galeria/edit/{{$galeria}}"> Editar</a>
-              <a class="fa fa-trash" href="#" data-target="#modal-danger-" data-toggle="modal"> Deletar</a>
+			<div class="box-body">
+          <?php $i = 0 ?>			                    
+          @foreach($directories as $galeria)          
+            <div class="box box-default collapsed-box">
+              <label class="box-title">
+              <?php $galeria = substr($galeria,9); ?>
+              {{$galeria}}
+              
+              </label>
+                          
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"> Adicionar fotos</i>
+                </button>
+                <a class="fa fa-eye" href="#" > Ver fotos</a>
+                <a class="fa fa-edit" href="/admin/layout/galeria/edit/{{$galeria}}"> Editar</a>                
+                <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$i}}" data-toggle="modal"> Deletar</a>                
+              </div>              
+              
+              <div class="box-body">                  
+                  <form action="/admin/layout/fotos/upload" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="form-group">
+                        <input type="hidden" name="galeria" value="{{$galeria}}">
+                      	<input type="file" name="images[]" multiple>
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-primary" value="Enviar">
+                    </div>
+                  </form>
+              </div>
             </div>
-           
-          </li>
-          <!-- 
-          <div class="modal modal-danger fade" id="modal-danger-@if(isset($banner)){{$banner->id}}@endif">
+                                      
+          
+          <div class="modal modal-danger fade" id="modal-danger-@if(isset($i)){{$i}}@endif">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -83,14 +100,14 @@ Layout | Galerias
                     <h4 class="modal-title">Aviso!</h4>
                   </div>
                   <div class="modal-body">
-                    <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->id}}@endif"?</p>
+                    <p>Tem certeza que deseja excluir a galeria "@if(isset($galeria)){{$galeria}}@endif"?</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <form action="/admin/layout/banner/delete" method="post">
+                    <form action="/admin/layout/galeria/delete" method="post">
                       @method('delete')
                       @csrf                      
-                      <input type="hidden" name="id" value="@if(isset($banner)){{$banner->id}}@endif">
+                      <input type="hidden" name="id" value="@if(isset($galeria)){{$galeria}}@endif">
                       <button type="submit" class="btn btn-outline">Excluir</button>
                     </form>                    
                   </div>
@@ -98,8 +115,8 @@ Layout | Galerias
                 
               </div>
              
-          </div>
-         /.modal -->
+          </div>       
+          <?php $i++ ?>  
           @endforeach
         </ul>
 

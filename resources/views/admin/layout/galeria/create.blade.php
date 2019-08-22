@@ -44,7 +44,7 @@ Cadastrar Galeria
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Início</a></li>
         <li><a href="">Layout</a></li>
-        <li><a href="/admin/layout/banners">Galerias</a></li>
+        <li><a href="/admin/layout/galerias">Galerias</a></li>
         <li class="active">Cadastrar Galeria</li>
       </ol>
     </section>

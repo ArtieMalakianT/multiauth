@@ -24,6 +24,11 @@ class GaleriaController extends Controller
 
     //Mostrar as fotos dentro dos diretórios
 
+    public function showCreateForm()
+    {
+        return view('/admin.layout.galeria.create');
+    }
+
 
     //Registrar um diretório/galeria
     public function create(Request $request)
@@ -40,10 +45,27 @@ class GaleriaController extends Controller
         }
     }
 
-    //Mudar nome de um diretório
-    public function update()
+    public function showUpdateForm(Request $request)
     {
-        
+        $diretorio = $request->nomeGaleria;
+        return view('/admin.layout.galeria.update',compact('diretorio'));
+    }
+
+    //Mudar nome de um diretório
+    public function update(Request $request)
+    {
+        $oldName = $request->oldName;
+        $newName = $request->nome;
+        //var_dump(dirname(__DIR__));exit;        
+        $renamed = Storage::move("galerias/$oldName","galerias/$newName");
+        if(!$renamed)
+        {
+            return back()->with('error','Algo deu errado');
+        }
+        else
+        {
+            return redirect('/admin/layout/galerias')->with('status','Galeria alterada!');
+        }
     }
 
     //Apagar um diretório/galeria

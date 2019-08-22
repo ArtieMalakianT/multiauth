@@ -26,7 +26,9 @@
         <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/brands.css">
         <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/solid.css">
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto|Lato|Lobster&display=swap" rel="stylesheet">                
+        <link href="https://fonts.googleapis.com/css?family=Roboto|Lato|Lobster&display=swap" rel="stylesheet">  
+        @yield('head')                
+            
     </head>
     <body>
         <header>     
@@ -83,12 +85,12 @@
                 @endauth
                 @endif
                 <li ><a class="white-text" href="{{url('/')}}">Home</a></li>                        
-                            <li ><a class="white-text" href="{{url('/#about')}}">Sobre Nós</a></li>
-                            <li ><a class="white-text" href="{{url('/#projects')}}">Projetos</a></li>
-                            <li ><a class="white-text" href="{{url('/#cursos')}}">Cursos</a></li>
-                            <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
-                            <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
-                            <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
+                <li ><a class="white-text" href="{{url('/#about')}}">Sobre Nós</a></li>
+                <li ><a class="white-text" href="{{url('/#projects')}}">Projetos</a></li>
+                <li ><a class="white-text" href="{{url('/#cursos')}}">Cursos</a></li>
+                <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
+                <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
+                <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
             </ul>        
                         
             <div class="banner" style="display:flex;">
@@ -115,11 +117,13 @@
                     <div class="col l4 offset-l2 s12">
                         <h5>Menu</h5>
                         <ul>
-                            
-                            <li><a href="" style="color: #fff" title="Messenger do facebook" alt="Envie-nos uma mensagem pelo facebook"><i class="fab fa-facebook-messenger fa-lg"></i>Messenger</a> </li>
-                            <li><a href="" style="color: #fff" title="Facebook" alt="Acesse nossa página do facebook"><i class="fab fa-facebook fa-lg" ></i>Facebook</a> </li>
-                            <li><a href="" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i>Whatsapp</a></li>
-                            <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i>Instagram</a> </li>
+                            <li ><a class="white-text" href="{{url('/')}}">Home</a></li>                        
+                            <li ><a class="white-text" href="{{url('/#about')}}">Sobre Nós</a></li>
+                            <li ><a class="white-text" href="{{url('/#projects')}}">Projetos</a></li>
+                            <li ><a class="white-text" href="{{url('/#cursos')}}">Cursos</a></li>
+                            <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
+                            <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
+                            <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
                         </ul>
                     </div>
                 </div>    
@@ -134,37 +138,7 @@
 
         <!--JavaScript at end of body for optimized loading-->
         <script type="text/javascript" src="/js/materialize.min.js">      
-        </script>
-        <script>            
-            $(document).ready(function(){
-                $('.sidenav').sidenav();   
-                $('.fixed-action-btn').floatingActionButton();             
-                $('#slider-avaliacoes').carousel({indicators: true});
-                $('#slider-banner').carousel({fullWidth:true});
-                setInterval(function(){
-                    $('#slider-banner').carousel('next');
-                    $('#slider-avaliacoes').carousel('next');
-                }, 10000);
-                $('.collapsible').collapsible();
-                $('.datepicker').datepicker();                
-                $("#telefone").mask("(00) 0000-0000");
-
-                var topHeight = 100;
-                $(window).bind('scroll',function(){                    
-                    if($(window).scrollTop() > topHeight)
-                    {
-                        $('.fixed-action-btn').css('display','block');
-                    }
-                    else
-                    {
-                        $('.fixed-action-btn').css('display','none');
-                    }
-                });
-                $('#modal_success').modal();
-                $('#modal_success').modal('open');
-                $('textarea#msg').characterCounter();
-                $('textarea#comment').characterCounter();                
-            });                      
-        </script>          
+        </script>            
+        @yield('script')
     </body>
 </html>
