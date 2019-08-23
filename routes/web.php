@@ -98,8 +98,12 @@ Route::prefix('admin')->group(function(){
         Route::post('/galeria/create','Admin\Layout\GaleriaController@create');
         Route::get('/galeria/edit/{nomeGaleria}','Admin\Layout\GaleriaController@showUpdateForm');
         Route::put('/galeria/update','Admin\Layout\GaleriaController@update');
+        Route::get('/galeria/fotos','Admin\Layout\GaleriaController@showFotos');
+        Route::delete('/galeria/delete','Admin\Layout\GaleriaController@delete');
 
+        Route::delete('/foto/delete','Admin\Layout\FotosController@delete');
         Route::post('/fotos/upload','Admin\Layout\FotosController@upload');
+
 
     });
 });

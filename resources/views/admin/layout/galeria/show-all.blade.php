@@ -71,7 +71,7 @@ Layout | Galerias
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"> Adicionar fotos</i>
                 </button>
-                <a class="fa fa-eye" href="#" > Ver fotos</a>
+                <a class="fa fa-eye" href="/admin/layout/galeria/fotos?galeria={{$galeria}}" > Ver fotos</a>
                 <a class="fa fa-edit" href="/admin/layout/galeria/edit/{{$galeria}}"> Editar</a>                
                 <a class="fa fa-trash" href="#" data-target="#modal-danger-{{$i}}" data-toggle="modal"> Deletar</a>                
               </div>              
@@ -80,8 +80,9 @@ Layout | Galerias
                   <form action="/admin/layout/fotos/upload" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
+                        <label for="file">Fotos - 20 arquivos por upload</label>
                         <input type="hidden" name="galeria" value="{{$galeria}}">
-                      	<input type="file" name="images[]" multiple>
+                      	<input type="file" name="images[]" id="file" multiple>
                     </div>
                     <div class="form-group">
                       <input type="submit" class="btn btn-primary" value="Enviar">
@@ -107,7 +108,7 @@ Layout | Galerias
                     <form action="/admin/layout/galeria/delete" method="post">
                       @method('delete')
                       @csrf                      
-                      <input type="hidden" name="id" value="@if(isset($galeria)){{$galeria}}@endif">
+                      <input type="hidden" name="galeria" value="@if(isset($galeria)){{$galeria}}@endif">
                       <button type="submit" class="btn btn-outline">Excluir</button>
                     </form>                    
                   </div>

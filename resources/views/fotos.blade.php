@@ -4,7 +4,7 @@ Like School | Galerias
 @endsection
 
 @section('head')
-    <link type="text/css" rel="stylesheet" href="/assets/galleria/dist/themes/classic/galleria.classic.min.js">
+    <link type="text/css" rel="stylesheet" href="/assets/galleria/dist/themes/fullscreen/galleria.fullscreen.js">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>   
     <script src="/assets/galleria/dist/galleria.js"></script>
 @endsection
@@ -25,7 +25,7 @@ Like School | Galerias
     <script type="text/javascript">
         (function() 
         {
-        Galleria.loadTheme('/assets/galleria/dist/themes/classic/galleria.classic.min.js');
+        Galleria.loadTheme('/assets/galleria/dist/themes/fullscreen/galleria.fullscreen.js');
         $('#gallery').galleria({
         width: 700,
         height: 467 //--I made heights match

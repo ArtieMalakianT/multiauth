@@ -3,6 +3,9 @@
 Like School | Galerias
 @endsection
 
+@section('banner')
+    <img src="{{url('/img/banner/galeria.png')}}" alt="">
+@endsection
 
 @section('conteudo')
 
@@ -13,7 +16,7 @@ Like School | Galerias
             <div class="card">
                 <div class="card-image">
                     <img src="/storage/<?php foreach(Storage::files($galeria) as $foto){ echo $foto; break; } ?>" alt="">                                      
-                    <a class="btn-floating halfway-fab waves-effect waves-light blue" href="/galeria/fotos?galeria={{substr($galeria,9)}}"><i class="material-icons">collections</i></a>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue" href="/galeria/fotos?galeria={{substr($galeria,9)}}" title="Ver todas as fotos"><i class="material-icons">collections</i></a>
                 </div>
                 <div class="card-content">
                     <span > {{substr($galeria,9)}}</span>

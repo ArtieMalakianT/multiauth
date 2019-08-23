@@ -82,7 +82,7 @@ Layout | Banners
                     <h4 class="modal-title">Aviso!</h4>
                   </div>
                   <div class="modal-body">
-                    <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->id}}@endif"?</p>
+                    <p>Tem certeza que deseja excluir o banner "@if(isset($banner)){{$banner->ordem}}@endif"?</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>

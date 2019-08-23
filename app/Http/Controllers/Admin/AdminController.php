@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Admin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class AdminController extends Controller
 {
@@ -25,10 +26,17 @@ class AdminController extends Controller
     public function changePhoto(Request $request)
     {
         $photo = $request->perfil->store('perfil');
+        $arquivoPhoto = Storage::get($photo);
+        $thumb = Image::make($arquivoPhoto);                        
+        $thumb->resize(null,2000,function ($constraint) {
+        $constraint->aspectRatio();}); 
+        $thumb->crop(2000,2000);         
+        $thumb->save(public_path().'/storage/'.$photo);  
+
         $user = Admin::find($request->userId);
         if($user->perfil)
         {
-            Storage::delete($user->perfil);                    
+            Storage::delete($user->profile);                    
         }
         $user->perfil = $photo;   
         $user->save();

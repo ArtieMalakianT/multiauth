@@ -22,7 +22,13 @@ class GaleriaController extends Controller
     }
 
 
-    //Mostrar as fotos dentro dos diretórios
+    //Mostrar as fotos dentro dos diretórios ADMIN
+    public function showFotos(Request $request)
+    {
+        $galeria = $request->galeria;
+        $files = Storage::files("/galerias/$galeria");
+        return view('admin.layout.galeria.show-fotos',compact('files','galeria'));
+    }
 
     public function showCreateForm()
     {
@@ -69,6 +75,23 @@ class GaleriaController extends Controller
     }
 
     //Apagar um diretório/galeria
-
-    //Apagar um arquivo/foto
+    public function delete(Request $request)
+    {
+        $galeria = $request->galeria;
+        $allFiles = Storage::allFiles("/galerias/$galeria");
+        foreach($allFiles as $file)
+        {
+            Storage::delete($file);
+        }
+        $deletedDir = rmdir(public_path()."/storage/galerias/$galeria");
+        if(!$deletedDir)
+        {
+            return back()->with('error','Algo deu errado!');
+        }
+        else
+        {
+            return back()->with('status','Galeria deletada!');
+        }
+    }
+    
 }

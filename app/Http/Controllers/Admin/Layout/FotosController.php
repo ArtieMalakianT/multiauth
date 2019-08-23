@@ -35,8 +35,14 @@ class FotosController extends Controller
     }
 
     //excluir fotos
-
-
-    //mostrar fotos
+    public function delete(Request $request)
+    {
+        $fotos = $request->fotos;
+        foreach($fotos as $foto)
+        {
+            $deleted = Storage::delete($foto);
+        }
+        return back()->with('status','Fotos deledatas');
+    }    
 
 }
