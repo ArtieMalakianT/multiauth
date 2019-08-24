@@ -133,8 +133,12 @@ class PostController extends Controller
     {
         $idPost = $request->id_post;
         $post = Post::find($idPost);
+        $deletedCapa = Storage::delete("/$post->capa");
+        $deletedText = Storage::delete("/post/$post->conteudo");
+
+
         if($post->delete())
-        {
+        {            
             return back()->with('status', 'Post deletado!'); 
         }
         else

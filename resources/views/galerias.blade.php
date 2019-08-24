@@ -4,7 +4,7 @@ Like School | Galerias
 @endsection
 
 @section('banner')
-    <img src="{{url('/img/banner/galeria.png')}}" alt="">
+    <img src="{{url('/img/banner/galeria.png')}}" alt="" class="responsive-img">
 @endsection
 
 @section('conteudo')

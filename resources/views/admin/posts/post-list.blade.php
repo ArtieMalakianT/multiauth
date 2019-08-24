@@ -89,11 +89,38 @@ Admin | Lista de Posts
                                             </div>
                                           
                                         </li>
+                                        <div class="modal modal-danger fade" id="modal-danger-@if(isset($post)){{$post->id}}@endif">
+                                              <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Aviso!</h4>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                    <p>Tem certeza que deseja excluir o post "@if(isset($post)){{$post->titulo}}@endif"?</p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
+                                                    <form action="/admin/post/delete" method="post">
+                                                      @method('delete')
+                                                      @csrf                      
+                                                      <input type="hidden" name="id_post" value="@if(isset($post)){{$post->id}}@endif">
+                                                      <button type="submit" class="btn btn-outline">Excluir</button>
+                                                    </form>                    
+                                                  </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                              </div>
+                                              <!-- /.modal-dialog -->
+                                          </div>
+                                        <!-- /.modal -->
                                       @endforeach                                                                        
                                     @endforeach   
                                   </ul> 
                                 </div>                                                    
-                                <?php $cont += 1; ?>
+                                <?php $cont += 1; ?> 
+                                    
                                 @endforeach     
                                   <!-- /.tab-pane -->
                                 
@@ -104,32 +131,7 @@ Admin | Lista de Posts
                             </div>
                             <!-- /.col -->
                         </div>
-                        <div class="modal modal-danger fade" id="modal-danger-@if(isset($post)){{$post->id}}@endif">
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Aviso!</h4>
-                              </div>
-                              <div class="modal-body">
-                                <p>Tem certeza que deseja excluir o post "@if(isset($post)){{$post->titulo}}@endif"?</p>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                                <form action="/admin/post/delete" method="post">
-                                  @method('delete')
-                                  @csrf                      
-                                  <input type="hidden" name="id_post" value="@if(isset($post)){{$post->id}}@endif">
-                                  <button type="submit" class="btn btn-outline">Excluir</button>
-                                </form>                    
-                              </div>
-                            </div>
-                            <!-- /.modal-content -->
-                          </div>
-                          <!-- /.modal-dialog -->
-                      </div>
-                    <!-- /.modal -->
+                       
                         </div>
             </div>
         </div>
