@@ -104,7 +104,10 @@ Route::prefix('admin')->group(function(){
         Route::delete('/foto/delete','Admin\Layout\FotosController@delete');
         Route::post('/fotos/upload','Admin\Layout\FotosController@upload');
 
-
+        Route::get('/videos','Admin\Layout\VideosController@showAll');
+        Route::get('/video/create','Admin\Layout\VideosController@showCreateForm');
+        Route::post('/video/validate','Admin\Layout\VideosController@validateForm');
+        Route::get('/video/edit/{id}','Admin\Layout\VideosController@showUpdateForm');
     });
 });
 

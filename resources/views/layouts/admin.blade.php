@@ -213,6 +213,19 @@
           </ul>
         </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-image"></i><span class="">Sessão Vídeo</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>          
+          <ul class="treeview-menu">
+            <li><a href="/admin/layout/videos"><i class="fa fa-list"></i>Listar</a></li>
+            <li><a href="/admin/layout/video/create"><i class="fa fa-image"></i>Criar</a></li>
+          </ul>
+        </li>
+
       </ul>       
       
     </section>
