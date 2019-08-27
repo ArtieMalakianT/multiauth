@@ -108,6 +108,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/video/create','Admin\Layout\VideosController@showCreateForm');
         Route::post('/video/validate','Admin\Layout\VideosController@validateForm');
         Route::get('/video/edit/{id}','Admin\Layout\VideosController@showUpdateForm');
+        Route::put('/video/update','Admin\Layout\VideosController@validateForm');
     });
 });
 

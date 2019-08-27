@@ -42,24 +42,26 @@ class VideosController extends Controller
             'url' => 'required|max:600',
             'sub' => 'required|integer',            
         ]);
-        $video = $this->create($validationData);
+        if(!$request->id)
+        {
+            $video = $this->create($validationData);
+        }
+        else
+        {
+            $video = Video::find($request->id);
+            $video->url = $request->url;
+            $video->id_sub_categoria = $request->sub;
+            $video->save();
+        }
         if(!$video)
         {
             return back()->with('error','Erro ao registrar Vídeo');
         }
         else
         {
-            return back()->with('status','Vídeo registrado');
+            return back()->with('status','Vídeo salvo');
         }           
-    }
-
-    public function update(array $data)
-    {
-        return Video::update([
-            'url' => $data['url'],
-            'id_sub_categoria' => $data['sub'],
-        ]);
-    }
+    }    
 
     public function create(array $data)
     {

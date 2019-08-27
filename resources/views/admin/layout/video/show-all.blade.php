@@ -89,7 +89,7 @@ Vídeos
               <h4 class="modal-title">Aviso!</h4>
             </div>
             <div class="modal-body">
-              <p>Tem certeza que deseja excluir o pacote "@if(isset($video)){{$video->nome}}@endif"?</p>
+              <p>Tem certeza que deseja excluir o vídeo "@if(isset($video)){{$video->url}}@endif"?</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>

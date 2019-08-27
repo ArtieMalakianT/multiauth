@@ -158,7 +158,7 @@ Like School | Inglês Absoluto
     <!-- Vídeo -->
     <section class="page-section">
         <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/v83IxT2K19A?controls=0&autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/v83IxT2K19A?controls=0&autoplay=1&mute=1&loop" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 

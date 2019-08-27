@@ -59,37 +59,42 @@ Atualizar Vídeo
 				<h2>Atualizar  Vídeos</h2>
 			</div>
 			<div class="box-body">
-			<form action="/admin/layout/video/validate" method="POST" enctype="multipart/form-data">
+			<form action="/admin/layout/video/update" method="POST" enctype="multipart/form-data">
             @csrf
-
+            @METHOD('PUT')
             <div class="form-group">
               <label for="url">Url do vídeo (Embed)</label>
-              <input type="text" id="url" name="url" maxlength="600" class="form-control">
+              <input type="hidden" name="id" value="{{$video->id}}">
+              <input type="text" id="url" name="url" maxlength="600" class="form-control" value="{{$video->url}}">
             </div>
 
             <div class="form-group">
               <label>Categoria</label>
               <select id="categoria" name="categoria" class="form-control">
               <option  value="" ></option>
-                            @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
-                            @endforeach
+                @foreach($categorias as $categoria)
+                  @if($video->sub->categoria->id == $categoria->id)
+                  <option selected value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+                  @else
+                  <option value="{{ $categoria->id }}" >{{ $categoria->nome }}</option>
+                  @endif
+                @endforeach
               </select>
-            </div>
-            <label for="">Teste
-                {{$video->sub->nome}}
-            </label>
+            </div>           
 
             <div class="form-group">
               <label>Sub Categoria</label>
               <select id="sub" name="sub" class="form-control">   
-                  
+                  @if($video->sub)
+                  <option value="{{$video->id_sub_categoria}}">{{$video->sub->nome}}</option>
+                  @else
+                  @endif
                     <option  value="" ></option>
               </select>
             </div>
 
 				<div class="form-group">
-					<input type="submit" class="btn btn-primary" value="Cadastrar"/>
+					<input type="submit" class="btn btn-primary" value="Atualizar"/>
 				</div>
 			</form>
 			</div>
