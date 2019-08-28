@@ -17,7 +17,7 @@ class Categorias extends Model
     //Retornar todas as subcategorias
     public function sub()
     {
-        return $this->hasOne('App\Models\subCategorias','id_categoria');
+        return $this->hasMany('App\Models\subCategorias','id_categoria');
     }
     //Retorna todos os cursos da categoria
     public function cursos()

@@ -143,6 +143,14 @@ Editar Pacote
                   @endforeach        
                   </select>                    
                 </div>
+
+                <div class="form-group">
+                    <label for="video">URL - Vídeo demonstrativo</label>
+                    <label for="">
+                        <img src="{{url('img/elements/video_id.png')}}" alt="">
+                    </label>
+                    <input type="text" name="video" id="video" maxlength="150" value="{{$pacote->video}}" class="form-control">
+                </div>
                         
                 <div class="form-group">
                   <input type="submit" class="btn btn-primary" value="Atualizar"/>

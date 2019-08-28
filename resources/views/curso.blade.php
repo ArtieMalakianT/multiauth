@@ -143,9 +143,16 @@ Like School | {{$pacote->nome}}
     </div>
 </section>
 
+<!-- Vídeo -->
+<section class="page-section">
+        <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$pacote->video}}?controls=0&autoplay=1&mute=1&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
+        </div>
+</section>
+
 <!-- Registrar Avaliação -->
 @if(Auth::user())
-<section>
+<section class="page-section">
     <div class="container">
         <h4 class="grey-text text-darken-3 center-align" >FeedBack</h4>
         <ul class="collapsible">

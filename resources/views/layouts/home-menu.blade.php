@@ -107,7 +107,7 @@
         @yield('conteudo')
 
         <!-- Footer -->
-        <footer class="page-footer blue">
+        <footer class="page-footer blue page-section">
             <div class="container">
                 <div class="row">
                     <div class="col l6 s12">

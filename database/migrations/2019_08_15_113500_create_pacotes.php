@@ -20,6 +20,7 @@ class CreatePacotes extends Migration
             $table->string('duracao',100);
             $table->enum('status',['1','0']);
             $table->integer('ordem')->unique();
+            $table->string('video',200)->nullable();
             $table->unsignedBigInteger('id_cor');
             $table->unsignedBigInteger('id_sub_categoria');
 

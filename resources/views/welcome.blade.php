@@ -153,14 +153,7 @@ Like School | Inglês Absoluto
         </div>
 
         
-    </section>
-    
-    <!-- Vídeo -->
-    <section class="page-section">
-        <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/v83IxT2K19A?controls=0&autoplay=1&mute=1&loop" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </section>
+    </section>        
 
     <!-- Blog -->
     <section id="blog" class="page-section grey darken-4" style="display:flow-root">

@@ -64,7 +64,8 @@ class PacotesController extends Controller
         $ordem = $request->ordem;
         $duracao = $request->duracao;   
         $this->cursos = $request->cursos;
-        $cor = $request->cores;            
+        $cor = $request->cores;    
+        $video = $request->video;        
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = Pacotes::find($idPacote);
@@ -76,6 +77,7 @@ class PacotesController extends Controller
         $pacote->status = $status;
         $pacote->ordem = $ordem;
         $pacote->id_cor = $cor;
+        $pacote->video = $video;
        
         
 
@@ -120,6 +122,7 @@ class PacotesController extends Controller
         $duracao = $request->duracao;   
         $this->cursos = $request->cursos;  
         $cor = $request->cores;   
+        $video = $request->video;
 
         //Cria um objeto $pacote e define suas propriedades
         $pacote = new Pacotes();
@@ -131,6 +134,7 @@ class PacotesController extends Controller
         $pacote->status = $status;
         $pacote->ordem = $ordem;
         $pacote->id_cor = $cor;
+        $pacote->video = $video;
         if(!$pacote->save())
         {
             return back()->with('error','Erro ao gravar dados');

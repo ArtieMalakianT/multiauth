@@ -120,8 +120,7 @@ Cadastrar Pacotes
                             <!-- /. tools -->
                         </div>                    
                          <!-- /.box-header -->
-                    <div class="box-body pad">
-                   
+                    <div class="box-body pad">                    
                         <textarea name="desc" class="textarea" placeholder="Digite o texto aqui"
                                 style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                     </div>
@@ -134,8 +133,15 @@ Cadastrar Pacotes
                     @foreach($cores as $cor)
                         <option value="{{$cor->id}}">{{$cor->nome}}</option>
                     @endforeach        
-                    </select>
-               
+                    </select>               
+                </div>
+
+                <div class="form-group">
+                    <label for="video">ID do Vídeo demonstrativo</label>
+                    <label for="">
+                        <img src="{{url('img/elements/video_id.png')}}" alt="">
+                    </label>
+                    <input type="text" name="video" id="video" maxlength="150" class="form-control">
                 </div>
 								
 				<div class="form-group">
