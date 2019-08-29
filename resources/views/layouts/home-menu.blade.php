@@ -68,6 +68,7 @@
                         <li class="tab"><a href="{{url('/#blog')}}">Blog</a></li>
                         <li class="tab"><a href="{{url('/#contato')}}">Contato</a></li>
                         <li class="tab"><a href="{{url('/galerias')}}">Galerias</a></li>
+                        <li class="tab"><a href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
                     </ul>               
                 </div>                                  
             </nav> 
@@ -91,6 +92,7 @@
                 <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
                 <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
                 <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
+                <li ><a class="white-text" href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
             </ul>        
                         
             <div class="banner" style="display:flex;">
@@ -124,6 +126,7 @@
                             <li ><a class="white-text" href="{{url('/#blog')}}">Blog</a></li>
                             <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
                             <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
+                            <li ><a class="white-text" href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
                         </ul>
                     </div>
                 </div>    

@@ -142,13 +142,14 @@ Like School | {{$pacote->nome}}
         </div>                 
     </div>
 </section>
-
+@if($pacote->video)
 <!-- Vídeo -->
 <section class="page-section">
-        <div class="video-container">
+        <div class="video-container container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/{{$pacote->video}}?controls=0&autoplay=1&mute=1&loop=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
         </div>
 </section>
+@endif
 
 <!-- Registrar Avaliação -->
 @if(Auth::user())
