@@ -114,4 +114,8 @@ class WelcomeController extends Controller
         $fotos = Storage::files("/galerias/$galeria");
         return view ('fotos',compact('fotos'));
     }
+    public function ambiente()
+    {
+        return view('ambiente.index');
+    }
 }

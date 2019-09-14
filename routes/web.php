@@ -18,6 +18,7 @@ Route::get('/curso/{idPacote}','Home\WelcomeController@showCurso');
 Route::post('/wekness/comment','Home\WelcomeController@receiveComment');
 Route::get('/galerias','Home\WelcomeController@showGalerias');
 Route::get('/galeria/fotos','Home\WelcomeController@showFotos');
+Route::get('/ambiente','Home\WelcomeController@ambiente')->name('home.ambiente');
 
 
 Auth::routes();
