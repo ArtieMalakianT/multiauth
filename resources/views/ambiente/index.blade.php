@@ -4,6 +4,24 @@
 Like School | Ambiente
 @endsection
 
+@section('head')
+<style>
+body
+{
+    background-color: #dadada;
+}
+#conteudo
+{
+    background-color: #fff;
+}
+.perfil-top img
+{
+    width: 150px;
+    background-color: #fff;
+    margin-top: -10%;
+}
+</style>
+@endsection
 
 @section('banner')
 <img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
@@ -24,56 +42,51 @@ Like School | Ambiente
 </div>
 @endif
 
-<!-- Contatos -->
+<!-- Conteúdo -->
 <section class="page-section">
-    <div class="container center-align">
-        <h3 class="">Gaspar</h3>
-
+    <div class="container" id="conteudo">  
+        <!--First DIV -->              
+        <div class="perfil-top">
+            <img src="/img/like_logo.png">
+            <span>Like School | Gaspar</span>
+        </div>
+        
+        <!-- Map Card-->
         <div class="row">
-            <div class="col s6 m3">
-                <div class="card blue lighten-5">
-                    <div class="card-image">
-                        <img src="/img/banner/Climatizado.png" alt="">                        
-                        <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">ac_unit</i></a>
-                    </div>
+            <div class="col s12 m6">                
+                <div class="card left-align">
                     <div class="card-content">
-                        <span class="truncate">Ambiente Climatizado</span>
+                        <i class="material-icons">place</i> R. João Silvino da Cunha, 140
+                        Sete de Setembro
                     </div>
                 </div>
             </div>
-            <div class="col s6 m3">
-                <div class="card blue lighten-5">
-                    <div class="card-image">
-                        <img src="/img/banner/Informatica.png" alt="">                        
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">desktop_windows</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="truncate" title="Laboratório de Informática">Laboratório de Informática</span>
+            <div class="col s12 m6">                
+                    <div class="card right-align">
+                        <div class="card-content">
+                            <a href=""><i class="material-icons right">camera_enhance</i></a>
+                            <a href=""><i class="material-icons right">thumb_up</i></a>Mídias Sociais
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col s6 m3">
-                <div class="card blue lighten-5">
-                    <div class="card-image">
-                        <img src="/img/banner/Lazer.png" alt="">                       
-                        <a class="btn-floating halfway-fab waves-effect waves-light green"><i class="material-icons">battery_charging_full</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="truncate" title="Área de lazer">Área de lazer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s6 m3">
-                <div class="card blue lighten-5">
-                    <div class="card-image">
-                        <img src="/img/banner/Cafe.png" alt="">                        
-                        <a class="btn-floating halfway-fab waves-effect waves-light orange"><i class="material-icons">free_breakfast</i></a>
-                    </div>
-                    <div class="card-content">
-                        <span class="truncate" title="Cafézinho">Cafézinho</span>
+        </div>
+        <!-- Information DIVs-->
+        <div class="row">
+
+            <div class="col s12 m6">
+                <div class="card center-align">
+                     <div class="card-content">
+                        <div class="card-title grey darken-3 white-text">
+                            Nosso Contato                                                                                                           
+                        </div>
+                        <div class="card-link left-align">
+                            <i class="material-icons">call</i> (47) 9228-0287
+                        </div>
                     </div>
                 </div>
+                
             </div>
+
         </div>
     </div>    
 </section>         
