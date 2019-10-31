@@ -1,8 +1,14 @@
 # multiauth
 Multiauth with Laravel
 
-Download Adminlte and move to "assets"
+php artisan key:generate //Gerar chave do aplicativo
+php artisan migrate // Cria as tabelas do banco de dados
+php artisan db:seed //Semear banco de dados com informações pré definidas
+php artisan storage:link //Cria um link para a pasta Storage e a torna pública
+
 Download KCFinder and move to "assets/bower_components/ckeditor/plugins"
+Download Adminlte and move to "assets"
+Download new FontAwesome and move to "assets/bower_components/..."
 
 change KCFinder config (disable => false)
 Add to CKedtiro/config.js
