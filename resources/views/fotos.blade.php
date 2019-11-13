@@ -4,9 +4,17 @@ Like School | Galerias
 @endsection
 
 @section('head')
-    <link type="text/css" rel="stylesheet" href="/assets/galleria/dist/themes/fullscreen/galleria.fullscreen.js">
+    <link type="text/css" rel="stylesheet" href="/assets/galleria/dist/themes/twelve/galleria.twelve.js">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>   
     <script src="/assets/galleria/dist/galleria.js"></script>
+    <style>    
+        .galleria
+        { 
+            height: 400px; 
+            margin: 20px auto;
+            background: #fff;
+        }
+    </style>
 @endsection
 
 @section('conteudo')        
@@ -23,12 +31,13 @@ Like School | Galerias
 
     @section('script')
     <script type="text/javascript">
+    $(document).ready(function(){
+        $('.fixed-action-btn').floatingActionButton(); 
+    });
         (function() 
         {
-        Galleria.loadTheme('/assets/galleria/dist/themes/fullscreen/galleria.fullscreen.js');
-        $('#gallery').galleria({
-        width: 700,
-        height: 467 //--I made heights match
+        Galleria.loadTheme('/assets/galleria/dist/themes/twelve/galleria.twelve.js');
+        $('#gallery').galleria({        
         });
         }());
     </script>

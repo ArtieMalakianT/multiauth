@@ -30,7 +30,13 @@
         @yield('head')                        
     </head>
     <body>
-        <header>     
+        <header>    
+            <div class="fixed-action-btn">
+                <a href="#" class="btn-floating blue">                    
+                    <i class="large material-icons">arrow_upward</i>
+                </a>                              
+            </div>
+
             <div id="nav" class="" style="transition: all 0.5s">
             <nav class="nav-extended blue">
                 <div class="nav-wrapper">                                        
@@ -99,12 +105,7 @@
             <div class="banner" style="display:flex;">
                 @yield('banner')                
             </div>
-
-            <div class="fixed-action-btn">
-                <a href="#" class="btn-floating blue">                    
-                    <i class="large material-icons">arrow_upward</i>
-                </a>                              
-            </div>
+            
         </header>
         
         @yield('conteudo')
