@@ -4,9 +4,26 @@
 Like School | Ambiente
 @endsection
 
+@section('head')
+<style>
+    .halfway
+    {
+        text-align: left;
+    }
+    .halfway img
+    {
+        text-align: left;
+        margin-top: -50px;
+    }
+    .page-section
+    {
+        padding-top: 0px;
+    }
+</style>
+@endsection
 
 @section('banner')
-<img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
+    <img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
 @endsection
 
 @section('conteudo')
@@ -24,9 +41,12 @@ Like School | Ambiente
 </div>
 @endif
 
-<!-- Contatos -->
+<!-- Conteúdo -->
 <section class="page-section">
     <div class="container center-align">
+        <div class="halfway">
+            <img src="../img/like_logo.png" alt="LikeSchool Logo" width="200">
+        </div>
         <h3 class="">Gaspar</h3>
 
         <div class="row">

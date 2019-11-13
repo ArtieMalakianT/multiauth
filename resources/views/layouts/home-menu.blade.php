@@ -27,8 +27,7 @@
         <link rel="stylesheet" href="/assets/bower_components/font-awesome/css/solid.css">
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto|Lato|Lobster&display=swap" rel="stylesheet">  
-        @yield('head')                
-            
+        @yield('head')                        
     </head>
     <body>
         <header>     
