@@ -5,6 +5,9 @@ Like School | Ambiente
 @endsection
 
 @section('head')
+<link type="text/css" rel="stylesheet" href="/assets/galleria/dist/themes/folio/galleria.folio.js">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>   
+<script src="/assets/galleria/dist/galleria.js"></script>
 <style>
 body
 {
@@ -21,11 +24,17 @@ body
     margin-top: -10%;
     margin-left:5px;
 }
+.galleria
+    { 
+        height: 400px; 
+        margin: 20px auto;
+        background: #fff;
+    }
 </style>
 @endsection
 
 @section('banner')
-<img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
+<img src="{{$banner}}" alt="" class="responsive-img">
 @endsection
 
 @section('conteudo')
@@ -49,20 +58,17 @@ body
         <!--First DIV -->              
         <div class="perfil-top">
             <img src="/img/like_logo.png">
-            <span>Like School | Gaspar</span>
+            <span>Like School | {{$cidade}}</span>
         </div>
         
         <!-- Map Card-->
         <div class="row">
             <div class="col s12">                
-                <div class="card left-align">
+                <div class="card center-align">
                     <div class="card-content">
-                        <i class="material-icons">place</i> R. João Silvino da Cunha, 140
-                        Sete de Setembro
-                        <a href=""><i class="material-icons right">camera_enhance</i></a>
-                        <a href=""><i class="material-icons right">thumb_up</i></a>
-                        
+                        <i class="material-icons">place</i> {{$endereco}}                                                                       
                     </div>
+                    <iframe src="{{$mapsUrl}}"  frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -75,10 +81,10 @@ body
                             Nosso Contato                                                                                                           
                         </div>
                         <div class="card-link left-align">
-                            <i class="fas fa-phone fa-lg"></i> (47) 9228-0287                        
+                            <i class="fas fa-phone fa-lg"></i> {{$telefone}}                        
                         </div>
                         <div class="card-link left-align">
-                            <i class="fab fa-whatsapp fa-lg"></i> (47) 9228-0287                                                    
+                            <i class="fab fa-whatsapp fa-lg"></i> {{$whatsapp}}                                                    
                         </div>
                         <div class="card-link left-align">
                             <i class="fas fa-envelope fa-lg"></i> contato@likeschool.com.br                         
@@ -130,6 +136,16 @@ body
             </div>                  
         </div>
 
+        <div class="row">
+            <div class="container">
+                <div class="galleria" id="gallery">
+                    @foreach($fotos as $foto)
+                    <img src="{{Storage::url($foto)}}">          
+                    @endforeach      
+                </div>
+            </div>
+        </div>
+
         </div>
     </div>    
 </section>         
@@ -139,6 +155,15 @@ body
 @section('script')
 <script>
 $('.sidenav').sidenav();   
-                $('.fixed-action-btn').floatingActionButton();  
+$('.fixed-action-btn').floatingActionButton();
+
+$(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton(); 
+});
+    (function() 
+    {
+    Galleria.loadTheme('/assets/galleria/dist/themes/folio/galleria.folio.js');
+    $('#gallery').galleria({});
+    }());
 </script>
 @endsection

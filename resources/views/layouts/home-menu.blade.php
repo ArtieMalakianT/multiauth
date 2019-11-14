@@ -65,6 +65,11 @@
                         <li><a href="" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
                         <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i></a>     </li>
                     </ul>
+                    <ul id="dropdown-ambiente" class="dropdown-content">
+                        <li><a class="blue-text" href="{{route('home.ambiente',['galeria'=> 'AmbienteGaspar'])}}">Gaspar</a></li>                        
+                        <li class="divider"></li>
+                        <li><a class="blue-text" href="{{route('home.ambiente',['galeria'=> 'AmbienteIlhota'])}}">Ilhota</a></li>
+                    </ul>
                     <ul class="tabs tabs-transparent hide-on-med-and-down">
                         <li class="tab"><a href="{{url('/')}}">Home</a></li>                        
                         <li class="tab"><a href="{{url('/#about')}}">Sobre Nós</a></li>
@@ -74,7 +79,7 @@
                         <li class="tab"><a href="{{url('/#contato')}}">Contato</a></li>
                         <li class="tab"><a href="{{url('/galerias')}}">Galerias</a></li>
                         <li class="tab"><a href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
-                        <li class="tab"><a href="{{route('home.ambiente')}}">Ambiente</a></li>
+                        <li class="tab"><a class="dropdown-trigger white-text" data-target="dropdown-ambiente" href="#">Ambiente<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>               
                 </div>                                  
             </nav> 
@@ -99,7 +104,7 @@
                 <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
                 <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
                 <li ><a class="white-text" href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
-                <li ><a class="white-text" href="{{route('home.ambiente')}}">Ambiente</a></li>
+                <li ><a class="dropdown-trigger white-text" data-target="dropdown-ambiente" href="#">Ambiente<i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>        
                         
             <div class="banner" style="display:flex;">
@@ -129,7 +134,7 @@
                             <li ><a class="white-text" href="{{url('/#contato')}}">Contato</a></li>
                             <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
                             <li ><a class="white-text" href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
-                            <li ><a class="white-text" href="{{route('home.ambiente')}}">Ambiente</a></li>
+                            <li ><a class="dropdown-trigger white-text" data-target="dropdown-ambiente" href="#">Ambiente<i class="material-icons right">arrow_drop_down</i></a></li>
                         </ul>
                     </div>
                 </div>    
@@ -143,8 +148,11 @@
         
 
         <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="/js/materialize.min.js">      
-        </script>            
+        <script type="text/javascript" src="/js/materialize.min.js">                             
+        </script>           
+        <script>
+             $(".dropdown-trigger").dropdown();
+        </script> 
         @yield('script')
     </body>
 </html>

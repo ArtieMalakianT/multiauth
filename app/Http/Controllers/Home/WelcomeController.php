@@ -114,8 +114,31 @@ class WelcomeController extends Controller
         $fotos = Storage::files("/galerias/$galeria");
         return view ('fotos',compact('fotos'));
     }
-    public function ambiente()
-    {
-        return view('ambiente.index');
+    public function ambiente(Request $request)
+    {     
+        $galeria = $request->galeria;
+        if($galeria == "AmbienteGaspar")
+        {
+            $cidade = "Gaspar";
+            $endereco = "R. João Silvino da Cunha, 140 Sete de Setembro ";
+            $telefone = " (47) 3332-4750";
+            $whatsapp = " (47) 8862-4532";
+            $mapsUrl= "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.190393316261!2d-48.94825768448777!3d-26.92917798312048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df24b0b0d24b2b%3A0x15a995e281e83e18!2sLike+School+Gaspar!5e0!3m2!1spt-BR!2sbr!4v1547583443635";
+            $banner = url('/img/banner/FachadaGaspar.png');
+        }
+        else
+        {
+            if($galeria == "AmbienteIlhota")
+            {
+                $cidade = "Ilhota";
+                $endereco = "R. Leoberto Leal, 265 Centro";
+                $telefone = " (47) 3343-7883";
+                $whatsapp = " (47) 9273-6403";
+                $mapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113845.54212668908!2d-48.965065354932115!3d-26.91386507096155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df3025fdf86205%3A0x402cbeb46c64f3d1!2sLike+School+Ilhota!5e0!3m2!1sen!2sbr!4v1557149209281!5m2!1sen!2sbr";
+                $banner = url('/img/banner/FachadaIlhota.png');
+            }
+        }
+        $fotos = Storage::files("/galerias/$galeria");
+        return view ('ambiente.index',compact('fotos','endereco','telefone','cidade','whatsapp','mapsUrl','banner'));
     }
 }
