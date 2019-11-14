@@ -6,25 +6,26 @@ Like School | Ambiente
 
 @section('head')
 <style>
-    .halfway
-    {
-        text-align: left;
-    }
-    .halfway img
-    {
-        text-align: left;
-        margin-top: -50px;
-        background-color: #fff;
-    }
-    .page-section
-    {
-        padding-top: 0px;
-    }
+body
+{
+    background-color: #dadada;
+}
+#conteudo
+{
+    background-color: #fff;
+}
+.perfil-top img
+{
+    width: 150px;
+    background-color: #fff;
+    margin-top: -10%;
+    margin-left:5px;
+}
 </style>
 @endsection
 
 @section('banner')
-    <img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
+<img src="{{url('/img/banner/Fachada.jpg')}}" alt="" class="responsive-img">
 @endsection
 
 @section('conteudo')
@@ -44,26 +45,29 @@ Like School | Ambiente
 
 <!-- Conteúdo -->
 <section class="page-section">
-    <div class="container center-align">
-        <div class="halfway">
-            <img src="../img/like_logo.png" alt="LikeSchool Logo" width="200">
+    <div class="container" id="conteudo">  
+        <!--First DIV -->              
+        <div class="perfil-top">
+            <img src="/img/like_logo.png">
+            <span>Like School | Gaspar</span>
         </div>
-
+        
+        <!-- Map Card-->
         <div class="row">
             <div class="col s12">                
                 <div class="card left-align">
                     <div class="card-content">
                         <i class="material-icons">place</i> R. João Silvino da Cunha, 140
                         Sete de Setembro
-                        <a href="https://www.instagram.com/like.school.oficial/?hl=pt-br" target="_blank"><i class="material-icons right" title="Instagram">camera_enhance</i></a>
-                        <a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="material-icons right"  title="Facebook">thumb_up</i></a>
+                        <a href=""><i class="material-icons right">camera_enhance</i></a>
+                        <a href=""><i class="material-icons right">thumb_up</i></a>
+                        
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
         <!-- Information DIVs-->
         <div class="row">
-
             <div class="col s12 m4">
                 <div class="card center-align">
                      <div class="card-content">
@@ -71,24 +75,60 @@ Like School | Ambiente
                             Nosso Contato                                                                                                           
                         </div>
                         <div class="card-link left-align">
-                            <i class="material-icons">call</i> <a>(47) 9228-0287</a>
-                            <i class="fab fa-whatsapp-square fa-lg"></i> (47) 9228-0287
+                            <i class="fas fa-phone fa-lg"></i> (47) 9228-0287                        
+                        </div>
+                        <div class="card-link left-align">
+                            <i class="fab fa-whatsapp fa-lg"></i> (47) 9228-0287                                                    
+                        </div>
+                        <div class="card-link left-align">
+                            <i class="fas fa-envelope fa-lg"></i> contato@likeschool.com.br                         
                         </div>
                     </div>
-                </div>                
-            </div>
-                <div class="col s12 m4">
+                </div>
+            </div>  
+            <div class="col s12 m4">
                     <div class="card center-align">
                          <div class="card-content">
                             <div class="card-title grey darken-3 white-text">
-                                Atendimento                                                                                                           
+                                Atendimento                                                                                                          
                             </div>
                             <div class="card-link left-align">
-                                <i class="material-icons">call</i> (47) 9228-0287
+                                <i class="fas fa-angle-double-right">Segunda à Quinta</i>
+                                <p>09:00 às 20:00</p>
+                            </div>
+                            <div class="card-link left-align">
+                                <i class="fas fa-angle-double-right">Sexta</i>
+                                <p>09:00 às 18:00</p>
+                            </div>
+                            <div class="card-link left-align">
+                                <i class="fas fa-angle-double-right">Sábado</i>
+                                <p>08:00 às 12:00</p>
                             </div>
                         </div>
-                    </div>                    
-                </div>
+                    </div>
+            </div> 
+            <div class="col s12 m4">
+                    <div class="card center-align">
+                         <div class="card-content">
+                            <div class="card-title grey darken-3 white-text">
+                                Pagamentos Aceitos                                                                                                          
+                            </div>
+                            <div class="card-link left-align">
+                                <i class="fas fa-credit-card"></i> Crédito
+                            </div>
+                            <div class="card-link left-align">                            
+                                <i class="fas fa-credit-card"></i> Débito                                                   
+                            </div>
+                            <div class="card-link left-align">          
+                                <i class="fas fa-money-check-alt"></i> À Vista
+                            </div>
+                            <div class="card-link left-align">          
+                                <i class="fas fa-money-check"></i> Parcelamento no carnê
+                            </div>
+                        </div>
+                    </div>
+            </div>                  
+        </div>
 
         </div>
     </div>    
