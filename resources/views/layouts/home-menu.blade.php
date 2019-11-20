@@ -60,10 +60,10 @@
 
                         @endauth
                         @endif
-                        <li><a href="" style="color: #fff" title="Messenger do facebook" alt="Envie-nos uma mensagem pelo facebook"><i class="fab fa-facebook-messenger fa-lg"></i></a></li>
-                        <li><a href="" style="color: #fff" title="Facebook" alt="Acesse nossa página do facebook"><i class="fab fa-facebook fa-lg" ></i></a></li>
-                        <li><a href="" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
-                        <li><a href="" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i></a>     </li>
+                        <li><a href="https://m.me/like.school.brazil" target="_blank" style="color: #fff" title="Messenger do facebook" alt="Envie-nos uma mensagem pelo facebook"><i class="fab fa-facebook-messenger fa-lg"></i></a></li>
+                        <li><a href="https://www.facebook.com/like.school.brazil/" target="_blank" style="color: #fff" title="Facebook" alt="Acesse nossa página do facebook"><i class="fab fa-facebook fa-lg" ></i></a></li>
+                        <li><a href="https://wa.me/5547988624532" target="_blank" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a></li>
+                        <li><a href="https://www.instagram.com/like.school.oficial" target="_blank" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i></a>     </li>
                     </ul>
                     <ul id="dropdown-ambiente" class="dropdown-content">
                         <li><a class="blue-text" href="{{route('home.ambiente',['galeria'=> 'AmbienteGaspar'])}}">Gaspar</a></li>                        
@@ -105,6 +105,11 @@
                 <li ><a class="white-text" href="{{url('/galerias')}}">Galerias</a></li>
                 <li ><a class="white-text" href="https://www.youtube.com/channel/UChfRM_Lzqcq0lwInc0n_0bw">Vídeos</a></li>
                 <li ><a class="dropdown-trigger white-text" data-target="dropdown-ambiente" href="#">Ambiente<i class="material-icons right">arrow_drop_down</i></a></li>
+                
+                <li><a href="https://m.me/like.school.brazil" target="_blank" style="color: #fff" title="Messenger do facebook" alt="Envie-nos uma mensagem pelo facebook"><i class="fab fa-facebook-messenger fa-lg"></i> Facebook Messenger</a></li>
+                <li><a href="https://www.facebook.com/like.school.brazil/" target="_blank" style="color: #fff" title="Facebook" alt="Acesse nossa página do facebook"><i class="fab fa-facebook fa-lg" ></i> Página Facebook</a></li>
+                <li><a href="https://wa.me/5547988624532" target="_blank" style="color: #fff" title="Whatsapp" alt="Envie-nos uma mensagem pelo whatsapp"><i class="fab fa-whatsapp fa-lg"></i> Whatsapp</a></li>
+                <li><a href="https://www.instagram.com/like.school.oficial" target="_blank" style="color: #fff" title="Instagram" alt="Acesse nosso perfil no Instagram"><i class="fab fa-instagram fa-lg"></i> Instagram</a>     </li>
             </ul>        
                         
             <div class="banner" style="display:flex;">

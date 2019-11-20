@@ -39,7 +39,9 @@ Like School | Inglês Absoluto
             </div>
             <div class="section-description">                
                 <div class="row">
-                    <p class="grey-text">A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
+                    <p class="grey-text">A missão da Like School é proporcionar o melhor ensino em um ambiente saudável, com uma equipe EXTRAORDINÁRIA e de princípios!
+
+Somos comprometidos com a EXCELÊNCIA na educação e visamos um ótimo relacionamento com nossos alunos e a sociedade!</p>
                 </div>
             </div>                                          
             <div class="row"> 

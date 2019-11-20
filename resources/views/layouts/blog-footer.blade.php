@@ -2,51 +2,24 @@
  <footer class="footer-area p_120">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="col-lg  col-md-6 col-sm-6">
                         <div class="single-footer-widget">
                             <h6 class="footer_title">Sobre Nós</h6>
-                            <p>A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
+                            <p>A missão da Like School é proporcionar o melhor ensino em um ambiente saudável, com uma equipe EXTRAORDINÁRIA e de princípios!
+
+                                Somos comprometidos com a EXCELÊNCIA na educação e visamos um ótimo relacionamento com nossos alunos e a sociedade!</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-widget">
-                            <h6 class="footer_title">Newsletter</h6>
-                            <p>Stay updated with our latest trends</p>		
-                            <div id="mc_embed_signup">
-                                <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
-                                    <div class="input-group d-flex flex-row">
-                                        <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                        <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>		
-                                    </div>									
-                                    <div class="mt-10 info"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-footer-widget instafeed">
-                            <h6 class="footer_title">Instagram Feed</h6>
-                            <ul class="list instafeed d-flex flex-wrap">
-                                <li><img src="/img/instagram/Image-01.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-02.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-03.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-04.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-05.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-06.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-07.jpg" alt=""></li>
-                                <li><img src="/img/instagram/Image-08.jpg" alt=""></li>
-                            </ul>
-                        </div>
-                    </div>	
-                    <div class="col-lg-2 col-md-6 col-sm-6">
+                    
+                    <div class="col-lg col-md-6 col-sm-6">
                         <div class="single-footer-widget f_social_wd">
                             <h6 class="footer_title">Nos siga nas redes sociais</h6>
                             <p>Socialize</p>
                             <div class="f_social">
-                            	<a href="#"><i class="fab fa-facebook"></i></a>
-								<a href="#"><i class="fab fa-twitter"></i></a>
-								<a href="#"><i class="fab fa-dribbble"></i></a>
-								<a href="#"><i class="fab fa-behance"></i></a>
+                            	<a href="https://www.facebook.com/like.school.brazil/" target="_blank"><i class="fab fa-facebook"></i></a>
+								<a href="https://www.instagram.com/like.school.oficial" target="_blank"><i class="fab fa-instagram"></i></a>
+								<a href="https://m.me/like.school.brazil" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
+								<a href="https://wa.me/5547988624532" target="_blank"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                     </div>						

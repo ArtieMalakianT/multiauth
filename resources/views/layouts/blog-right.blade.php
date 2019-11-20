@@ -16,7 +16,9 @@
 						<img class="author_img img-fluid" src="/img/blog/author.jpg" alt="">
 						<h4>Like School</h4>
 						<a href="/"><p>www.likeschool.com.br</p></a>
-						<p>A missão da Like School é proporcionar o melhor ensino dentro de um ambiente saudável, através de uma equipe feliz, de princípios e comprometida com a educação e o bom relacionamento com alunos e sociedade.</p>
+						<p>A missão da Like School é proporcionar o melhor ensino em um ambiente saudável, com uma equipe EXTRAORDINÁRIA e de princípios!
+
+Somos comprometidos com a EXCELÊNCIA na educação e visamos um ótimo relacionamento com nossos alunos e a sociedade!</p>
 						<div class="social_icon">
 							<a href="https://www.facebook.com/like.school.brazil/" target="_blank" title="Like School Facebook" alt="Página do Facebook Like School"><i class="fab fa-facebook"></i></a>
 							<a href="https://www.instagram.com/like.school.oficial" target="_blank" title="Like School Instagram" alt="Página do Instagram Like School"><i class="fab fa-instagram"></i></a>
@@ -40,17 +42,7 @@
 						@endforeach
 						<div class="br"></div>
 						@endif
-					</aside>
-					<aside class="single-sidebar-widget newsletter_widget">
-						<h4 class="widget_title">Novidades</h4>
-						<div class="form-group d-flex flex-row">
-							<div class="input-group">
-								<input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
-							</div>
-							<a href="#" class="bbtns"><i class="lnr lnr-arrow-right"></i></a>
-						</div>	
-						<div class="br"></div>							
-					</aside>
+					</aside>					
 					<aside class="single_sidebar_widget post_category_widget">
 						<h4 class="widget_title">Sub-Categorias</h4>
 						<ul class="list cat-list">
