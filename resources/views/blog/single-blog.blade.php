@@ -5,9 +5,8 @@ Like School | {{ $post->titulo }}
 @endsection
 @section('content')
       
-        <!--================Home Banner Area =================-->
-        <?php $background = Storage::url("/$post->capa"); ?>
-        <section class="banner_area" style="background: url({{$background}}) no-repeat; background-size:cover;">
+        <!--================Home Banner Area =================-->        
+        <section class="banner_area" style="background: url(/img/banner/banner2.JPG) no-repeat; background-size:cover;">
         	<div class="container">
 				<div class="row banner_inner">
 					<div class="col-lg-5"></div>
